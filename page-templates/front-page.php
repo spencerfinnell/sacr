@@ -16,10 +16,12 @@ get_header(); ?>
 				<ul>
 					<?php
 						$features = new WP_Query( array(
-							'post_type'      => 'feature',
-							'posts_per_page' => 5,
-							'nopaging'       => true,
-							'cache_results'  => false
+							'post_type'              => 'feature',
+							'posts_per_page'         => 5,
+							'no_found_rows'          => true,
+							'cache_results'          => false,
+							'update_post_meta_cache' => false,
+							'update_post_term_cache' => false
 						) );
 
 						if ( $features->have_posts() ) : while ( $features->have_posts() ) : $features->the_post();

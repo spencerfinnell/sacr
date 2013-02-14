@@ -6,15 +6,21 @@
 			<div class="span-one-third alignleft">
 				<h3 class="sub-section">People</h3>
 				<ul class="research-list">
-					<li><a href="#">Robert Hayling</a></li>
-					<li><a href="#">Lionel Bordelon</a></li>
-					<li><a href="#">Dot Maslowski</a></li>
-					<li><a href="#">Darline Kuder</a></li>
-					<li><a href="#">Phyllis Arreola</a></li>
-					<li><a href="#">Margaretta Dollar</a></li>
-					<li><a href="#">Andreas Friberg</a></li>
-					<li><a href="#">Ardath Pascarella</a></li>
-					<li><a href="#">Ardath Pascarella</a></li>
+					<?php
+						$people = get_posts( array(
+							'post_type'              => 'person',
+							'posts_per_page'         => 10,
+							'nopaging'               => true,
+							'no_found_rows'          => true,
+							'cache_results'          => false,
+							'update_post_meta_cache' => false,
+							'update_post_term_cache' => false
+						) );
+
+						foreach ( $people as $person ) :
+					?>
+					<li><a href="<?php echo get_permalink( $person->ID ); ?>"><?php echo get_the_title( $person->ID ); ?></a></li>
+					<?php endforeach; ?>
 
 					<li class="more"><a href="#">View More &rarr;</a></li>
 				</ul>
