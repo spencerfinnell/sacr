@@ -73,7 +73,7 @@ function sacr_page_after_map() {
 add_action( 'sacr_page_after', 'sacr_page_after_map', 10 );
 
 function sacr_map_point_modals() {
-	global $post;
+	global $post, $_post, $wp_embed;
 
 	if ( ! is_page( sacr_get_theme_option( 'map' ) ) )
 		return;
@@ -87,10 +87,20 @@ function sacr_map_point_modals() {
 	p2p_type( 'person_to_point' )->each_connected( $points, array(), 'people' );
 	p2p_type( 'point_to_point' )->each_connected( $points, array(), 'places' );
 
-	while ( $points->have_posts() ) {
-		$points->the_post();
-		get_template_part( 'content', 'map-point' );
-	}
+	while ( $points->have_posts() ) : $points->the_post();
+		$_post = $post; // Save ourselves
+?>
+		<div id="<?php echo $_post->post_name; ?>" class="point-modal">
+			<div class="video-container">
+				<?php echo $wp_embed->run_shortcode( '[embed]' . sacr_item_meta( 'video' ) . '[/embed]' ); ?>
+			</div>
+
+			<div class="point-modal-content clearfix">
+				<?php get_template_part( 'content', 'item' ); ?>
+			</div>
+		</div>
+<?php
+	endwhile;
 
 	wp_reset_postdata();
 }
