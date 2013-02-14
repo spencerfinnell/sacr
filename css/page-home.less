@@ -1,0 +1,197 @@
+.hero-slider {
+	position: relative;
+	border-top: 1px solid @black;
+
+	#translucent > .background(@black, 10%);
+	#translucent > .border(@black, 75%);
+
+	.arrows {
+		margin: 0;
+
+		.prev,
+		.next {
+			#font > .sans-serif-alt(30px, normal, 50px);
+			text-align: center;
+			cursor: pointer;
+
+			margin-top: -25px;
+			position: absolute;
+			top: 50%;
+
+			.size(50px, 50px);
+			.border-radius(10px);
+			#translucent > .background(@black, .30);
+		}
+
+		.prev {
+			left: 5%;
+		}
+
+		.next {
+			right: 5%;
+		}
+	}
+
+	.container {
+		position: relative;
+
+		&:before,
+		&:after {
+			content: ' ';
+			position: absolute;
+			top: 0;
+			display: block;
+
+			.size(80px, 100%);
+		}
+
+		&:before {
+			left: -80px;
+
+			#gradient > .generic(~"right, rgba(0,0,0,.40) 0%,rgba(0,0,0,0) 100%");
+		}
+
+		&:after {
+			right: -80px;
+			
+			#gradient > .generic(~"left, rgba(0,0,0,.40) 0%,rgba(0,0,0,0) 100%");
+		}
+	}
+}
+
+#home-slider {
+	clear: both;
+	overflow: hidden;
+
+	ul {
+		.reset-list;
+
+		position: relative;
+	}
+	
+	li {
+		text-align: center;
+		
+		padding: 0;
+		float: left;
+		
+		.size(940px, 430px);
+	}
+}
+
+.slider-partners {
+	position: absolute;
+	top: 0;
+
+	.size(200px, 100%);
+
+	a,
+	img {
+		max-width: 100%;
+	}
+
+	a {
+		margin: 0 0 20px;
+
+		.opacity(50);
+
+		&:hover {
+			.opacity(100);
+		}
+	}
+
+	&.left {
+		left: -200px;
+
+		a {
+			margin-right: 40px;
+			float: right;
+		}
+	}
+
+}
+
+.partner-title {
+	#font > .sans-serif(11px, normal, normal);
+	text-transform: uppercase;
+	text-align: right;
+	color: @white;
+
+	margin: 40px 40px 30px 0;
+}
+
+.feature {
+	padding: 45px 0;
+	
+	.clearfix;
+
+	&.left {
+		.feature-graphic {
+			text-align: left;
+		}
+
+		.feature-description {
+			text-align: right;
+		}
+	}
+}
+
+.feature-graphic,
+.feature-description {
+	text-align: right;
+
+	margin: 0 2.5%;
+	width: 45%;
+	float: left;
+}
+
+.feature-description {
+	text-align: left;
+
+	margin-top: 25px;
+
+	h2 {
+		#font > .serif-alt(50px, 400, 47px);
+		text-shadow: rgba(0, 0, 0, .16) 0 1px 1px;
+
+		margin: 0;
+	}
+}
+
+.feature-cta {
+	margin-top: 30px;
+}
+
+.feature-map {
+	background: url(../images/map-texture.png) repeat;
+
+	.size(100%, auto);
+}
+
+.feature-timeline {
+
+}
+
+.feature-people {
+	overflow: hidden;
+	
+	.feature-description h2 {
+		padding: 10px 20px;
+		#translucent > .background(@black, 60%);
+	}
+
+	.feature-cta {
+		margin-top: 0;
+	}
+}
+
+.backstretch:after {
+	content: " ";
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../images/texture-dots.png) repeat;
+
+	.size(100%, 100%);
+}

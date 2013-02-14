@@ -1,0 +1,160 @@
+body {
+	#font > .sans-serif(@baseFontSize, normal, @baseLineHeight);
+	color: @textColor;
+
+	margin: 0;
+	padding: 0;
+	background: @bodyBackground url(../images/body-texture.png) no-repeat top center;
+}
+
+/**
+ * Structure
+ */
+.container {
+	width: 940px;
+	margin: auto;
+	position: relative;
+
+	.clearfix;
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
+.span-half {
+	width: 50%;
+}
+
+.span-one-third {
+	width: 33%;
+}
+
+.span-two-thirds {
+	width: 63%;
+}
+
+/**
+ * Brand
+ */
+.masthead {
+	margin: 30px auto;
+
+	.clearfix;
+}
+
+.site-brand {
+	float: left;
+}
+
+.site-name {
+	margin: 0;
+
+	a {
+		font-family: "chaparral-pro", @sansFontFamily;
+		font-weight: bold;
+		font-size: 26px;
+		color: @white;
+		text-transform: uppercase;
+		
+		small {
+			font-size: 18px;
+			font-style: italic;
+			text-transform: none;
+		}
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.site-description {
+	display: none;
+}
+
+/**
+ * Access
+ */
+.site-access {
+	.reset-list;
+
+	margin-top: 4px;
+	float: right;
+
+	li {
+		margin: 0 0 0 25px;
+		float: left;
+	}
+
+	a {
+		#font > .sans-serif-alt(17px);
+		color: @white;
+
+		&:hover {
+			color: @yellow;
+			text-decoration: none;
+		}
+	}
+}
+
+/**
+ * Further
+ */
+.research-list {
+	.reset-list;
+
+	a {
+		#font > .sans-serif(12px, normal, normal);
+		color: @blueLight;
+	}
+
+	.more {
+		margin-top: 10px;
+
+		a {
+			color: @white;
+		}
+	}
+}
+
+.further-cta {
+	margin: 40px 0 20px;
+	clear: both;
+}
+
+.further-graphic {
+	margin-top: 138px;
+	display: block;
+}
+
+/**
+ * Footer
+ */
+.site-links {
+	margin-top: 40px;
+	margin-bottom: 100px;
+	padding-top: 40px;
+	border-top: 1px dashed darken(@blueLight, 20%);
+}
+
+.copyright {
+	#font > .sans-serif(11px, normal, normal);
+	color: @grayLight;
+}
+
+.footer-links {
+	.reset-list;
+
+	margin-left: 40px;
+	float: left;
+
+	li {
+		margin-right: 15px;
+		float: left;
+	}
+}

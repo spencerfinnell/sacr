@@ -1,0 +1,33 @@
+.reset-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	
+	.clearfix;
+}
+
+.hidden,
+.hide-if-no-js {
+	display: none;
+}
+
+.clearfix {
+	*zoom: 1;
+	
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	
+	&:after {
+		clear: both;
+	}
+}
+
+.user-select(@select: none) {
+	-webkit-user-select: @select;
+	   -moz-user-select: @select;
+	    -ms-user-select: @select;
+	        user-select: @select;
+}

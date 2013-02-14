@@ -1,0 +1,54 @@
+.button,
+input[type="submit"] {
+	#font > .shorthand(22px, bold, normal);
+	color: @white;
+
+	padding: 15px 45px;
+	display: inline-block;
+	border: 0;
+	
+	background: @yellow;
+
+	.transition(all .2s ease-in-out);
+
+	&:hover {
+		text-decoration: none;
+
+		background: lighten(@yellow, 10%);
+	}
+
+	&:active {
+
+	}
+
+	/**
+	 * Type
+	 */
+	&.secondary {
+		background: @blue;
+
+		&:hover {
+			background: lighten(@blue, 10%);
+		}
+	}
+
+	&.tertiary {
+		background: @red;
+
+		&:hover {
+			background: lighten(@red, 10%);
+		}
+	}
+
+	/**
+	 * Size
+	 */
+	
+
+	/**
+	 * Style
+	 */
+	&.disabled {
+		cursor: text;
+	}
+}
