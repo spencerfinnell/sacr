@@ -114,27 +114,29 @@ function sacr_scripts() {
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'sacr-typekit', 'http://use.typekit.net/cbu3qat.js' );
-	wp_enqueue_script( 'retina', get_template_directory_uri() . '/js/retina.js' );
+	wp_enqueue_script( 'retina', get_template_directory_uri() . '/js/vendor/retina.js' );
 
 	if ( is_front_page() )
-		wp_enqueue_script( 'backstretch', get_template_directory_uri() . '/js/jquery.backstretch.min.js' );
+		wp_enqueue_script( 'backstretch', get_template_directory_uri() . '/js/vendor/jquery.backstretch.min.js' );
 	
 	if ( is_page( sacr_get_theme_option( 'map' ) ) ) {
 		wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false' );
-		wp_enqueue_script( 'gmaps', get_template_directory_uri() . '/js/jquery.ui.map.min.js' );
-		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.pack.js' );
+		wp_enqueue_script( 'gmaps', get_template_directory_uri() . '/js/vendor/jquery.ui.map.min.js' );
+		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/vendor/jquery.fancybox.pack.js' );
 	}
 
-	if ( is_front_page() )
-		wp_enqueue_script( 'unslider', get_template_directory_uri() . '/js/unslider.pack.js' );
+	if ( is_page( sacr_get_theme_option( 'timeline' ) ) )
+		wp_enqueue_script( 'timeline', get_template_directory_uri() . '/js/vendor/timeline-min.js', array( 'jquery' ) );
 
 	wp_enqueue_script( 'sacr-script', get_template_directory_uri() . '/js/sacr.js', array( 'jquery', 'retina' ), 20130203 );
 
 	$args = array(
-		'is_home'     => is_front_page(),
-		'is_map'      => is_page( sacr_get_theme_option( 'map' ) ),
-		'map_url'     => get_permalink( sacr_get_theme_option( 'map' ) ),
-		'pin'         => get_template_directory_uri() . '/images/display/pin-'
+		'is_home'       => is_front_page(),
+		'is_map'        => is_page( sacr_get_theme_option( 'map' ) ),
+		'is_timeline'   => is_page( sacr_get_theme_option( 'timeline' ) ),
+		'timeline_json' => home_url( 'timeline.json' ),
+		'map_url'       => get_permalink( sacr_get_theme_option( 'map' ) ),
+		'pin'           => get_template_directory_uri() . '/images/display/pin-'
 	);
 
 	wp_localize_script( 'sacr-script', 'SACRL10n', $args );

@@ -211,10 +211,22 @@ sacr.ui = (function($) {
 	}
 }(jQuery));
 
+sacr.timeline = (function($) {
+	var $ = jQuery;
+
+	return {
+		init : function() {
+			
+		}
+	}
+}(jQuery));
+
 jQuery(document).ready(function($) {
 	sacr.ui.init();
 	sacr.ui.center([ $( '.slider-title' ) ], true, false);
 
 	if ( SACRL10n.is_map )
 		sacr.map.init();
+
+	sacr.timeline.init();
 });
