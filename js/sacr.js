@@ -184,33 +184,39 @@ sacr.ui = (function($) {
 		 * and horizontally. This assumes the element already has
 		 * been positioned absolute with a left and top at 50%;
 		 */
-		center : function(els) {
+		center : function(els, vert, hor) {
 			jQuery.each( els, function( index, value ) {
 				var el = $( value ),
 				    h  = el.height(),
 				    w  = el.width();
 
-				el.css({
-					'margin-top'  : -(h / 2),
-					'margin-left' : -(w / 2)
-				});
+				if ( vert )
+					el.css({
+						'margin-top'  : -(h / 2)
+					});
+
+				if ( hor )
+					el.css({
+						'margin-left' : -(w / 2)
+					});
 			});
 		},
 
 		home : function() {
 			if ( $.backstretch )
-				$( '.feature-people' ).backstretch( SACRL10n.backstretch );
+				$( '.feature-people, .hero-slider' ).backstretch( SACRL10n.backstretch );
 
-			$( '#home-slider' ).unslider({
+			/*$( '#home-slider' ).unslider({
 				delay  : false,
 				arrows : true
-			});
+			});*/
 		}
 	}
 }(jQuery));
 
 jQuery(document).ready(function($) {
 	sacr.ui.init();
+	sacr.ui.center([ $( '.slider-title' ) ], true, false);
 
 	if ( SACRL10n.is_map )
 		sacr.map.init();

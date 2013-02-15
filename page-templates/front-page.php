@@ -14,7 +14,7 @@ get_header(); ?>
 		<div class="container">
 			<div id="home-slider">
 				<ul>
-					<?php
+					<!--<?php
 						$features = new WP_Query( array(
 							'post_type'              => 'feature',
 							'posts_per_page'         => 5,
@@ -29,17 +29,21 @@ get_header(); ?>
 					<li <?php post_class(); ?>>
 						<?php the_post_thumbnail( 'hero' ); ?>
 					</li>
-					<?php endwhile; endif; ?>
+					<?php endwhile; endif; ?>-->
+
+					<li>
+						<div class="slider-title"><span>The <a href="#">Events</a>, <a href="#">People</a>, and <a href="#">Places</a> of the St. Augustine Civil Rights Movement</span></div>
+					</li>
 				</ul>
 			</div>
 
-			<div class="slider-partners left">
+			<!--<div class="slider-partners left">
 				<h4 class="partner-title">Sponsored By:</h4>
 
 				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/logos/wordpress.png" alt="" /></a>
 				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/logos/wordpress.png" alt="" /></a>
 				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/logos/wordpress.png" alt="" /></a>
-			</div>
+			</div>-->
 		</div>
 	</section>
 

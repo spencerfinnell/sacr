@@ -1,9 +1,9 @@
 .hero-slider {
 	position: relative;
-	border-top: 1px solid @black;
+	//border-top: 1px solid @black;
 
-	#translucent > .background(@black, 10%);
-	#translucent > .border(@black, 75%);
+	/*#translucent > .background(@black, 10%);
+	#translucent > .border(@black, 75%);*/
 
 	.arrows {
 		margin: 0;
@@ -44,7 +44,7 @@
 
 			.size(80px, 100%);
 		}
-
+/*
 		&:before {
 			left: -80px;
 
@@ -55,7 +55,7 @@
 			right: -80px;
 			
 			#gradient > .generic(~"left, rgba(0,0,0,.40) 0%,rgba(0,0,0,0) 100%");
-		}
+		}*/
 	}
 }
 
@@ -74,8 +74,31 @@
 		
 		padding: 0;
 		float: left;
+		position: relative;
 		
 		.size(940px, 430px);
+	}
+}
+
+.slider-title {
+	#font > .serif-alt(50px, 300, 67px);
+	text-align: left;
+
+	max-width: 600px;
+	margin: 0 0 0 10px;
+	padding: 0 2px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+
+	span {
+		background: rgba(0, 0,0, 0.5);
+		box-shadow: 10px 0 0 rgba(0, 0, 0, 0.5), -10px 0 0 rgba(0, 0, 0, 0.5);
+	}
+
+	a {
+		font-weight: 400;
+		color: lighten(@yellow, 10%);
 	}
 }
 
@@ -191,7 +214,7 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: url(../images/texture-dots.png) repeat;
+	background: rgba(0, 0, 0, .1) url(../images/texture-dots.png) repeat;
 
 	.size(100%, 100%);
 }
