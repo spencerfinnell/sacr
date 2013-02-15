@@ -204,12 +204,9 @@ sacr.ui = (function($) {
 
 		home : function() {
 			if ( $.backstretch )
-				$( '.feature-people, .hero-slider' ).backstretch( SACRL10n.backstretch );
-
-			/*$( '#home-slider' ).unslider({
-				delay  : false,
-				arrows : true
-			});*/
+				$( '.hero-slider li' ).each(function(index){
+					$(this).backstretch( $(this).data( 'backstretch-image' ) );
+				});
 		}
 	}
 }(jQuery));

@@ -11,10 +11,10 @@ global $sacr_options;
 get_header(); ?>
 
 	<section class="hero-slider">
-		<div class="container">
+		
 			<div id="home-slider">
 				<ul>
-					<!--<?php
+					<?php
 						$features = new WP_Query( array(
 							'post_type'              => 'feature',
 							'posts_per_page'         => 5,
@@ -25,15 +25,14 @@ get_header(); ?>
 						) );
 
 						if ( $features->have_posts() ) : while ( $features->have_posts() ) : $features->the_post();
+							$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'hero' );
 					?>
-					<li <?php post_class(); ?>>
-						<?php the_post_thumbnail( 'hero' ); ?>
+					<li <?php post_class(); ?> data-backstretch-image="<?php echo esc_url( $image[0] ); ?>">
+						<div class="container">
+							<div class="slider-title"><span><?php echo $post->post_content; ?></span></div>
+						</div>
 					</li>
-					<?php endwhile; endif; ?>-->
-
-					<li>
-						<div class="slider-title"><span>The <a href="#">Events</a>, <a href="#">People</a>, and <a href="#">Places</a> of the St. Augustine Civil Rights Movement</span></div>
-					</li>
+					<?php endwhile; endif; ?>
 				</ul>
 			</div>
 
@@ -44,21 +43,8 @@ get_header(); ?>
 				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/logos/wordpress.png" alt="" /></a>
 				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/logos/wordpress.png" alt="" /></a>
 			</div>-->
-		</div>
+		
 	</section>
-
-	<section class="feature feature-map">
-		<div class="container">
-			<div class="feature-graphic">
-				<a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map.png" alt="" /></a>
-			</div>
-
-			<div class="feature-description">
-				<h2>Where the action really took place.</h2>
-				<p class="feature-cta"><a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>" class="button">View the Map</a></p>
-			</div>
-		</div>
-	</section><!-- .feature-map -->
 
 	<section class="feature left feature-timeline">
 		<div class="container">
@@ -73,15 +59,28 @@ get_header(); ?>
 		</div>
 	</section><!-- .feature-timeline -->
 
-	<section class="feature feature-people">
+	<section class="feature feature-map">
 		<div class="container">
 			<div class="feature-graphic">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/display/people.png" alt="" />
+				<a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map.png" alt="" /></a>
 			</div>
 
 			<div class="feature-description">
+				<h2>Where the action really took place.</h2>
+				<p class="feature-cta"><a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>" class="button">View the Map</a></p>
+			</div>
+		</div>
+	</section><!-- .feature-map -->
+
+	<section class="feature left feature-people">
+		<div class="container">
+			<div class="feature-description">
 				<h2>The heros behind the movement.</h2>
 				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'person' ); ?>" class="button">Meet the People</a></p>
+			</div>
+
+			<div class="feature-graphic">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/display/people.png" alt="" />
 			</div>
 		</div>
 	</section><!-- .feature-people -->

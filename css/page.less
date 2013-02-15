@@ -105,6 +105,10 @@ body {
 /**
  * Further
  */
+.further {
+	position: relative;
+}
+
 .research-list {
 	.reset-list;
 
@@ -156,5 +160,27 @@ body {
 	li {
 		margin-right: 15px;
 		float: left;
+	}
+}
+
+.divider {
+	&.before {
+		&:before {
+			top: 0;
+			background: url(../images/divider-faded.png) repeat-x 0 1px;
+			border-top: 1px solid #2f3337;
+
+			#translucent > .border(#2f3337, .8);
+		}
+	}
+
+	&:before,
+	&:after {
+		content: ' ';
+		display: block;
+		position: absolute;
+		left: 0;
+
+		.size(100%, 29px);
 	}
 }

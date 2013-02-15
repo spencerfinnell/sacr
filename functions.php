@@ -134,7 +134,6 @@ function sacr_scripts() {
 		'is_home'     => is_front_page(),
 		'is_map'      => is_page( sacr_get_theme_option( 'map' ) ),
 		'map_url'     => get_permalink( sacr_get_theme_option( 'map' ) ),
-		'backstretch' => get_template_directory_uri() . '/images/people-background.jpg',
 		'pin'         => get_template_directory_uri() . '/images/display/pin-'
 	);
 

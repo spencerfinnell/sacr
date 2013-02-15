@@ -855,6 +855,9 @@ body {
 /**
  * Further
  */
+.further {
+  position: relative;
+}
 .research-list {
   margin: 0;
   padding: 0;
@@ -926,63 +929,29 @@ body {
   margin-right: 15px;
   float: left;
 }
+.divider.before:before {
+  top: 0;
+  background: url(../images/divider-faded.png) repeat-x 0 1px;
+  border-top: 1px solid #2f3337;
+  border-color: rgba(47, 51, 55, 0.8);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.divider:before,
+.divider:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 29px;
+}
 .hero-slider {
   position: relative;
   /*#translucent > .background(@black, 10%);
 	#translucent > .border(@black, 75%);*/
 
-}
-.hero-slider .arrows {
-  margin: 0;
-}
-.hero-slider .arrows .prev,
-.hero-slider .arrows .next {
-  font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 30px;
-  font-weight: normal;
-  line-height: 50px;
-  text-align: center;
-  cursor: pointer;
-  margin-top: -25px;
-  position: absolute;
-  top: 50%;
-  width: 50px;
-  height: 50px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-.hero-slider .arrows .prev {
-  left: 5%;
-}
-.hero-slider .arrows .next {
-  right: 5%;
-}
-.hero-slider .container {
-  position: relative;
-  /*
-		&:before {
-			left: -80px;
-
-			#gradient > .generic(~"right, rgba(0,0,0,.40) 0%,rgba(0,0,0,0) 100%");
-		}
-
-		&:after {
-			right: -80px;
-			
-			#gradient > .generic(~"left, rgba(0,0,0,.40) 0%,rgba(0,0,0,0) 100%");
-		}*/
-
-}
-.hero-slider .container:before,
-.hero-slider .container:after {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  display: block;
-  width: 80px;
-  height: 100%;
 }
 #home-slider {
   clear: both;
@@ -1008,7 +977,10 @@ body {
   padding: 0;
   float: left;
   position: relative;
-  width: 940px;
+  width: 100%;
+  height: 430px;
+}
+#home-slider li .container {
   height: 430px;
 }
 .slider-title {
@@ -1030,7 +1002,6 @@ body {
 }
 .slider-title a {
   font-weight: 400;
-  color: #f8c14b;
 }
 .slider-partners {
   position: absolute;
@@ -1110,16 +1081,6 @@ body {
   background: url(../images/map-texture.png) repeat;
   width: 100%;
   height: auto;
-}
-.feature-people {
-  overflow: hidden;
-}
-.feature-people .feature-description h2 {
-  padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.feature-people .feature-cta {
-  margin-top: 0;
 }
 .backstretch:after {
   content: " ";
