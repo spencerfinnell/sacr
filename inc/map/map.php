@@ -142,10 +142,10 @@ function sacr_map_points() {
 }
 add_action( 'wp_enqueue_scripts', 'sacr_map_points' );
 
-function sacr_map_year() {
+function sacr_item_year( $taxonomy = 'map_point-year' ) {
 	global $post;
 
-	$years = get_the_terms( $post->ID, 'map_point-year' );
+	$years = get_the_terms( $post->ID, $taxonomy );
 	$_year = '';
 
 	foreach ( $years as $year ) {

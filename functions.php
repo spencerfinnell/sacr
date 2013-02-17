@@ -94,6 +94,7 @@ function sacr_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 280, 280, true );
 	add_image_size( 'hero', 940, 430, true );
+	add_image_size( 'timeline', 440, 275, true );
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.
@@ -125,15 +126,15 @@ function sacr_scripts() {
 		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/vendor/jquery.fancybox.pack.js' );
 	}
 
-	if ( is_page( sacr_get_theme_option( 'timeline' ) ) )
-		wp_enqueue_script( 'timeline', get_template_directory_uri() . '/js/vendor/timeline-min.js', array( 'jquery' ) );
+	if ( is_post_type_archive( 'time_period' ) )
+		wp_enqueue_script( 'jquery-masonry' );
 
 	wp_enqueue_script( 'sacr-script', get_template_directory_uri() . '/js/sacr.js', array( 'jquery', 'retina' ), 20130203 );
 
 	$args = array(
 		'is_home'       => is_front_page(),
 		'is_map'        => is_page( sacr_get_theme_option( 'map' ) ),
-		'is_timeline'   => is_page( sacr_get_theme_option( 'timeline' ) ),
+		'is_timeline'   => is_post_type_archive( 'time_period' ),
 		'timeline_json' => home_url( 'timeline.json' ),
 		'map_url'       => get_permalink( sacr_get_theme_option( 'map' ) ),
 		'pin'           => get_template_directory_uri() . '/images/display/pin-'

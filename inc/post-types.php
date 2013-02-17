@@ -155,7 +155,7 @@ class SACR_Post_Type {
 			if ( ! isset( $_POST[$key] ) )
 				continue;
 
-			$value = apply_filters( 'sacr_item_meta_' . $key, $_POST[ $key ] );
+			$value = apply_filters( 'sacr_item_meta_' . $key, $_POST[ $key ], $post, $_POST );
 			
 			if ( '' == $key )
 				delete_post_meta( $post_id, $key, $value );
