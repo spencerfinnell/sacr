@@ -220,8 +220,8 @@ sacr.timeline = (function($) {
 
 			$( '.timeline-month-list' ).masonry({
 				itemSelector : '.timeline-item',
-				columnWidth  : 440,
-				gutterWidth  : 60
+				columnWidth  : 450,
+				gutterWidth  : 40
 			});
 
 			this.adjustItems();

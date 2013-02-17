@@ -148,6 +148,9 @@ function sacr_item_year( $taxonomy = 'map_point-year' ) {
 	$years = get_the_terms( $post->ID, $taxonomy );
 	$_year = '';
 
+	if ( ! $years )
+		return 1964;
+
 	foreach ( $years as $year ) {
 		$_year = $year->slug;
 		continue;
