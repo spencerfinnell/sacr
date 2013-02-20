@@ -1185,9 +1185,19 @@ article.post .entry-content,
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.65);
 }
+.large-btns_nav.prev {
+  -webkit-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
 .large-btns_nav.next {
   left: auto;
   right: 0;
+  -webkit-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 .large-btns1_nav.next:before,
 .large-btns1_nav.prev:before {
