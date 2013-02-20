@@ -896,16 +896,11 @@ body {
 .research-list {
   margin: 0;
   padding: 0;
-  list-style: none;
-  *zoom: 1;
+  list-style-position: inside;
 }
-.research-list:before,
-.research-list:after {
-  display: table;
-  content: "";
-}
-.research-list:after {
-  clear: both;
+.research-list li {
+  color: #828180;
+  padding: 0 0 0 2px;
 }
 .research-list a {
   font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -915,7 +910,8 @@ body {
   color: #808182;
 }
 .research-list .more {
-  margin-top: 10px;
+  margin-top: 12px;
+  list-style: none;
 }
 .research-list .more a {
   font-weight: bold;

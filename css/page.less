@@ -121,7 +121,15 @@ body {
 }
 
 .research-list {
-	.reset-list;
+	margin: 0;
+	padding: 0;
+	list-style-position: inside;
+
+	li {
+		color: @gray;
+
+		padding: 0 0 0 2px;
+	}
 
 	a {
 		#font > .sans-serif(15px, normal, normal);
@@ -129,7 +137,8 @@ body {
 	}
 
 	.more {
-		margin-top: 10px;
+		margin-top: 12px;
+		list-style: none;
 
 		a {
 			font-weight: bold;
