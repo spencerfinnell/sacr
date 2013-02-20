@@ -90,7 +90,7 @@ function sacr_map_point_modals() {
 	while ( $points->have_posts() ) : $points->the_post();
 		$_post = $post; // Save ourselves
 ?>
-		<div id="<?php echo $_post->post_name; ?>" class="entry-content point-modal">
+		<div id="<?php echo $_post->post_name; ?>" class="point-modal">
 			<div class="video-container">
 				<?php echo $wp_embed->run_shortcode( '[embed]' . sacr_item_meta( 'video' ) . '[/embed]' ); ?>
 			</div>

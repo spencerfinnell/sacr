@@ -258,10 +258,8 @@ sacr.ui = (function($) {
 			jQuery.each( els, function( index, value ) {
 				$.each( $(value), function(index, value ) {
 					var el = $( value ),
-					    h  = el.outerHeight(true),
+					    h  = el.height(),
 					    w  = el.width();
-
-					    console.log(h);
 
 					if ( vert )
 						el.css({
@@ -282,9 +280,9 @@ sacr.ui = (function($) {
 					$(this).backstretch( $(this).data( 'backstretch-image' ) );
 				});
 
-			$(".rslides").responsiveSlides({
+			$( '.rslides' ).responsiveSlides({
 				nav       : true,
-				namespace : "large-btns",
+				namespace : 'large-btns',
 				prevText  : '',
 				nextText  : ''
 			});
@@ -294,7 +292,7 @@ sacr.ui = (function($) {
 
 jQuery(document).ready(function($) {
 	sacr.ui.init();
-	sacr.ui.center([ $( '.slider-stuff' ) ], true, false);
+	sacr.ui.center([ $( '.slider-title' ) ], true, false);
 
 	if ( SACRL10n.is_map )
 		sacr.map.init();

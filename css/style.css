@@ -899,14 +899,16 @@ body {
  */
 .entry-content,
 .the-content,
-.person-bio {
+.person-bio,
+.point-modal-content {
   color: #828180;
   background: #ffffff;
   padding: 35px;
 }
 .entry-content p,
 .the-content p,
-.person-bio p {
+.person-bio p,
+.point-modal-content p {
   font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: normal;
@@ -914,12 +916,14 @@ body {
 }
 .entry-content p:first-child,
 .the-content p:first-child,
-.person-bio p:first-child {
+.person-bio p:first-child,
+.point-modal-content p:first-child {
   margin-top: 0;
 }
 .entry-content p:last-child,
 .the-content p:last-child,
-.person-bio p:last-child {
+.person-bio p:last-child,
+.point-modal-content p:last-child {
   margin: 40px 0 0;
 }
 article.page .entry-content,
@@ -1112,50 +1116,36 @@ article.post .entry-content,
 .hero-slider {
   position: relative;
 }
-.home-slider {
-  clear: both;
+.rslides {
+  position: relative;
   overflow: hidden;
-}
-.home-slider ul {
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
   *zoom: 1;
-  position: relative;
 }
-.home-slider ul:before,
-.home-slider ul:after {
+.rslides:before,
+.rslides:after {
   display: table;
   content: "";
 }
-.home-slider ul:after {
+.rslides:after {
   clear: both;
-}
-.home-slider li {
-  padding: 0;
-  float: left;
-  position: relative;
-  width: 100%;
-  height: 430px;
-}
-.home-slider li .container {
-  height: 430px;
-}
-.rslides {
-  position: relative;
-  list-style: none;
-  overflow: hidden;
-  width: 100%;
-  padding: 0;
-  margin: 0;
 }
 .rslides li {
   -webkit-backface-visibility: hidden;
   position: absolute;
   display: none;
-  width: 100%;
+  margin: 0;
+  padding: 0;
   left: 0;
   top: 0;
+  width: 100%;
+  height: 430px;
+}
+.rslides li .container {
+  height: 430px;
 }
 .rslides li:first-child {
   position: relative;
@@ -1175,16 +1165,16 @@ article.post .entry-content,
   text-align: center;
   color: #ffffff;
   color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
   z-index: 3;
   position: absolute;
   overflow: hidden;
   top: 50%;
-  bottom: 0;
   left: 0;
   background: #000;
+  margin-top: -40px;
   width: 35px;
   height: 80px;
-  margin-top: -40px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 .large-btns_nav:active {
@@ -1209,16 +1199,14 @@ article.post .entry-content,
 .large-btns1_nav.next::before {
   margin-left: 12px;
 }
-.slider-stuff {
-  position: absolute;
-  top: 50%;
-}
 .slider-title {
   font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
   font-size: 50px;
   font-weight: 300;
   line-height: 67px;
   text-align: left;
+  position: absolute;
+  top: 50%;
   max-width: 600px;
   margin: 0 0 0 10px;
   padding: 0 2px;

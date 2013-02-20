@@ -25,13 +25,11 @@ get_header(); ?>
 						) );
 
 						if ( $features->have_posts() ) : while ( $features->have_posts() ) : $features->the_post();
-							$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'hero' );
+							$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
 					?>
 					<li <?php post_class(); ?> data-backstretch-image="<?php echo esc_url( $image[0] ); ?>">
 						<div class="container">
-							<div class="slider-stuff">
-								<div class="slider-title"><span><?php echo $post->post_content; ?></span></div>
-							</div>
+							<div class="slider-title"><span><?php echo $post->post_content; ?></span></div>
 						</div>
 					</li>
 					<?php endwhile; endif; ?>
@@ -56,7 +54,7 @@ get_header(); ?>
 			</div>
 
 			<div class="feature-graphic">
-				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/timeline.png" alt="" /></a>
+				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/timeline@2x.png" alt="" width="450" height="240" /></a>
 			</div>
 		</div>
 	</section><!-- .feature-timeline -->
@@ -64,7 +62,7 @@ get_header(); ?>
 	<section class="feature feature-map">
 		<div class="container">
 			<div class="feature-graphic">
-				<a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map.png" alt="" /></a>
+				<a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map@2x.png" alt="" width="450" height="240" /></a>
 			</div>
 
 			<div class="feature-description">
@@ -82,7 +80,7 @@ get_header(); ?>
 			</div>
 
 			<div class="feature-graphic">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/display/people.png" alt="" />
+				<img src="<?php echo get_template_directory_uri(); ?>/images/display/people.png" alt="" width="450" height="240" />
 			</div>
 		</div>
 	</section><!-- .feature-people -->
