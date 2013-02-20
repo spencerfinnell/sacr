@@ -1482,10 +1482,14 @@ ul.related:after {
 .timeline-item.left:after {
   right: -28px;
 }
-.timeline-item.left:hover {
+.timeline-item.left:hover,
+.timeline-item.left.active {
   border-right-color: #ffffff;
+  border-width: 2px;
+  padding-right: 19px;
 }
-.timeline-item.left:hover:before {
+.timeline-item.left:hover:before,
+.timeline-item.left.active:before {
   border-left-color: #ffffff;
 }
 .timeline-item.right {
@@ -1503,10 +1507,14 @@ ul.related:after {
   top: 17px;
   left: -28px;
 }
-.timeline-item.right:hover {
+.timeline-item.right:hover,
+.timeline-item.right.active {
   border-left-color: #ffffff;
+  border-width: 2px;
+  padding-left: 19px;
 }
-.timeline-item.right:hover:before {
+.timeline-item.right:hover:before,
+.timeline-item.right.active:before {
   border-right-color: #ffffff;
 }
 .timeline-item:last-child {
@@ -1519,6 +1527,9 @@ ul.related:after {
   line-height: normal;
   margin: 0.5em 0 0;
   padding: 0;
+}
+.timeline-item-title a {
+  color: #f6b01a;
 }
 .timeline-item-date {
   font-family: "Kreon", Georgia, "Times New Roman", Times, serif;

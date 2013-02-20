@@ -225,6 +225,8 @@ sacr.timeline = (function($) {
 			});
 
 			this.adjustItems();
+			this.adjustAnchors();
+			this.selectActive();
 		},
 
 		preAdjustItems : function() {
@@ -253,6 +255,27 @@ sacr.timeline = (function($) {
 					console.log( item.prev().css( 'margin-top' ) + $(this).css( 'margin-top' ) );
 					item.css( 'margin-top', parseInt( item.prev().css( 'margin-top' ), 10 ) + parseInt( $(this).css( 'margin-top' ), 10 ) );
 				}*/
+			});
+		},
+
+		adjustAnchors : function() {
+			var $window = $(window);
+
+			$window.load(function(){
+				if ( window.location.hash ) {
+					$(window.location.hash).addClass( 'active' );
+					$window.scrollTop( $( window.location.hash ).offset().top - 50 );
+				}
+			});
+		},
+
+		selectActive : function() {
+			$( '.timeline-item' ).click(function(e) {
+				e.preventDefault();
+
+				$( '.timeline-item' ).removeClass( 'active' );
+				$(this).addClass( 'active' );
+				window.location.hash = $(this).attr( 'id' );
 			});
 		}
 	}

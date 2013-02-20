@@ -96,8 +96,11 @@
 			right: -28px;
 		}
 
-		&:hover {
+		&:hover,
+		&.active {
 			border-right-color: @white;
+			border-width: 2px;
+			padding-right: 19px;
 
 			&:before {
 				border-left-color: @white;
@@ -123,8 +126,11 @@
 			left: -28px;
 		}
 
-		&:hover {
+		&:hover,
+		&.active {
 			border-left-color: @white;
+			border-width: 2px;
+			padding-left: 19px;
 
 			&:before {
 				border-right-color: @white;
@@ -142,6 +148,10 @@
 
 	margin: 0.5em 0 0;
 	padding: 0;
+
+	a {
+		color: @yellow;
+	}
 }
 
 .timeline-item-date {

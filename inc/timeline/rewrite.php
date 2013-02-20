@@ -27,7 +27,9 @@ function sacr_timeline_post_link( $link, $post, $leavename ) {
 		return $link;
 	
 	$base = get_post_type_archive_link( 'time_period' );
-	$link = $base . '#' . $post->post_name;
+	$year = sacr_item_year( 'time_period-year' );
+
+	$link = trailingslashit( $base . 'year' ) . trailingslashit( $year ) . '#' . $post->post_name;
 
 	return esc_url( $link );
 }
