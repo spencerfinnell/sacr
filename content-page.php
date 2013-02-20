@@ -12,8 +12,10 @@
 		<h1 class="page-title"><?php the_title(); ?></h1>
 	</header><!-- .entry-header -->
 
+	<?php if ( '' != $post->post_content ) : ?>
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'sacr' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
+	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->

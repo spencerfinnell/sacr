@@ -170,47 +170,6 @@ sacr.map = (function($){
 	}
 })(jQuery);
 
-sacr.ui = (function($) {
-	var $ = jQuery;
-
-	return {
-		init : function() {
-			if ( SACRL10n.is_home )
-				this.home();
-		},
-
-		/**
-		 * Centers any set of elements passed vertically
-		 * and horizontally. This assumes the element already has
-		 * been positioned absolute with a left and top at 50%;
-		 */
-		center : function(els, vert, hor) {
-			jQuery.each( els, function( index, value ) {
-				var el = $( value ),
-				    h  = el.height(),
-				    w  = el.width();
-
-				if ( vert )
-					el.css({
-						'margin-top'  : -(h / 2)
-					});
-
-				if ( hor )
-					el.css({
-						'margin-left' : -(w / 2)
-					});
-			});
-		},
-
-		home : function() {
-			if ( $.backstretch )
-				$( '.hero-slider li' ).each(function(index){
-					$(this).backstretch( $(this).data( 'backstretch-image' ) );
-				});
-		}
-	}
-}(jQuery));
-
 sacr.timeline = (function($) {
 	var $ = jQuery;
 
@@ -281,9 +240,61 @@ sacr.timeline = (function($) {
 	}
 }(jQuery));
 
+sacr.ui = (function($) {
+	var $ = jQuery;
+
+	return {
+		init : function() {
+			if ( SACRL10n.is_home )
+				this.home();
+		},
+
+		/**
+		 * Centers any set of elements passed vertically
+		 * and horizontally. This assumes the element already has
+		 * been positioned absolute with a left and top at 50%;
+		 */
+		center : function(els, vert, hor) {
+			jQuery.each( els, function( index, value ) {
+				$.each( $(value), function(index, value ) {
+					var el = $( value ),
+					    h  = el.height(),
+					    w  = el.width();
+
+					    console.log(h);
+
+					if ( vert )
+						el.css({
+							'margin-top'  : -(h / 2)
+						});
+
+					if ( hor )
+						el.css({
+							'margin-left' : -(w / 2)
+						});
+				});
+			});
+		},
+
+		home : function() {
+			if ( $.backstretch )
+				$( '.hero-slider li' ).each(function(index){
+					$(this).backstretch( $(this).data( 'backstretch-image' ) );
+				});
+
+			$(".rslides").responsiveSlides({
+				nav       : true,
+				namespace : "large-btns",
+				prevText  : '',
+				nextText  : ''
+			});
+		}
+	}
+}(jQuery));
+
 jQuery(document).ready(function($) {
 	sacr.ui.init();
-	sacr.ui.center([ $( '.slider-title' ) ], true, false);
+	sacr.ui.center([ $( '.slider-stuff' ) ], true, false);
 
 	if ( SACRL10n.is_map )
 		sacr.map.init();

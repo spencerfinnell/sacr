@@ -117,8 +117,10 @@ function sacr_scripts() {
 	wp_enqueue_script( 'sacr-typekit', 'http://use.typekit.net/cbu3qat.js' );
 	wp_enqueue_script( 'retina', get_template_directory_uri() . '/js/vendor/retina.js' );
 
-	if ( is_front_page() )
+	if ( is_front_page() ) {
 		wp_enqueue_script( 'backstretch', get_template_directory_uri() . '/js/vendor/jquery.backstretch.min.js' );
+		wp_enqueue_script( 'jcarousellite', get_template_directory_uri() . '/js/vendor/responsiveslides.min.js' );
+	}
 	
 	if ( is_page( sacr_get_theme_option( 'map' ) ) ) {
 		wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false' );

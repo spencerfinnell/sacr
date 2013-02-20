@@ -1,12 +1,8 @@
 .hero-slider {
 	position: relative;
-	//border-top: 1px solid @black;
-
-	/*#translucent > .background(@black, 10%);
-	#translucent > .border(@black, 75%);*/
 }
 
-#home-slider {
+.home-slider {
 	clear: both;
 	overflow: hidden;
 
@@ -17,8 +13,6 @@
 	}
 	
 	li {
-		text-align: center;
-		
 		padding: 0;
 		float: left;
 		position: relative;
@@ -31,6 +25,81 @@
 	}
 }
 
+.rslides {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+
+	li {
+		-webkit-backface-visibility: hidden;
+		position: absolute;
+		display: none;
+		width: 100%;
+		left: 0;
+		top: 0;
+
+		&:first-child {
+			position: relative;
+			display: block;
+			float: left;
+		}
+	}
+
+	.rslides img {
+		display: block;
+		height: auto;
+		float: left;
+		width: 100%;
+		border: 0;
+	}
+}
+
+.large-btns_nav {
+	font-size: 30px;
+	line-height: 430px;
+	text-align: center;
+	color: @white;
+
+	z-index: 3;
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	background: #000;
+	width: 38px;
+
+	#translucent > .background(@black, 50%);
+
+	&:active {
+		opacity: 1.0;
+	}
+
+	&:hover {
+		text-decoration: none;
+
+		#translucent > .background(@black, 65%);
+	}
+
+	&.next {
+		left: auto;
+		right: 0;
+	}
+}
+
+.large-btns1_nav.next:before,
+.large-btns1_nav.prev:before {
+	font-size: 20px;
+}
+
+.slider-stuff {
+	position: absolute;
+	top: 50%;
+}
+
 .slider-title {
 	#font > .serif-alt(50px, 300, 67px);
 	text-align: left;
@@ -38,8 +107,6 @@
 	max-width: 600px;
 	margin: 0 0 0 10px;
 	padding: 0 2px;
-	position: absolute;
-	top: 50%;
 	left: 0;
 
 	span {
@@ -51,47 +118,6 @@
 		color: @yellow;
 		font-weight: 400;
 	}
-}
-
-.slider-partners {
-	position: absolute;
-	top: 0;
-
-	.size(200px, 100%);
-
-	a,
-	img {
-		max-width: 100%;
-	}
-
-	a {
-		margin: 0 0 20px;
-
-		.opacity(50);
-
-		&:hover {
-			.opacity(100);
-		}
-	}
-
-	&.left {
-		left: -200px;
-
-		a {
-			margin-right: 40px;
-			float: right;
-		}
-	}
-
-}
-
-.partner-title {
-	#font > .sans-serif(11px, normal, normal);
-	text-transform: uppercase;
-	text-align: right;
-	color: @white;
-
-	margin: 40px 40px 30px 0;
 }
 
 .feature {
@@ -156,7 +182,7 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: rgba(0, 0, 0, .1) url(../images/texture-dots.png) repeat;
+	background: rgba(0, 0, 0, .1) url(../images/texture-dots.png) repeat center center;
 
 	.size(100%, 100%);
 }

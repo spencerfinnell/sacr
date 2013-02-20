@@ -12,8 +12,8 @@ get_header(); ?>
 
 	<section class="hero-slider">
 		
-			<div id="home-slider">
-				<ul>
+			<div class="home-slider">
+				<ul class="rslides">
 					<?php
 						$features = new WP_Query( array(
 							'post_type'              => 'feature',
@@ -29,7 +29,9 @@ get_header(); ?>
 					?>
 					<li <?php post_class(); ?> data-backstretch-image="<?php echo esc_url( $image[0] ); ?>">
 						<div class="container">
-							<div class="slider-title"><span><?php echo $post->post_content; ?></span></div>
+							<div class="slider-stuff">
+								<div class="slider-title"><span><?php echo $post->post_content; ?></span></div>
+							</div>
 						</div>
 					</li>
 					<?php endwhile; endif; ?>
