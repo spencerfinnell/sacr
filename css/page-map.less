@@ -96,6 +96,8 @@ ul.related {
 
 .related-item {
 	margin-bottom: 15px;
+
+	.clearfix;
 }
 
 .related-preview {
@@ -116,21 +118,41 @@ ul.related {
 	margin-left: 78px;
 
 	.related-title {
-		font-size: 13px;
+		font-size: 16px;
 		line-height: normal;
-		color: @grayDarker;
+		color: @blue;
 
-		padding-top: 12px;
+		padding-top: 10px;
 		margin-bottom: 4px;
 		display: block;
 	}
 
 	small {
+		font-size: 13px;
 		line-height: 14px;
 		display: block;
 
 		a {
 			color: @gray;
+		}
+
+		.latlong {
+			color: @grayLighter;
+		}
+	}
+}
+
+.point-modal {
+	.related-preview,
+	.related-preview img {
+		.size(37px, 37px);
+	}
+
+	.related-description {
+		margin-left: 47px;
+
+		.related-title {
+			padding-top: 0;
 		}
 	}
 }

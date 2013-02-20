@@ -53,7 +53,7 @@ function sacr_setup() {
 	 */
 	$modules = array( 
 		'map'      => array( 'map.php', 'rewrite.php' ),
-		'timeline' => array( 'timeline.php' ),
+		'timeline' => array( 'timeline.php', 'rewrite.php' ),
 		'people'   => array( 'people.php' ),
 		'features' => array( 'features.php' )
 	);

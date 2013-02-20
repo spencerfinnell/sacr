@@ -265,5 +265,6 @@ jQuery(document).ready(function($) {
 	if ( SACRL10n.is_map )
 		sacr.map.init();
 
-	sacr.timeline.init();
+	if ( SACRL10n.is_timeline )
+		sacr.timeline.init();
 });

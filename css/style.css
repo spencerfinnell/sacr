@@ -493,7 +493,7 @@ table {
   box-sizing: border-box;
 }
 a {
-  color: #f6b01a;
+  color: #0072a4;
   text-decoration: none;
 }
 a:hover {
@@ -511,8 +511,8 @@ a:hover {
   margin-top: 40px;
 }
 .area-title {
-  font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
   font-weight: normal;
   line-height: normal;
   color: #2c2a29;
@@ -531,8 +531,8 @@ a:hover {
   height: 1px;
 }
 .sub-section {
-  font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
   font-weight: normal;
   line-height: normal;
   color: #ffffff;
@@ -738,7 +738,7 @@ select:focus {
 }
 /** Pages */
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 21px;
@@ -779,6 +779,13 @@ body {
 .span-two-thirds {
   width: 63%;
 }
+.row .span-one-third {
+  width: 31%;
+  margin-right: 2%;
+}
+.row .span-one-third:last-child {
+  margin-right: 0;
+}
 /**
  * Brand
  */
@@ -801,7 +808,7 @@ body {
   margin: 0;
 }
 .site-name a {
-  font-family: "chaparral-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "chaparral-pro", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 26px;
   color: #ffffff;
@@ -842,7 +849,7 @@ body {
   float: left;
 }
 .site-access a {
-  font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 17px;
   font-weight: normal;
   line-height: 21px;
@@ -873,8 +880,8 @@ body {
   clear: both;
 }
 .research-list a {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
   font-weight: normal;
   line-height: normal;
   color: #808182;
@@ -883,6 +890,7 @@ body {
   margin-top: 10px;
 }
 .research-list .more a {
+  font-weight: bold;
   color: #ffffff;
 }
 .further-cta {
@@ -903,7 +911,7 @@ body {
   border-top: 1px dashed #4d4e4f;
 }
 .copyright {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 11px;
   font-weight: normal;
   line-height: normal;
@@ -1004,6 +1012,7 @@ body {
   box-shadow: 10px 0 0 rgba(0, 0, 0, 0.5), -10px 0 0 rgba(0, 0, 0, 0.5);
 }
 .slider-title a {
+  color: #f6b01a;
   font-weight: 400;
 }
 .slider-partners {
@@ -1031,7 +1040,7 @@ body {
   float: right;
 }
 .partner-title {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 11px;
   font-weight: normal;
   line-height: normal;
@@ -1204,6 +1213,15 @@ ul.related:after {
 }
 .related-item {
   margin-bottom: 15px;
+  *zoom: 1;
+}
+.related-item:before,
+.related-item:after {
+  display: table;
+  content: "";
+}
+.related-item:after {
+  clear: both;
 }
 .related-preview {
   overflow: hidden;
@@ -1224,19 +1242,34 @@ ul.related:after {
   margin-left: 78px;
 }
 .related-description .related-title {
-  font-size: 13px;
+  font-size: 16px;
   line-height: normal;
-  color: #2c2a29;
-  padding-top: 12px;
+  color: #0072a4;
+  padding-top: 10px;
   margin-bottom: 4px;
   display: block;
 }
 .related-description small {
+  font-size: 13px;
   line-height: 14px;
   display: block;
 }
 .related-description small a {
   color: #828180;
+}
+.related-description small .latlong {
+  color: #cfcfcf;
+}
+.point-modal .related-preview,
+.point-modal .related-preview img {
+  width: 37px;
+  height: 37px;
+}
+.point-modal .related-description {
+  margin-left: 47px;
+}
+.point-modal .related-description .related-title {
+  padding-top: 0;
 }
 .people-featured {
   margin: 0 0 40px;
@@ -1247,7 +1280,7 @@ ul.related:after {
   height: auto;
 }
 .people-featured h2 {
-  font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: normal;
   line-height: normal;
@@ -1334,6 +1367,30 @@ ul.related:after {
 .person-name a:hover {
   color: #f6b01a;
 }
+.person-bio {
+  margin-bottom: 60px;
+  padding: 6%;
+}
+.person-bio p {
+  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 28px;
+}
+.timeline-filter {
+  margin-bottom: 2em;
+}
+.timeline-filter a {
+  text-align: center;
+  width: 23.9%;
+  margin-right: 1%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.timeline-filter a:last-child {
+  margin-right: 0;
+}
 .timeline {
   position: relative;
   width: 100%;
@@ -1370,12 +1427,12 @@ ul.related:after {
   clear: both;
 }
 .timeline-month-title {
-  font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 24px;
   font-weight: normal;
   line-height: normal;
   text-align: center;
-  margin: 3.5em 0 1.5em;
+  margin: 1.5em 0;
   padding: 10px;
   background: #191b1d;
   z-index: 30;
@@ -1414,31 +1471,43 @@ ul.related:after {
 .timeline-item.left {
   text-align: right;
   padding-right: 20px;
-  border-right: 1px solid #ffffff;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
 }
 .timeline-item.left:before {
   right: -7px;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-left: 6px solid #ffffff;
+  border-left: 6px solid rgba(255, 255, 255, 0.5);
 }
 .timeline-item.left:after {
   right: -28px;
 }
+.timeline-item.left:hover {
+  border-right-color: #ffffff;
+}
+.timeline-item.left:hover:before {
+  border-left-color: #ffffff;
+}
 .timeline-item.right {
   padding-left: 20px;
-  border-left: 1px solid #ffffff;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 .timeline-item.right:before {
   left: -7px;
   top: 19px;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-right: 6px solid #ffffff;
+  border-right: 6px solid rgba(255, 255, 255, 0.5);
 }
 .timeline-item.right:after {
   top: 17px;
   left: -28px;
+}
+.timeline-item.right:hover {
+  border-left-color: #ffffff;
+}
+.timeline-item.right:hover:before {
+  border-right-color: #ffffff;
 }
 .timeline-item:last-child {
   margin-bottom: 0;
@@ -1472,6 +1541,7 @@ ul.related:after {
 }
 .timeline-item-content img {
   max-width: 100%;
+  margin: 0.5em 0;
 }
 /** Utilities */
 .reset-list {

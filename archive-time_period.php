@@ -8,16 +8,37 @@ global $wp_locale;
 $prev_post_date  = null;
 $prev_post_month = null;
 $i               = 0;
+$query_year      = get_query_var( 'timeline_year' ) ? get_query_var( 'timeline_year' ) : 1964;
+
 $dates           = new WP_Query( array(
 	'post_type' => 'time_period',
 	'orderby'   => 'meta_value',
 	'order'     => 'ASC',
-	'meta_key'  => '_date'
+	'meta_key'  => '_date',
+	'tax_query' => array(
+		array(
+			'taxonomy' => 'time_period-year',
+			'field'    => 'slug',
+			'terms'    => $query_year
+		)
+	)
 ) );
 
 get_header(); ?>
 
-	<h1 class="page-title container"><?php _e( 'Timeline', 'sacr' ); ?></h1>
+
+	<div class="container">
+		<h1 class="page-title"><?php _e( 'Timeline', 'sacr' ); ?></h1>
+		
+		<p class="timeline-filter">
+		<?php 
+			$years = get_terms( 'time_period-year', array( 'hide_empty' => 0, 'orderby' => 'id' ) );
+			foreach ( $years as $year ) : 
+		?>
+		<a href="<?php echo get_term_link( $year ); ?>" class="button<?php echo $query_year == $year->slug ? ' tertiary' : ''; ?>"><?php echo $year->name; ?></a>
+		<?php endforeach; ?>
+		</p>
+	</div>
 
 	<div class="timeline-wrap divider before">
 		<div class="container">
@@ -58,7 +79,7 @@ get_header(); ?>
 					<ul class="timeline-month-list">
 				<?php endif; ?>
 
-						<li data-day="<?php echo mysql2date( 'd', $post_date, false ); ?>" <?php post_class( array( 'timeline-item' ) ); ?>>
+						<li id="<?php echo esc_attr( $post->post_name ); ?>" <?php post_class( array( 'timeline-item' ) ); ?>>
 							<div class="timeline-item-date">
 								<?php printf( __( '%s the %s<sup>%s</sup>', 'sacr' ), mysql2date( 'l', $post_date, false ), mysql2date( 'd', $post_date, false ), mysql2date( 'S', $post_date, false ) ); ?>
 							</div>

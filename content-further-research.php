@@ -1,9 +1,9 @@
 <section class="further divider before">
 	<div class="container">
-		<div class="span-half alignleft">
+		<div class="span-two-thirds alignleft">
 			<h2 class="section-title">Further Research</h2>
 
-			<div class="clearfix">
+			<div class="row clearfix">
 				<div class="span-one-third alignleft">
 					<h3 class="sub-section">People</h3>
 					<ul class="research-list">
@@ -77,14 +77,8 @@
 			<p class="further-cta"><a href="<?php echo esc_url( sacr_get_theme_option( 'contentdm' ) ); ?>" class="button tertiary"><?php _e( 'Research Database', 'sacr' ); ?></a></p>
 		</div>
 
-		<div class="span-half alignright">
-			<?php if ( is_front_page() ) : ?>
-
-			<?php else : ?>
-			<a href="#" class="further-graphic"><img src="<?php echo get_template_directory_uri(); ?>/images/display/timeline.png" alt="" /></a>
-
-			<p class="further-cta"><a href="#" class="button alignright">See the Timeline</a></p>
-			<?php endif; ?>
+		<div class="span-one-third alignright">
+			
 		</div>
 	</div>
 </section><!-- .further -->

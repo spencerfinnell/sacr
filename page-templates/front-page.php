@@ -50,7 +50,7 @@ get_header(); ?>
 		<div class="container">
 			<div class="feature-description">
 				<h2>When equality truly became equal.</h2>
-				<p class="feature-cta"><a href="#" class="button">View the Timeline</a></p>
+				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>" class="button">View the Timeline</a></p>
 			</div>
 
 			<div class="feature-graphic">

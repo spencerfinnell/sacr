@@ -1,23 +1,15 @@
 <?php
 
 /**
- * Query Vars
- *
- * Properly register query var so they can be called via the
- * WP_Query class, and used correctly and safely.
- *
- * @since Noteboard 1.0
- *
- * @param array $vars Existing query variables
- * @return arrat $vars Updated list of query variables
+ * 
  */  
-function noteboard_add_query_vars( $vars ) {
+function sacr_map_query_vars( $vars ) {
 	$vars[] = 'map_year';
 	$vars[] = 'point';
 
 	return $vars;
 }
-add_filter( 'query_vars', 'noteboard_add_query_vars' );
+add_filter( 'query_vars', 'sacr_map_query_vars' );
 
 function sacr_map_rewrites_init() {
 	$map = get_page( sacr_get_theme_option( 'map' ) );

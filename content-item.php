@@ -43,20 +43,27 @@ global $post, $_post;
 	</ul>	
 	<?php endif ;?>
 
+	<?php if ( ! empty( $_post->places ) ) : ?>
 	<h3 class="area-title"><?php _e( 'Related Places', 'sacr' ); ?></h3>
 	
 	<ul class="related">
 		<?php foreach ( $_post->places as $post ) : setup_postdata( $post ); ?>
 			<li class="related-item">
 				<div class="related-preview">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/display/pin-<?php echo sacr_map_year(); ?>.png" />
+					<img src="<?php echo get_template_directory_uri(); ?>/images/display/pin-<?php echo sacr_item_year(); ?>.png" />
 				</div>
 
 				<div class="related-description">
 					<a href="<?php the_permalink(); ?>" class="related-title related-point" data-point="#<?php echo $post->post_name; ?>"><?php the_title(); ?></a>
-					<small><strong><?php echo get_the_term_list( $post->ID, 'map_point-year', '', ', ', '' ); ?></strong> <br /> <?php echo sacr_item_meta( 'latlong', get_the_ID() ); ?></small>
+					<small>
+						<strong><?php echo get_the_term_list( $post->ID, 'map_point-year', '', ', ', '' ); ?></strong>
+						<?php if ( is_singular( 'person' ) ) : ?>
+						 <br /> <span class="latlong"><?php echo sacr_item_meta( 'latlong', get_the_ID() ); ?></span>
+						<?php endif; ?>
+					</small>
 				</div>
 			</li>
 		<?php endforeach;?>
 	</ul>
+	<?php endif; ?>
 </div>

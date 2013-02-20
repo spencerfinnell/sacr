@@ -38,6 +38,17 @@ body {
 	width: 63%;
 }
 
+.row {
+	.span-one-third {
+		width: 31%;
+		margin-right: 2%;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
 /**
  * Brand
  */
@@ -113,7 +124,7 @@ body {
 	.reset-list;
 
 	a {
-		#font > .sans-serif(12px, normal, normal);
+		#font > .sans-serif(15px, normal, normal);
 		color: @blueLight;
 	}
 
@@ -121,6 +132,7 @@ body {
 		margin-top: 10px;
 
 		a {
+			font-weight: bold;
 			color: @white;
 		}
 	}
