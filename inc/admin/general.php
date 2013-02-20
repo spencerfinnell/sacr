@@ -4,8 +4,6 @@
  */
 
 function sacr_admin_general() {
-	remove_menu_page( 'edit.php' );
-	remove_menu_page( 'edit-comments.php' );
 }
 add_action( 'admin_menu', 'sacr_admin_general' );
 

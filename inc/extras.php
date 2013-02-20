@@ -60,13 +60,6 @@ function sacr_item_meta( $key, $post_id = null ) {
 	return false;
 }
 
-function sacr_page_after_comments() {
-	global $post;
-
-	comments_template( '', true );
-}
-add_action( 'sacr_page_after', 'sacr_page_after_comments', 20 );
-
 function sacr_page_after_research() {
 	global $post;
 	

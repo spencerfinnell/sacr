@@ -258,7 +258,7 @@ sacr.ui = (function($) {
 			jQuery.each( els, function( index, value ) {
 				$.each( $(value), function(index, value ) {
 					var el = $( value ),
-					    h  = el.height(),
+					    h  = el.outerHeight(true),
 					    w  = el.width();
 
 					    console.log(h);

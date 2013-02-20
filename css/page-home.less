@@ -59,18 +59,21 @@
 
 .large-btns_nav {
 	font-size: 30px;
-	line-height: 430px;
+	line-height: 70px;
 	text-align: center;
 	color: @white;
+	color: rgba(255, 255, 255, .70);
 
 	z-index: 3;
 	position: absolute;
 	overflow: hidden;
-	top: 0;
+	top: 50%;
 	bottom: 0;
 	left: 0;
 	background: #000;
-	width: 38px;
+	width: 35px;
+	height: 80px;
+	margin-top: -40px;
 
 	#translucent > .background(@black, 50%);
 
@@ -79,6 +82,7 @@
 	}
 
 	&:hover {
+		color: @white;
 		text-decoration: none;
 
 		#translucent > .background(@black, 65%);
@@ -93,6 +97,14 @@
 .large-btns1_nav.next:before,
 .large-btns1_nav.prev:before {
 	font-size: 20px;
+}
+
+.large-btns1_nav.prev::before {
+	margin-right: 12px;
+}
+
+.large-btns1_nav.next::before {
+	margin-left: 12px;
 }
 
 .slider-stuff {

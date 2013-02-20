@@ -14,5 +14,14 @@
 
 get_header(); ?>
 
+	<div class="container">
+		<h1 class="page-title"><?php _e( 'The Blog', 'sacr' ); ?></h1>
+
+		<div class="blog the-content">
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part( 'content' ); ?>
+			<?php endwhile; ?>
+		</div>
+	</div>
 
 <?php get_footer(); ?>

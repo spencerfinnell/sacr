@@ -22,7 +22,7 @@
 		return;
 ?>
 
-	<div id="comments" class="container comments-area">
+	<div id="comments" class="comments-area">
 
 	<?php // You can start editing here -- including this comment! ?>
 
@@ -42,7 +42,7 @@
 		</nav><!-- #comment-nav-before .site-navigation .comment-navigation -->
 		<?php endif; // check for comment navigation ?>
 
-		<ol class="commentlist">
+		<ol class="comment-list">
 			<?php
 				/* Loop through and list the comments. Tell wp_list_comments()
 				 * to use sacr_comment() to format the comments.
@@ -71,6 +71,8 @@
 		<p class="nocomments"><?php _e( 'Comments are closed.', 'sacr' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form(); ?>
+	<?php comment_form( array(
+		'comment_notes_before' => ''
+	) ); ?>
 
 </div><!-- #comments .comments-area -->

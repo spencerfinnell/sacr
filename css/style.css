@@ -507,7 +507,9 @@ table {
   font-style: normal;
 }
 .genericon:before,
-.large-btns_nav:before {
+.large-btns_nav:before,
+.bypostauthor .fn:before,
+.comment-reply-link:before {
   -webkit-font-smoothing: antialiased;
   font: normal 16px/1 'Genericons';
   vertical-align: text-bottom;
@@ -691,11 +693,13 @@ form.divided {
   color: #828180;
   text-decoration: underline;
 }
-.input-label {
-  font-weight: bold;
+.input-label,
+label {
+  color: #555555;
   display: block;
 }
-.input-label a {
+.input-label a,
+label a {
   font-size: 12px;
   color: #828180;
   font-weight: normal;
@@ -763,6 +767,9 @@ select:focus {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+.entry-content form p {
+  margin-bottom: 1em;
 }
 /** Pages */
 body {
@@ -888,6 +895,41 @@ body {
   text-decoration: none;
 }
 /**
+ * Posts
+ */
+.entry-content,
+.the-content,
+.person-bio {
+  color: #828180;
+  background: #ffffff;
+  padding: 35px;
+}
+.entry-content p,
+.the-content p,
+.person-bio p {
+  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 28px;
+}
+.entry-content p:first-child,
+.the-content p:first-child,
+.person-bio p:first-child {
+  margin-top: 0;
+}
+.entry-content p:last-child,
+.the-content p:last-child,
+.person-bio p:last-child {
+  margin: 40px 0 0;
+}
+article.page .entry-content,
+article.post .entry-content,
+.blog.the-content,
+.person-bio {
+  margin-bottom: 60px;
+  padding: 6%;
+}
+/**
  * Further
  */
 .further {
@@ -924,6 +966,91 @@ body {
 .further-graphic {
   margin-top: 138px;
   display: block;
+}
+/**
+ * Comments
+ */
+#reply-title,
+.comments-title {
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: normal;
+  color: #555555;
+}
+#reply-title {
+  font-size: 20px;
+}
+.entry-content p.form-allowed-tags,
+.entry-content p.comment-notes {
+  font-size: 12px;
+  line-height: normal;
+}
+.comment-list,
+.comment-list .children {
+  list-style-type: none;
+  padding: 0;
+}
+.comment-list .children {
+  margin-left: 20px;
+}
+.comment {
+  padding: 24px 0;
+  *zoom: 1;
+}
+.comment:before,
+.comment:after {
+  display: table;
+  content: "";
+}
+.comment:after {
+  clear: both;
+}
+.comment-author {
+  float: left;
+  margin-right: 30px;
+  max-width: 74px;
+}
+.comment-author .avatar {
+  display: block;
+  margin-bottom: 10px;
+}
+.comment-author .fn,
+.comment-reply-link {
+  font-size: 14px;
+  font-style: normal;
+}
+.bypostauthor .fn:before {
+  content: '\f408';
+}
+.comment-list .edit-link {
+  margin-left: 20px;
+}
+.entry-content .comment-content p {
+  margin: 0 0 1em;
+}
+.entry-content .comment-content p:last-child {
+  margin: 0;
+}
+.comment-meta,
+.comment-meta a {
+  color: #a2a2a2;
+  font-size: 13px;
+}
+.comment-meta a:hover {
+  color: #ea9629;
+}
+.ping-meta {
+  color: #a2a2a2;
+  font-size: 13px;
+  line-height: 2;
+}
+.comment-awaiting-moderation {
+  color: #a2a2a2;
+}
+.comment-reply-link:before {
+  content: '\f412';
+  margin-right: 3px;
 }
 /**
  * Footer
@@ -1044,23 +1171,27 @@ body {
 }
 .large-btns_nav {
   font-size: 30px;
-  line-height: 430px;
+  line-height: 70px;
   text-align: center;
   color: #ffffff;
+  color: rgba(255, 255, 255, 0.7);
   z-index: 3;
   position: absolute;
   overflow: hidden;
-  top: 0;
+  top: 50%;
   bottom: 0;
   left: 0;
   background: #000;
-  width: 38px;
+  width: 35px;
+  height: 80px;
+  margin-top: -40px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 .large-btns_nav:active {
   opacity: 1.0;
 }
 .large-btns_nav:hover {
+  color: #ffffff;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.65);
 }
@@ -1071,6 +1202,12 @@ body {
 .large-btns1_nav.next:before,
 .large-btns1_nav.prev:before {
   font-size: 20px;
+}
+.large-btns1_nav.prev::before {
+  margin-right: 12px;
+}
+.large-btns1_nav.next::before {
+  margin-left: 12px;
 }
 .slider-stuff {
   position: absolute;
@@ -1219,18 +1356,6 @@ body {
 }
 .point-modal {
   display: none;
-}
-.point-modal-content,
-.person-bio,
-article.page .entry-content {
-  color: #828180;
-  background: #ffffff;
-  padding: 35px;
-}
-.point-modal-content p:last-child,
-.person-bio p:last-child,
-article.page .entry-content p:last-child {
-  margin: 40px 0 0;
 }
 .point-modal-title,
 .person-bio h1 {
@@ -1414,18 +1539,6 @@ ul.related:after {
 }
 .person-name a:hover {
   color: #f6b01a;
-}
-.person-bio,
-article.page .entry-content {
-  margin-bottom: 60px;
-  padding: 6%;
-}
-.person-bio p,
-article.page .entry-content p {
-  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  font-weight: normal;
-  line-height: 28px;
 }
 .timeline-filter {
   margin-bottom: 2em;

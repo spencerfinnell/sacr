@@ -75,9 +75,10 @@ form {
 	}
 }
 
-.input-label {
-	font-weight: bold;
-
+.input-label,
+label {
+	color: @grayDark;
+	
 	display: block;
 
 	a {
@@ -146,4 +147,8 @@ select {
 		.size(6px, 8px);
 		.border-radius(5px);
 	}
+}
+
+.entry-content form p {
+	margin-bottom: 1em;
 }
