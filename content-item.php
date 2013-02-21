@@ -13,7 +13,7 @@ global $post, $_post;
 
 	<?php the_content(); ?>
 
-	<?php edit_post_link(); ?> 
+	<?php edit_post_link( __( 'Edit This', 'sacr' ), '<span class="edit-link">', '</span>' ); ?> 
 
 	<?php if ( sacr_item_meta( 'contentdm' ) ) :?>
 		<h3 class="point-modal-subtitle"><?php _e( 'Further Research', 'sacr' ); ?></h3>

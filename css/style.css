@@ -509,7 +509,8 @@ table {
 .genericon:before,
 .large-btns_nav:before,
 .bypostauthor .fn:before,
-.comment-reply-link:before {
+.comment-reply-link:before,
+.edit-link a:before {
   -webkit-font-smoothing: antialiased;
   font: normal 16px/1 'Genericons';
   vertical-align: text-bottom;
@@ -899,16 +900,16 @@ body {
  */
 .entry-content,
 .the-content,
-.person-bio,
-.point-modal-content {
+.person-bio {
   color: #828180;
   background: #ffffff;
   padding: 35px;
+  -webkit-box-shadow: rgba(0, 0, 0, .25) 0 1px 3px;
+  box-shadow: rgba(0, 0, 0, .25) 0 1px 3px;
 }
 .entry-content p,
 .the-content p,
-.person-bio p,
-.point-modal-content p {
+.person-bio p {
   font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: normal;
@@ -916,14 +917,12 @@ body {
 }
 .entry-content p:first-child,
 .the-content p:first-child,
-.person-bio p:first-child,
-.point-modal-content p:first-child {
+.person-bio p:first-child {
   margin-top: 0;
 }
 .entry-content p:last-child,
 .the-content p:last-child,
-.person-bio p:last-child,
-.point-modal-content p:last-child {
+.person-bio p:last-child {
   margin: 40px 0 0;
 }
 article.page .entry-content,
@@ -933,43 +932,10 @@ article.post .entry-content,
   margin-bottom: 60px;
   padding: 6%;
 }
-/**
- * Further
- */
-.further {
+.edit-link a:before {
+  content: '\f411';
+  top: -1px;
   position: relative;
-}
-.research-list {
-  margin: 0;
-  padding: 0;
-  list-style-position: inside;
-}
-.research-list li {
-  color: #828180;
-  padding: 0 0 0 2px;
-}
-.research-list a {
-  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  font-weight: normal;
-  line-height: normal;
-  color: #808182;
-}
-.research-list .more {
-  margin-top: 12px;
-  list-style: none;
-}
-.research-list .more a {
-  font-weight: bold;
-  color: #ffffff;
-}
-.further-cta {
-  margin: 40px 0 20px;
-  clear: both;
-}
-.further-graphic {
-  margin-top: 138px;
-  display: block;
 }
 /**
  * Comments
@@ -1055,6 +1021,44 @@ article.post .entry-content,
 .comment-reply-link:before {
   content: '\f412';
   margin-right: 3px;
+}
+/**
+ * Further
+ */
+.further {
+  position: relative;
+}
+.research-list {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+.research-list li {
+  color: #828180;
+  padding: 0 0 0 2px;
+}
+.research-list a {
+  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: normal;
+  color: #808182;
+}
+.research-list .more {
+  margin-top: 12px;
+  list-style: none;
+}
+.research-list .more a {
+  font-weight: bold;
+  color: #ffffff;
+}
+.further-cta {
+  margin: 40px 0 20px;
+  clear: both;
+}
+.further-graphic {
+  margin-top: 138px;
+  display: block;
 }
 /**
  * Footer
@@ -1362,7 +1366,14 @@ article.post .entry-content,
   font-weight: 700;
   line-height: 30px;
   color: #2c2a29;
-  margin: 0;
+  margin-top: 0;
+}
+.point-modal-content {
+  color: #828180;
+  padding: 35px;
+}
+.point-modal-content p:last-child {
+  margin: 40px 0 0;
 }
 .point-modal-subtitle {
   color: #555555;
@@ -1442,21 +1453,19 @@ ul.related:after {
 .point-modal .related-description .related-title {
   padding-top: 0;
 }
-.people-featured {
-  margin: 0 0 40px;
-  padding: 40px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
-  background-color: rgba(255, 255, 255, 0.1);
-  width: 100%;
-  height: auto;
+.people-archive-wrap,
+.timeline-wrap {
+  background-color: #191b1d;
 }
-.people-featured h2 {
+.people-archive-title {
   font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: normal;
   line-height: normal;
-  color: #f6b01a;
-  margin: 0 0 20px;
+  margin: 1.5em 0 0.5em;
+}
+.people-archive-title:first-child {
+  margin-top: 60px;
 }
 .people-archive {
   margin: 0;
@@ -1474,69 +1483,59 @@ ul.related:after {
   clear: both;
 }
 .person {
+  cursor: pointer;
   margin-right: 20px;
+  background: #ffffff;
   position: relative;
   float: left;
-  width: 140px;
+  width: 220px;
   height: auto;
-}
-.person:nth-child(6n) {
-  margin-right: 0;
-}
-.person:hover {
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  transform: scale(1.2);
-}
-.person:hover .person-preview {
-  border-color: rgba(255, 255, 255, 0.1);
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding-box;
-  background-clip: padding-box;
-}
-.person:hover .person-name a {
-  color: #f6b01a;
-}
-.person-preview {
-  overflow: hidden;
-  border: 5px solid #000000;
-  border-color: rgba(0, 0, 0, 0.2);
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding-box;
-  background-clip: padding-box;
-  width: 130px;
-  height: 130px;
-  -webkit-border-radius: 140px;
-  -moz-border-radius: 140px;
-  border-radius: 140px;
-}
-.person-preview img {
-  display: block;
-  width: 140px;
-  height: 140px;
-}
-.person-name {
-  text-align: center;
-  line-height: normal;
-  margin: 10px auto 0;
-  padding: 8px;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: rgba(0, 0, 0, .25) 0 1px 3px;
+  box-shadow: rgba(0, 0, 0, .25) 0 1px 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  -webkit-transition: all ease-in 0.1s;
+  -moz-transition: all ease-in 0.1s;
+  -o-transition: all ease-in 0.1s;
+  transition: all ease-in 0.1s;
+}
+.person:nth-child(4n) {
+  margin-right: 0;
+}
+.person:hover {
+  background: #741412;
+}
+.person:hover .person-name a {
+  color: #ffffff;
+}
+.person-preview {
+  overflow: hidden;
+  width: 220px;
+  height: 140px;
+  -webkit-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+  -webkit-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.person-preview img {
+  display: block;
 }
 .person-name a {
-  color: #ffffff;
-  text-decoration: none;
+  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: normal;
+  text-align: center;
+  color: #2c2a29;
+  padding: 15px 25px;
+  display: block;
 }
 .person-name a:hover {
-  color: #f6b01a;
+  text-decoration: none;
+}
+.persion-bio h1 {
+  margin: 0;
 }
 .timeline-filter {
   margin-bottom: 2em;
