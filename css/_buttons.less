@@ -9,19 +9,24 @@ input[type="submit"] {
 	
 	background: @yellow;
 
-	.transition(all .2s ease-in-out);
-
 	&:hover {
 		text-shadow: rgba(0, 0, 0, .1) 0 1px 0;
 		text-decoration: none;
 
 		background: lighten(@yellow, 5%);
 
-		.box-shadow(~"inset rgba(255, 255, 255, .2) 0 0 0 1px");
+		.box-shadow(~"inset rgba(255, 255, 255, .4) 0 0 0 1px, rgba(0, 0, 0, .5) 0 1px 3px");
+		#gradient > .vertical(@yellow, darken(@yellow, 10%));
 	}
 
 	&:active {
 
+	}
+
+	&.on-light {
+		&:hover {
+			.box-shadow(~"rgba(0, 0, 0, .05) 0 1px 4px");
+		}
 	}
 
 	/**
@@ -38,8 +43,12 @@ input[type="submit"] {
 	&.tertiary {
 		background: @red;
 
-		&:hover {
-			background: lighten(@red, 10%);
+		&:hover,
+		&.active {
+			background: lighten(@red, 5%);
+
+			.box-shadow(~"inset rgba(255, 255, 255, .1) 0 0 0 1px, rgba(0, 0, 0, .5) 0 1px 3px");
+			#gradient > .vertical(@red, darken(@red, 10%));
 		}
 	}
 

@@ -20,7 +20,7 @@ global $post, $_post;
 		<?php echo sacr_item_meta( 'contentdm' ); ?>
 	<?php endif; ?>
 
-	<p><a href="<?php echo sacr_get_theme_option( 'contentdm' ); ?>" class="button"><?php _e( 'Visit ContentDM &rarr;', 'sacr' ); ?></a></p>
+	<p><a href="<?php echo sacr_get_theme_option( 'contentdm' ); ?>" class="button on-light"><?php _e( 'Visit ContentDM &rarr;', 'sacr' ); ?></a></p>
 </div>
 
 <div class="span-one-third alignright">

@@ -35,7 +35,7 @@ get_header(); ?>
 			$years = get_terms( 'time_period-year', array( 'hide_empty' => 0, 'orderby' => 'id' ) );
 			foreach ( $years as $year ) : 
 		?>
-		<a href="<?php echo get_term_link( $year ); ?>" class="button<?php echo $query_year == $year->slug ? ' tertiary' : ''; ?>"><?php echo $year->name; ?></a>
+		<a href="<?php echo get_term_link( $year ); ?>" class="button<?php echo $query_year == $year->slug ? ' active tertiary' : ''; ?>"><?php echo $year->name; ?></a>
 		<?php endforeach; ?>
 		</p>
 	</div>
