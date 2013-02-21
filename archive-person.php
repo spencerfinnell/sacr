@@ -19,7 +19,9 @@ get_header(); ?>
 		<h1 class="page-title"><?php _e( 'Meet the People', 'sacr' ); ?></h1>
 
 		<p class="people-filter">
-
+			<?php foreach ( range( 'A', 'Z' ) as $char ) : ?>
+			<a href="#<?php echo ucfirst( $char ); ?>" class="button"><?php echo $char; ?></a>
+			<?php endforeach; ?>
 		</p>
 	</div>
 

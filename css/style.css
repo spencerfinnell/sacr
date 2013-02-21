@@ -605,8 +605,11 @@ input[type="submit"] {
 }
 .button:hover,
 input[type="submit"]:hover {
+  text-shadow: rgba(0, 0, 0, 0.1) 0 1px 0;
   text-decoration: none;
-  background: #f8c14b;
+  background: #f7b833;
+  -webkit-box-shadow: inset rgba(255, 255, 255, .2) 0 0 0 1px;
+  box-shadow: inset rgba(255, 255, 255, .2) 0 0 0 1px;
 }
 .button.secondary,
 input[type="submit"].secondary {
@@ -1456,6 +1459,16 @@ ul.related:after {
 .people-archive-wrap,
 .timeline-wrap {
   background-color: #191b1d;
+}
+.people-filter {
+  margin-bottom: 2em;
+}
+.people-filter a {
+  line-height: normal;
+  font-size: 14px;
+  text-align: center;
+  padding: 4px 8px 3px;
+  width: 1.7%;
 }
 .people-archive-title {
   font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;

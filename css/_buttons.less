@@ -12,9 +12,12 @@ input[type="submit"] {
 	.transition(all .2s ease-in-out);
 
 	&:hover {
+		text-shadow: rgba(0, 0, 0, .1) 0 1px 0;
 		text-decoration: none;
 
-		background: lighten(@yellow, 10%);
+		background: lighten(@yellow, 5%);
+
+		.box-shadow(~"inset rgba(255, 255, 255, .2) 0 0 0 1px");
 	}
 
 	&:active {
