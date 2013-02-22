@@ -17,7 +17,7 @@
 								'update_post_term_cache' => false
 							) );
 
-							foreach ( $people as $person ) : setup_postdata( $person );
+							foreach ( $people as $post ) : setup_postdata( $post );
 						?>
 						<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
 						<?php endforeach; wp_reset_postdata(); ?>
@@ -39,7 +39,7 @@
 								'update_post_term_cache' => false
 							) );
 
-							foreach ( $places as $place ) : setup_postdata( $place );
+							foreach ( $places as $post ) : setup_postdata( $post );
 						?>
 						<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
 						<?php endforeach; wp_reset_postdata(); ?>
@@ -61,7 +61,7 @@
 								'update_post_term_cache' => false
 							) );
 
-							foreach ( $events as $event ) : setup_postdata( $event );
+							foreach ( $events as $post ) : setup_postdata( $post );
 						?>
 						<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
 						<?php endforeach; wp_reset_postdata(); ?>
