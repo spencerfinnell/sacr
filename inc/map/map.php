@@ -73,21 +73,15 @@ function sacr_page_after_map() {
 add_action( 'sacr_page_after', 'sacr_page_after_map', 10 );
 
 function sacr_map_point_modals() {
-	global $post, $_post, $wp_embed;
+	global $post, $_post, $wp_embed, $points_query;
 
 	if ( ! is_page( sacr_get_theme_option( 'map' ) ) )
 		return;
 
-	$points = new WP_Query( array(
-		'post_type'      => array( 'map_point' ),
-		'posts_per_page' => -1,
-		'nopaging'       => true
-	) );
+	p2p_type( 'person_to_point' )->each_connected( $points_query, array(), 'people' );
+	p2p_type( 'point_to_point' )->each_connected( $points_query, array(), 'places' );
 
-	p2p_type( 'person_to_point' )->each_connected( $points, array(), 'people' );
-	p2p_type( 'point_to_point' )->each_connected( $points, array(), 'places' );
-
-	while ( $points->have_posts() ) : $points->the_post();
+	while ( $points_query->have_posts() ) : $points_query->the_post();
 		$_post = $post; // Save ourselves
 ?>
 		<div id="<?php echo esc_attr( get_post()->post_name ); ?>" class="point-modal">
@@ -110,51 +104,44 @@ function sacr_map_points() {
 	if ( ! is_page( sacr_get_theme_option( 'map' ) ) )
 		return false;
 
-	$args = array();
+	global $points_query;
 
-	$point_args = array(
-		'post_type'      => array( 'map_point' ),
-		'posts_per_page' => -1,
-		'nopaging'       => true
+	$args = array(
+		'points' => array(),
+		'center' => array(0, 0),
+		'pin'    => get_template_directory_uri() . '/images/display/pin-'
 	);
 
-	$points = get_posts( $point_args );
-	
-	foreach ( $points as $point ) {
-		$position = sacr_item_meta( 'latlong', $point->ID );
+	$points_query = new WP_Query( array(
+		'post_type'              => array( 'map_point' ),
+		'posts_per_page'         => 200,
+		'no_found_rows'          => true,
+		'cache_results'          => true
+	) );
+	$total  = $points_query->post_count;
+
+	while ( $points_query->have_posts() ) {
+		$points_query->the_post();
+		
+		$position = sacr_item_meta( 'latlong', get_post()->ID );
 		$position = explode( ',', $position );
 
-		$category = wp_list_pluck( get_the_terms( $point->ID, 'map_point-year' ), 'slug' );
+		$year = sacr_item_year( 'map_point-year', get_post()->ID );
 
-		foreach ( $category as $key => $cat ) {
-			$_category = array( $cat );
-		}
-
-		$args[] = array(
-			'id'       => $point->post_name,
-			'title'    => $point->post_title,
+		$args['points'][] = array(
+			'id'       => get_post()->post_name,
+			'title'    => get_post()->post_title,
 			'position' => array( trim( $position[0] ), trim( $position[1] ) ),
-			'category' => $_category
+			'category' => array($year)
 		);
+
+		$args[ 'center' ][0] = $args[ 'center' ][0] + $position[0];
+		$args[ 'center' ][1] = $args[ 'center' ][1] + $position[1];
 	}
 
-	wp_localize_script( 'sacr-script', 'points', $args );
+	$args[ 'center' ][0] = $args[ 'center' ][0] / $total;
+	$args[ 'center' ][1] = $args[ 'center' ][1] / $total;
+
+	wp_localize_script( 'sacr-script', 'SACRMap', $args );
 }
 add_action( 'wp_enqueue_scripts', 'sacr_map_points' );
-
-function sacr_item_year( $taxonomy = 'map_point-year' ) {
-	global $post;
-
-	$years = get_the_terms( $post->ID, $taxonomy );
-	$_year = '';
-
-	if ( ! $years )
-		return 1964;
-
-	foreach ( $years as $year ) {
-		$_year = $year->slug;
-		continue;
-	}	
-
-	return $_year;
-}

@@ -14,14 +14,13 @@
 								'nopaging'               => true,
 								'no_found_rows'          => true,
 								'cache_results'          => false,
-								'update_post_meta_cache' => false,
 								'update_post_term_cache' => false
 							) );
 
-							foreach ( $people as $person ) :
+							foreach ( $people as $person ) : setup_postdata( $person );
 						?>
-						<li><a href="<?php echo get_permalink( $person->ID ); ?>"><?php echo get_the_title( $person->ID ); ?></a></li>
-						<?php endforeach; ?>
+						<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+						<?php endforeach; wp_reset_postdata(); ?>
 
 						<li class="more"><a href="<?php echo get_post_type_archive_link( 'person' ); ?>"><?php _e( 'View More &rarr;', 'sacr' ); ?></a></li>
 					</ul>
@@ -37,14 +36,13 @@
 								'nopaging'               => true,
 								'no_found_rows'          => true,
 								'cache_results'          => false,
-								'update_post_meta_cache' => false,
 								'update_post_term_cache' => false
 							) );
 
-							foreach ( $places as $place ) :
+							foreach ( $places as $place ) : setup_postdata( $place );
 						?>
-						<li><a href="<?php echo get_permalink( $place->ID ); ?>"><?php echo get_the_title( $place->ID ); ?></a></li>
-						<?php endforeach; ?>
+						<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+						<?php endforeach; wp_reset_postdata(); ?>
 
 						<li class="more"><a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>"><?php _e( 'View More &rarr;', 'sacr' ); ?></a></li>
 					</ul>
@@ -60,14 +58,13 @@
 								'nopaging'               => true,
 								'no_found_rows'          => true,
 								'cache_results'          => false,
-								'update_post_meta_cache' => false,
 								'update_post_term_cache' => false
 							) );
 
-							foreach ( $events as $event ) :
+							foreach ( $events as $event ) : setup_postdata( $event );
 						?>
-						<li><a href="<?php echo get_permalink( $event->ID ); ?>"><?php echo get_the_title( $event->ID ); ?></a></li>
-						<?php endforeach; ?>
+						<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+						<?php endforeach; wp_reset_postdata(); ?>
 
 						<li class="more"><a href="<?php echo get_permalink( sacr_get_theme_option( 'timeline' ) ); ?>"><?php _e( 'View More &rarr;', 'sacr' ); ?></a></li>
 					</ul>

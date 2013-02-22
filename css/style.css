@@ -604,13 +604,13 @@ input[type="submit"]:hover {
   text-shadow: rgba(0, 0, 0, 0.1) 0 1px 0;
   text-decoration: none;
   background: #f7b833;
-  -webkit-box-shadow: inset rgba(255, 255, 255, .4) 0 0 0 1px, rgba(0, 0, 0, .5) 0 1px 3px;
-  box-shadow: inset rgba(255, 255, 255, .4) 0 0 0 1px, rgba(0, 0, 0, .5) 0 1px 3px;
-  background-color: #e9a513;
-  background-image: -webkit-linear-gradient(top, #f6b01a, #d59408);
-  background-image: moz-linear-gradient(top, #f6b01a, #d59408);
-  background-image: -o-linear-gradient(top, #f6b01a, #d59408);
-  background-image: linear-gradient(top, #f6b01a, #d59408);
+  -webkit-box-shadow: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object];
+  box-shadow: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object];
+  background-color: #e8a310;
+  background-image: -webkit-linear-gradient(top, #f6b01a, #d39000);
+  background-image: moz-linear-gradient(top, #f6b01a, #d39000);
+  background-image: -o-linear-gradient(top, #f6b01a, #d39000);
+  background-image: linear-gradient(top, #f6b01a, #d39000);
   background-repeat: repeat-x;
 }
 .button.on-light:hover,
@@ -1558,7 +1558,7 @@ ul.related:after {
   line-height: normal;
   text-align: center;
   color: #2c2a29;
-  padding: 15px 25px;
+  padding: 15px;
   display: block;
 }
 .person-name a:hover {
@@ -1583,6 +1583,7 @@ ul.related:after {
 }
 .timeline {
   position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
 }

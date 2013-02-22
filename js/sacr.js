@@ -121,7 +121,7 @@ sacr.map = (function($){
 				zoom               : 16,
 				minZoom            : 14,
 				maxZoom            : 18,
-				center             : new google.maps.LatLng(mapLat, mapLong),
+				center             : new google.maps.LatLng(SACRMap.center[0], SACRMap.center[1]),
 				mapTypeId          : google.maps.MapTypeId.ROADMAP,
 				panControl         : false,
 				scrollwheel        : false,
@@ -131,9 +131,9 @@ sacr.map = (function($){
 					position : google.maps.ControlPosition.LEFT_CENTER
 				}
 			}).bind( 'init', function(event, map) {
-				for ( var i = 0, item; item = points[i++]; ) {
+				for ( var i = 0, item; item = SACRMap.points[i++]; ) {
 					var image = new google.maps.MarkerImage(
-						SACRL10n.pin + item.category + '.png',
+						SACRMap.pin + item.category + '.png',
 						new google.maps.Size(36, 37),
 						null,
 						null,

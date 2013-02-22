@@ -145,8 +145,7 @@ function sacr_scripts() {
 		'is_home'       => is_front_page(),
 		'is_map'        => is_page( sacr_get_theme_option( 'map' ) ),
 		'is_timeline'   => is_post_type_archive( 'time_period' ),
-		'map_url'       => get_permalink( sacr_get_theme_option( 'map' ) ),
-		'pin'           => get_template_directory_uri() . '/images/display/pin-'
+		'map_url'       => get_permalink( sacr_get_theme_option( 'map' ) )
 	);
 
 	wp_localize_script( 'sacr-script', 'SACRL10n', $args );
@@ -164,6 +163,19 @@ function sacr_typekit() {
 <?php
 }
 add_action( 'wp_head', 'sacr_typekit' );
+
+function sacr_unregister_widgets() {
+	unregister_widget( 'WP_Widget_Pages' );
+	unregister_widget( 'WP_Widget_Calendar' );
+	unregister_widget( 'WP_Widget_Archives' );
+	unregister_widget( 'WP_Widget_Links' );
+	unregister_widget( 'WP_Widget_Categories' );
+	unregister_widget( 'WP_Widget_Recent_Posts' );
+	unregister_widget( 'WP_Widget_Search' );
+	unregister_widget( 'WP_Widget_Tag_Cloud' );
+	unregister_widget( 'WP_Nav_Menu_Widget' );
+}
+add_action( 'widgets_init', 'sacr_unregister_widgets' );
 
 if ( ! function_exists( 'sacr_comment' ) ) :
 /**

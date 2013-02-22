@@ -49,7 +49,7 @@ add_filter( 'wp_title', 'sacr_wp_title', 10, 2 );
 function sacr_item_meta( $key, $post_id = null ) {
 	global $post;
 
-	if ( ! $post_id && is_object( $post ) )
+	if ( is_null( $post_id ) && is_object( $post ) )
 		$post_id = $post->ID;
 
 	$meta = get_post_meta( $post_id, $key, true );
@@ -58,6 +58,26 @@ function sacr_item_meta( $key, $post_id = null ) {
 		return apply_filters( 'sacr_meta_' . $key, $meta );
 
 	return false;
+}
+
+function sacr_item_year( $taxonomy = 'map_point-year', $post_id = null ) {
+	global $post;
+
+	if ( is_null( $post_id ) && is_object( $post ) )
+		$post_id = $post->ID;
+
+	$years = get_the_terms( $post_id, $taxonomy );
+	$_year = '';
+
+	if ( ! $years )
+		return 1964;
+
+	foreach ( $years as $year ) {
+		$_year = $year->slug;
+		continue;
+	}	
+
+	return $_year;
 }
 
 function sacr_page_after_research() {
