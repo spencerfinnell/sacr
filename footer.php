@@ -12,7 +12,12 @@
 	<footer class="site-links container">
 		<p class="copyright span-one-third alignleft">
 			St. Augustine, Florida 32048 <br />
-			Flagler College
+			<a href="http://flagler.edu">Flagler College</a>
+		</p>
+
+		<p class="external-links span-two-thirds alignright">
+			<a href="#">The Andrew J. Young Foundation</a>  | <a href="#">St. Augustine Historical Society</a> | <a href="#">Stetson Kennedy Foundation</a> <br />
+			<small>All photos courtesy of Associated Press</small>
 		</p>
 	</footer>
 </div><!-- #page .hfeed .site -->

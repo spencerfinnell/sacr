@@ -1091,30 +1091,27 @@ article.post .entry-content,
 }
 .copyright {
   font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: normal;
   line-height: normal;
-  color: #a6a5a5;
+  color: #cfcfcf;
 }
-.footer-links {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  *zoom: 1;
-  margin-left: 40px;
-  float: left;
+.copyright a {
+  color: #ffffff;
+  font-weight: bold;
 }
-.footer-links:before,
-.footer-links:after {
-  display: table;
-  content: "";
+.external-links {
+  font-size: 13px;
+  color: #555555;
+  text-align: right;
+  margin-right: -3px;
 }
-.footer-links:after {
-  clear: both;
+.external-links a {
+  color: #828180;
+  margin: 0 3px;
 }
-.footer-links li {
-  margin-right: 15px;
-  float: left;
+.external-links small {
+  margin-right: 3px;
 }
 .divider {
   position: relative;
@@ -1550,6 +1547,7 @@ ul.related:after {
 }
 .person-preview img {
   display: block;
+  margin: -50px 0 0 -30px;
 }
 .person-name a {
   font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;

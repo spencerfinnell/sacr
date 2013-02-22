@@ -139,8 +139,8 @@ function sacr_map_points() {
 		$args[ 'center' ][1] = $args[ 'center' ][1] + $position[1];
 	}
 
-	$args[ 'center' ][0] = $args[ 'center' ][0] / $total;
-	$args[ 'center' ][1] = $args[ 'center' ][1] / $total;
+	$args[ 'center' ][0] = $total == 0 ? $args[ 'center' ][0] : ( $args[ 'center' ][0] / $total );
+	$args[ 'center' ][1] = $total == 0 ? $args[ 'center' ][1] : ( $args[ 'center' ][1] / $total );
 
 	wp_localize_script( 'sacr-script', 'SACRMap', $args );
 }

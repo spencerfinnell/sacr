@@ -303,19 +303,30 @@ article.post .entry-content,
 }
 
 .copyright {
-	#font > .sans-serif(11px, normal, normal);
-	color: @grayLight;
+	#font > .sans-serif(13px, normal, normal);
+	color: @grayLighter;
+
+	a {
+		color: @white;
+		font-weight: bold;
+	}
 }
 
-.footer-links {
-	.reset-list;
+.external-links {
+	font-size: 13px;
+	color: @grayDark;
+	text-align: right;
 
-	margin-left: 40px;
-	float: left;
+	margin-right: -3px;
 
-	li {
-		margin-right: 15px;
-		float: left;
+	a {
+		color: @gray;
+
+		margin: 0 3px;
+	}
+
+	small {
+		margin-right: 3px;
 	}
 }
 
