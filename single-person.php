@@ -17,27 +17,12 @@ get_header(); ?>
 
 	<div class="container">
 		<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
-			
+		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' ); ?>
+		
 		<h1 class="page-title"><?php the_title(); ?></h1>
 
-		<?php
-			$sizes  = array( 'fullsize', 'full', 'medium' );
-
-			$images = get_posts( array(
-				'post_type'   => 'attachment',
-				'post_parent' => $post->ID,
-				'fields'      => 'ids'
-			) );
-
-			if ( count( $images ) > 3 ) :
-		?>
-		<div class="person-collage">
-			<?php foreach ( $images as $image_id ) : ?>
-				<?php // echo wp_get_attachment_image( $image_id, array_rand( $sizes ) ); ?>
-			<?php endforeach; ?>
-		</div>
-		<?php endif; ?>
-
+		<div class="person-picture" data-backstretch-image="<?php echo esc_url( $image[0] ); ?>"></div>
+		
 		<div class="person-bio">
 			<div class="person-description clearfix">
 				<?php get_template_part( 'content', 'item' ); ?>

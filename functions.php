@@ -119,9 +119,12 @@ function sacr_scripts() {
 	
 	/** home */
 	if ( is_front_page() ) {
-		wp_enqueue_script( 'backstretch', get_template_directory_uri() . '/js/vendor/jquery.backstretch.min.js' );
 		wp_enqueue_script( 'jcarousellite', get_template_directory_uri() . '/js/vendor/responsiveslides.min.js' );
 	}
+
+	/** home/people */
+	if ( is_front_page() || is_singular( 'person' ) )
+		wp_enqueue_script( 'backstretch', get_template_directory_uri() . '/js/vendor/jquery.backstretch.min.js' );
 	
 	/** map */
 	if ( is_page( sacr_get_theme_option( 'map' ) ) ) {
@@ -145,6 +148,7 @@ function sacr_scripts() {
 		'is_home'       => is_front_page(),
 		'is_map'        => is_page( sacr_get_theme_option( 'map' ) ),
 		'is_timeline'   => is_post_type_archive( 'time_period' ),
+		'is_person'     => is_singular( 'person' ),
 		'map_url'       => get_permalink( sacr_get_theme_option( 'map' ) )
 	);
 

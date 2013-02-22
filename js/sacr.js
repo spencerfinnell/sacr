@@ -247,6 +247,9 @@ sacr.ui = (function($) {
 		init : function() {
 			if ( SACRL10n.is_home )
 				this.home();
+
+			if ( SACRL10n.is_person )
+				this.person();
 		},
 
 		/**
@@ -286,6 +289,11 @@ sacr.ui = (function($) {
 				prevText  : '',
 				nextText  : ''
 			});
+		},
+
+		person : function() {
+			if ( $.backstretch )
+				$( '.person-picture' ).backstretch( $( '.person-picture' ).data( 'backstretch-image' ) );
 		}
 	}
 }(jQuery));

@@ -66,4 +66,22 @@ global $post, $_post;
 		<?php endforeach;?>
 	</ul>
 	<?php endif; ?>
+
+	<?php if ( is_singular( 'person' ) ) : ?>
+	<h3 class="area-title"><?php _e( 'Pictures', 'sacr' ); ?></h3>
+	<?php
+		$sizes  = array( 'fullsize', 'full', 'medium' );
+
+		$images = get_posts( array(
+			'post_type'   => 'attachment',
+			'post_parent' => $_post->ID,
+			'fields'      => 'ids'
+		) );
+	?>
+	<div class="person-collage">
+		<?php foreach ( $images as $image_id ) : ?>
+			<?php echo wp_get_attachment_image( $image_id, 'thumbnail' ); ?>
+		<?php endforeach; ?>
+	</div>
+	<?php endif; ?>
 </div>

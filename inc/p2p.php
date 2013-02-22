@@ -3,7 +3,7 @@
  *
  */
 
-function my_connection_types() {
+function sacr_connection_types() {
 	p2p_register_connection_type( array(
 		'name'         => 'person_to_point',
 		'from'         => 'person',
@@ -27,4 +27,4 @@ function my_connection_types() {
 		'admin_column' => 'any'
 	) );
 }
-add_action( 'p2p_init', 'my_connection_types' );
+add_action( 'p2p_init', 'sacr_connection_types' );
