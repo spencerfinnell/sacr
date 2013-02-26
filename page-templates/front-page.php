@@ -17,6 +17,7 @@ get_header(); ?>
 					<?php
 						$features = new WP_Query( array(
 							'post_type'              => 'feature',
+							'post_status'            => 'any',
 							'posts_per_page'         => 5,
 							'no_found_rows'          => true,
 							'cache_results'          => false,
@@ -29,7 +30,10 @@ get_header(); ?>
 					?>
 					<li <?php post_class(); ?> data-backstretch-image="<?php echo esc_url( $image[0] ); ?>">
 						<div class="container">
-							<div class="slider-title"><span><?php echo $post->post_content; ?></span></div>
+							<div class="slider-stuff">
+								<div class="slider-title"><span><?php echo $post->post_content; ?></span></div>
+								<div class="slider-more"><a href="#" class="button">Learn More &rarr;</a></div>
+							</div>
 						</div>
 					</li>
 					<?php endwhile; endif; ?>

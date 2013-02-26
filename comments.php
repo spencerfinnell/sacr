@@ -72,7 +72,8 @@
 	<?php endif; ?>
 
 	<?php comment_form( array(
-		'comment_notes_before' => ''
+		'comment_notes_before' => '',
+		'comment_notes_after'  => ''
 	) ); ?>
 
 </div><!-- #comments .comments-area -->

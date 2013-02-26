@@ -287,7 +287,8 @@ sacr.ui = (function($) {
 				nav       : true,
 				namespace : 'large-btns',
 				prevText  : '',
-				nextText  : ''
+				nextText  : '',
+				timeout   : 4000
 			});
 		},
 
@@ -300,7 +301,9 @@ sacr.ui = (function($) {
 
 jQuery(document).ready(function($) {
 	sacr.ui.init();
-	sacr.ui.center([ $( '.slider-title' ) ], true, false);
+	//sacr.ui.center([ $( '.slider-stuff' ) ], true, false);
+
+	$( '.slider-stuff' ).css( 'margin-top', -134 );
 
 	if ( SACRL10n.is_map )
 		sacr.map.init();
