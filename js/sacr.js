@@ -250,6 +250,8 @@ sacr.ui = (function($) {
 
 			if ( SACRL10n.is_person )
 				this.person();
+
+			this.glossary();
 		},
 
 		/**
@@ -295,6 +297,11 @@ sacr.ui = (function($) {
 		person : function() {
 			if ( $.backstretch )
 				$( '.person-picture' ).backstretch( $( '.person-picture' ).data( 'backstretch-image' ) );
+		},
+
+		glossary : function() {
+			
+				
 		}
 	}
 }(jQuery));
@@ -304,6 +311,12 @@ jQuery(document).ready(function($) {
 	//sacr.ui.center([ $( '.slider-stuff' ) ], true, false);
 
 	$( '.slider-stuff' ).css( 'margin-top', -134 );
+
+	$( '.glossary' ).masonry({
+		itemSelector : '.glossary-archive',
+		columnWidth  : 240,
+		gutterWidth  : 40
+	});
 
 	if ( SACRL10n.is_map )
 		sacr.map.init();

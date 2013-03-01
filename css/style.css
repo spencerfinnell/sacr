@@ -576,6 +576,70 @@ a:hover {
 .entry-content p {
   margin-bottom: 2.5em;
 }
+.entry-content ul,
+.entry-content ol {
+  font-size: 16px;
+  margin: 2.5em 0;
+}
+.entry-content ul li,
+.entry-content ol li {
+  margin: 6px 0;
+}
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  color: #2c2a29;
+  margin: 1.5em 0 0;
+  clear: both;
+}
+.entry-content h1 {
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 36px;
+  margin: 2em 0 0.5em;
+}
+.entry-content h1:first-child {
+  margin-top: 0;
+}
+.entry-content h2 {
+  font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 24px;
+}
+.entry-content h3 {
+  font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.entry-content h4 {
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 36px;
+}
+.entry-content h5 {
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 36px;
+  text-transform: uppercase;
+  color: #555555;
+  margin-bottom: -0.5em;
+}
+.entry-content h6 {
+  font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #555555;
+  margin-bottom: -0.5em;
+}
 .button,
 input[type="submit"] {
   font-size: 22px;
@@ -1039,10 +1103,15 @@ article.post .entry-content,
   display: block;
   margin-bottom: 10px;
 }
-.comment-author .fn,
+.comment-meta .fn,
 .comment-reply-link {
+  color: #0072a4;
   font-size: 14px;
   font-style: normal;
+}
+.comment-meta .fn {
+  font-weight: bold;
+  font-size: 16px;
 }
 .bypostauthor .fn:before {
   content: '\f408';
@@ -1524,6 +1593,26 @@ ul.related:after {
 .point-modal .related-description .related-title {
   padding-top: 0;
 }
+.map-legend {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  margin-right: 3px;
+  width: 5px;
+  height: 10px;
+}
+.map-color-1964 {
+  background-color: #5ca4dc;
+}
+.map-color-1963 {
+  background-color: #89ca6d;
+}
+.map-color-pre-1963 {
+  background-color: #dabc3d;
+}
+.map-color-post-1964 {
+  background-color: #cd6574;
+}
 .people-archive-wrap,
 .timeline-wrap {
   background-color: #191b1d;
@@ -1626,6 +1715,18 @@ ul.related:after {
 .person-collage img {
   width: 88px;
   height: 88px;
+}
+.glossary-archive {
+  width: 240px;
+}
+.glossary-archive ul {
+  margin: 1em 0 0;
+  padding: 0;
+  list-style-position: inside;
+}
+.entry-content .glossary-archive-title {
+  font-size: 28px;
+  margin-top: 0;
 }
 .timeline-filter {
   margin-bottom: 2em;

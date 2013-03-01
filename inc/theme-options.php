@@ -65,32 +65,6 @@ class SACR_Options {
 			'theme_options'
 		);
 
-		add_settings_field(
-			'map',  
-			__( 'Map Page', 'sacr' ),
-			array( $this, 'field_select' ),
-			'theme_options',
-			'general',
-			array(
-				'name'        => $this->option_key . '[map]',
-				'value'       => $this->options[ 'map' ],
-				'options'     => sacr_get_pages()
-			)
-		);
-
-		add_settings_field(
-			'timeline',  
-			__( 'Timeline Page', 'sacr' ),
-			array( $this, 'field_select' ),
-			'theme_options',
-			'general',
-			array(
-				'name'        => $this->option_key . '[timeline]',
-				'value'       => $this->options[ 'timeline' ],
-				'options'     => sacr_get_pages()
-			)
-		);
-
 		add_settings_section(
 			'contentdm',
 			__( 'ContentDM', 'sacr' ),

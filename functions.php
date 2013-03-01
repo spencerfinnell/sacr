@@ -127,14 +127,14 @@ function sacr_scripts() {
 		wp_enqueue_script( 'backstretch', get_template_directory_uri() . '/js/vendor/jquery.backstretch.min.js' );
 	
 	/** map */
-	if ( is_page( sacr_get_theme_option( 'map' ) ) ) {
+	if ( is_post_type_archive( 'map_point' ) ) {
 		wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false' );
 		wp_enqueue_script( 'gmaps', get_template_directory_uri() . '/js/vendor/jquery.ui.map.min.js' );
 		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/vendor/jquery.fancybox.pack.js' );
 	}
 
 	/** timeline */
-	if ( is_post_type_archive( 'time_period' ) )
+	//if ( is_post_type_archive( 'time_period' ) )
 		wp_enqueue_script( 'jquery-masonry' );
 
 	/** posts */
@@ -142,11 +142,11 @@ function sacr_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 
 	/** all */
-	wp_enqueue_script( 'sacr-script', get_template_directory_uri() . '/js/sacr.js', array( 'jquery' ), 20130220 );
+	wp_enqueue_script( 'sacr-script', get_template_directory_uri() . '/js/sacr.js', array( 'jquery', 'jquery-masonry' ), 20130301 );
 
 	$args = array(
 		'is_home'       => is_front_page(),
-		'is_map'        => is_page( sacr_get_theme_option( 'map' ) ),
+		'is_map'        => is_post_type_archive( 'map_point' ),
 		'is_timeline'   => is_post_type_archive( 'time_period' ),
 		'is_person'     => is_singular( 'person' ),
 		'map_url'       => get_permalink( sacr_get_theme_option( 'map' ) )
@@ -217,15 +217,15 @@ function sacr_comment( $comment, $args, $depth ) {
 		<article id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 			<div class="comment-author vcard">
 				<?php echo get_avatar( $comment, 74 ); ?>
-				<cite class="fn"><?php comment_author_link(); ?></cite>
 			</div><!-- .comment-author -->
 
 			<header class="comment-meta">
 				<?php
-					printf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
+					printf( '<cite class="fn">%4$s</cite> on <a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
 						esc_url( get_comment_link( $comment->comment_ID ) ),
 						get_comment_time( 'c' ),
-						sprintf( _x( '%1$s at %2$s', '1: date, 2: time', 'twentythirteen' ), get_comment_date(), get_comment_time() )
+						sprintf( _x( '%1$s at %2$s', '1: date, 2: time', 'twentythirteen' ), get_comment_date(), get_comment_time() ),
+						get_comment_author_link( $comment->comment_ID )
 					);
 					edit_comment_link( __( 'Edit', 'twentythirteen' ), '<span class="edit-link">', '<span>' );
 				?>

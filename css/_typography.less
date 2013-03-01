@@ -95,4 +95,64 @@ a {
 	p {
 		margin-bottom: 2.5em;
 	}
+
+	ul,
+	ol {
+		font-size: 16px;
+
+		margin: 2.5em 0;
+
+		li {
+			margin: 6px 0;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: @grayDarker;
+
+		margin: 1.5em 0 0;
+		clear: both;
+	}
+
+	h1 {
+		#font > .sans-serif-alt(28px, normal, 36px);
+
+		margin: 2em 0 0.5em;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	h2 {
+		#font > .serif-alt(24px, 300, 24px);
+	}
+
+	h3 {
+		#font > .serif-alt(22px, 700, 24px);
+	}
+
+	h4 {
+		#font > .sans-serif-alt(18px, normal, 36px);
+	}
+
+	h5 {
+		#font > .sans-serif-alt(16px, normal, 36px);
+		text-transform: uppercase;
+		color: @grayDark;
+
+		margin-bottom: -0.5em;
+	}
+
+	h6 {
+		#font > .serif-alt(16px, 700, 36px);
+		color: @grayDark;
+
+		margin-bottom: -0.5em;
+	}
 }

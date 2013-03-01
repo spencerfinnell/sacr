@@ -11,43 +11,33 @@ global $sacr_options;
 get_header(); ?>
 
 	<section class="hero-slider">
-		
-			<div class="home-slider">
-				<ul class="rslides">
-					<?php
-						$features = new WP_Query( array(
-							'post_type'              => 'feature',
-							'post_status'            => 'any',
-							'posts_per_page'         => 5,
-							'no_found_rows'          => true,
-							'cache_results'          => false,
-							'update_post_meta_cache' => false,
-							'update_post_term_cache' => false
-						) );
+		<div class="home-slider">
+			<ul class="rslides">
+				<?php
+					$features = new WP_Query( array(
+						'post_type'              => 'feature',
+						'post_status'            => 'any',
+						'posts_per_page'         => 5,
+						'no_found_rows'          => true,
+						'cache_results'          => false,
+						'update_post_meta_cache' => false,
+						'update_post_term_cache' => false
+					) );
 
-						if ( $features->have_posts() ) : while ( $features->have_posts() ) : $features->the_post();
-							$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
-					?>
-					<li <?php post_class(); ?> data-backstretch-image="<?php echo esc_url( $image[0] ); ?>">
-						<div class="container">
-							<div class="slider-stuff">
-								<div class="slider-title"><span><?php echo $post->post_content; ?></span></div>
-								<div class="slider-more"><a href="#" class="button">Learn More &rarr;</a></div>
-							</div>
+					if ( $features->have_posts() ) : while ( $features->have_posts() ) : $features->the_post();
+						$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
+				?>
+				<li <?php post_class(); ?> data-backstretch-image="<?php echo esc_url( $image[0] ); ?>">
+					<div class="container">
+						<div class="slider-stuff">
+							<div class="slider-title"><span><?php echo $post->post_content; ?></span></div>
+							<div class="slider-more"><a href="#" class="button">Learn More &rarr;</a></div>
 						</div>
-					</li>
-					<?php endwhile; endif; ?>
-				</ul>
-			</div>
-
-			<!--<div class="slider-partners left">
-				<h4 class="partner-title">Sponsored By:</h4>
-
-				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/logos/wordpress.png" alt="" /></a>
-				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/logos/wordpress.png" alt="" /></a>
-				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/logos/wordpress.png" alt="" /></a>
-			</div>-->
-		
+					</div>
+				</li>
+				<?php endwhile; endif; ?>
+			</ul>
+		</div>
 	</section>
 
 	<section class="feature left feature-timeline">
@@ -66,7 +56,7 @@ get_header(); ?>
 	<section class="feature feature-map">
 		<div class="container">
 			<div class="feature-graphic">
-				<a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map@2x.png" alt="" width="450" height="240" /></a>
+				<a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map@2x.png" alt="" width="450" height="240" /></a>
 			</div>
 
 			<div class="feature-description">

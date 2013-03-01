@@ -8,8 +8,6 @@ function sacr_timeline_query_vars( $vars ) {
 add_filter( 'query_vars', 'sacr_timeline_query_vars' );
 
 function sacr_timeline_rewrites_init() {
-	$timeline = get_post_type_object( 'time_period' );
-	
 	add_rewrite_rule( 'timeline/year/([^/]+)/?$', 'index.php?timeline_year=$matches[1]&post_type=time_period', 'top' );
 }
 add_action( 'init', 'sacr_timeline_rewrites_init' );

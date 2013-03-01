@@ -2,12 +2,9 @@
 
 
 function sacr_post_type_map_point() {
-	$map = get_page( sacr_get_theme_option( 'map' ) );
-
 	$maps = new SACR_Post_Type( 'Map Point', array( 
-		'rewrite'  => array( 'slug' => $map->post_name ),
-		'supports' => array( 'title', 'editor' ),
-		'has_archive' => false
+		'rewrite'  => array( 'slug' => 'map' ),
+		'supports' => array( 'title', 'editor' )
 	) );
 
 	$maps->register_taxonomy( 'Year', array( 'hierarchical' => true ) );
@@ -24,7 +21,7 @@ add_action( 'init', 'sacr_post_type_map_point' );
  * @param string $sep The separatating character
  * @return string $title The newly filtered title
  */
-function noteboard_wp_title( $title, $sep ) {
+function sacr_map_page_title( $title, $sep ) {
 	global $paged, $page, $wp_query, $post, $wpdb;
 
 	if ( get_query_var( 'point' ) ) {
@@ -39,44 +36,13 @@ function noteboard_wp_title( $title, $sep ) {
 
 	return $title;
 }
-add_filter( 'wp_title', 'noteboard_wp_title', 20, 2 );
-
-function sacr_page_after_map() {
-	global $post;
-
-	if ( ! is_page( sacr_get_theme_option( 'map' ) ) )
-		return;
-
-	$time_periods = get_terms( array( 'map_point-year' ), array( 'hide_empty' => 0, 'orderby' => 'id' ) );
-	$singled      = false;
-	$year         = get_query_var( 'map_year' );
-
-	if ( $year && in_array( $year, wp_list_pluck( $time_periods, 'slug' ) ) )
-		$singled = get_query_var( 'map_year' );
-?>
-	<section class="historic-map">
-		<div class="container">
-			<div class="map-control">
-				<h3 class="area-title">Filter by Time Period</h3>
-				<ul>
-					<?php foreach ( $time_periods as $term ) : ?>
-					<li class="map-filter"><label><input class="filter-time-period" type="checkbox" <?php $singled ? checked($term->slug, $singled ) : checked(0,0); ?> value="<?php echo $term->slug; ?>" /> <?php echo $term->name; ?></label></li>
-					<?php endforeach; ?>
-				</ul>
-			</div>
-		</div>
-
-		<div id="map-canvas"></div>
-	</section><!-- .feature-map -->
-<?php
-}
-add_action( 'sacr_page_after', 'sacr_page_after_map', 10 );
+add_filter( 'wp_title', 'sacr_map_page_title', 20, 2 );
 
 function sacr_map_point_modals() {
 	global $post, $_post, $wp_embed, $points_query;
 
-	if ( ! is_page( sacr_get_theme_option( 'map' ) ) )
-		return;
+	if ( ! is_post_type_archive( 'map_point' ) )
+		return false;
 
 	p2p_type( 'person_to_point' )->each_connected( $points_query, array(), 'people' );
 	p2p_type( 'point_to_point' )->each_connected( $points_query, array(), 'places' );
@@ -101,7 +67,7 @@ function sacr_map_point_modals() {
 add_action( 'wp_footer', 'sacr_map_point_modals' );
 
 function sacr_map_points() {
-	if ( ! is_page( sacr_get_theme_option( 'map' ) ) )
+	if ( ! is_post_type_archive( 'map_point' ) )
 		return false;
 
 	global $points_query;
