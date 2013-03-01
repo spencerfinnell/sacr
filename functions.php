@@ -44,11 +44,6 @@ function sacr_setup() {
 	require( get_template_directory() . '/inc/post-types.php' );
 
 	/**
-	 * Create Connections
-	 */
-	require( get_template_directory() . '/inc/p2p.php' );
-
-	/**
 	 * Modules
 	 */
 	$modules = array( 
@@ -115,6 +110,7 @@ function sacr_scripts() {
 
 	/** all */
 	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'jquery-masonry' );
 	wp_enqueue_script( 'sacr-typekit', 'http://use.typekit.net/cbu3qat.js' );
 	
 	/** home */
@@ -133,12 +129,8 @@ function sacr_scripts() {
 		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/vendor/jquery.fancybox.pack.js' );
 	}
 
-	/** timeline */
-	//if ( is_post_type_archive( 'time_period' ) )
-		wp_enqueue_script( 'jquery-masonry' );
-
 	/** posts */
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) && ! is_front_page() )
 		wp_enqueue_script( 'comment-reply' );
 
 	/** all */
@@ -149,7 +141,7 @@ function sacr_scripts() {
 		'is_map'        => is_post_type_archive( 'map_point' ),
 		'is_timeline'   => is_post_type_archive( 'time_period' ),
 		'is_person'     => is_singular( 'person' ),
-		'map_url'       => get_permalink( sacr_get_theme_option( 'map' ) )
+		'map_url'       => get_post_type_archive_link( 'map_point' )
 	);
 
 	wp_localize_script( 'sacr-script', 'SACRL10n', $args );
@@ -248,3 +240,44 @@ function sacr_comment( $comment, $args, $depth ) {
 	endswitch; // End comment_type check.
 }
 endif;
+
+function sacr_item_meta( $key, $post_id = null ) {
+	global $post;
+
+	if ( is_null( $post_id ) && is_object( $post ) )
+		$post_id = $post->ID;
+
+	$meta = get_post_meta( $post_id, $key, true );
+
+	if ( $meta )
+		return apply_filters( 'sacr_meta_' . $key, $meta );
+
+	return false;
+}
+
+function sacr_item_year( $taxonomy = 'map_point-year', $post_id = null ) {
+	global $post;
+
+	if ( is_null( $post_id ) && is_object( $post ) )
+		$post_id = $post->ID;
+
+	$years = get_the_terms( $post_id, $taxonomy );
+	$_year = '';
+
+	if ( ! $years )
+		return 1964;
+
+	foreach ( $years as $year ) {
+		$_year = $year->slug;
+		continue;
+	}	
+
+	return $_year;
+}
+
+function sacr_page_after_research() {
+	global $post;
+	
+	get_template_part( 'content-further-research', $post->post_name );
+}
+add_action( 'sacr_page_after', 'sacr_page_after_research', 30 );
