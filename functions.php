@@ -90,6 +90,7 @@ function sacr_setup() {
 	set_post_thumbnail_size( 280, 280, true );
 	add_image_size( 'hero', 940, 430, true );
 	add_image_size( 'timeline', 440, 275, true );
+	add_image_size( 'biography', 273, 9999 );
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.

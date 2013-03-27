@@ -30,8 +30,8 @@ get_header(); ?>
 				<li <?php post_class(); ?> data-backstretch-image="<?php echo esc_url( $image[0] ); ?>">
 					<div class="container">
 						<div class="slider-stuff">
-							<div class="slider-title"><span><?php echo $post->post_content; ?></span></div>
-							<div class="slider-more"><a href="#" class="button">Learn More &rarr;</a></div>
+							<div class="slider-title"><span><?php the_title(); ?></span></div>
+							<div class="slider-more"><a href="<?php echo esc_url( $post->post_content ); ?>" class="button"><?php _e( 'Learn More &rarr;', 'sacr' ); ?></a></div>
 						</div>
 					</div>
 				</li>
@@ -43,12 +43,12 @@ get_header(); ?>
 	<section class="feature left feature-timeline">
 		<div class="container">
 			<div class="feature-description">
-				<h2>When equality truly became equal.</h2>
-				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>" class="button">View the Timeline</a></p>
+				<h2><?php _e( 'When equality truly became equal.', 'sacr' ); ?></h2>
+				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>" class="button"><?php _e( 'View the Timeline', 'sacr' ); ?></a></p>
 			</div>
 
 			<div class="feature-graphic">
-				<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/display/timeline@2x.png" alt="" width="450" height="240" /></a>
+				<a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/timeline@2x.png" alt="" width="450" height="240" /></a>
 			</div>
 		</div>
 	</section><!-- .feature-timeline -->
@@ -60,8 +60,8 @@ get_header(); ?>
 			</div>
 
 			<div class="feature-description">
-				<h2>Where the action really took place.</h2>
-				<p class="feature-cta"><a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>" class="button">View the Map</a></p>
+				<h2><?php _e( 'Where the action really took place.', 'sacr' ); ?></h2>
+				<p class="feature-cta"><a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>" class="button"><?php _e( 'View the Map', 'sacr' ); ?></a></p>
 			</div>
 		</div>
 	</section><!-- .feature-map -->
@@ -69,12 +69,12 @@ get_header(); ?>
 	<section class="feature left feature-people">
 		<div class="container">
 			<div class="feature-description">
-				<h2>The heros behind the movement.</h2>
-				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'person' ); ?>" class="button">Meet the People</a></p>
+				<h2><?php _e( 'The heros behind the movement.', 'sacr' ); ?></h2>
+				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'person' ); ?>" class="button"><?php _e( 'Meet the People', 'sacr' ); ?></a></p>
 			</div>
 
 			<div class="feature-graphic">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/display/people.png" alt="" width="450" height="240" />
+				<a href="<?php echo get_post_type_archive_link( 'person' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/people.png" alt="" width="450" height="240" /></a>
 			</div>
 		</div>
 	</section><!-- .feature-people -->

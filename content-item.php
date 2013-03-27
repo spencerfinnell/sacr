@@ -20,11 +20,36 @@ global $post, $_post;
 		<?php echo sacr_item_meta( 'contentdm' ); ?>
 	<?php endif; ?>
 
-	<p><a href="<?php echo sacr_get_theme_option( 'contentdm' ); ?>" class="button on-light"><?php _e( 'Research Database &rarr;', 'sacr' ); ?></a></p>
+	<p><a href="<?php echo sacr_get_theme_option( 'contentdm' ); ?>" class="button on-light"><?php _e( 'Research Archives &rarr;', 'sacr' ); ?></a></p>
 </div>
 
 <div class="span-one-third alignright">
-	<?php if ( ! empty( $_post->people ) ) : ?>
+	<?php if ( is_singular( 'person' ) ) : ?>
+		<p><?php the_post_thumbnail( 'biography' ); ?></p>
+
+		<?php if ( '' != $post->post_excerpt ) : ?>
+		<h3 class="area-title"><?php _e( 'Biographical Information', 'sacr' ); ?></h3>
+
+		<table class="person-atts" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<?php 
+				$atts = $post->post_excerpt;
+				$atts = explode( "\n", $atts );
+
+				foreach ( $atts as $att ) :
+					$info  = explode( ":", $att );
+					$key   = $info[0];
+					$value = $info[1];
+			?>
+				<tr>
+					<td class="person-att-key"><strong><?php echo $key; ?></strong></td>
+					<td><?php echo $value; ?></td>
+				</tr>
+			<?php endforeach; ?>
+		</table>
+		<?php endif; ?>
+	<?php endif; ?>
+
+	<?php if ( isset ( $_post->people ) && ! empty( $_post->people ) ) : ?>
 	<h3 class="area-title"><?php _e( 'Related Individuals', 'sacr' ); ?></h3>
 
 	<ul class="related">
@@ -36,14 +61,13 @@ global $post, $_post;
 
 				<div class="related-description">
 					<a href="<?php the_permalink(); ?>" class="related-title"><?php the_title(); ?></a>
-					<?php echo get_the_term_list( get_the_ID(), 'person-tag', '<small>', ', ', '</small>' ); ?>
 				</div>
 			</li>
 		<?php endforeach;?>
 	</ul>	
 	<?php endif ;?>
 
-	<?php if ( ! empty( $_post->places ) ) : ?>
+	<?php if ( isset ( $_post->places ) && ! empty( $_post->places ) ) : ?>
 	<h3 class="area-title"><?php _e( 'Related Places', 'sacr' ); ?></h3>
 	
 	<ul class="related">
@@ -68,20 +92,25 @@ global $post, $_post;
 	<?php endif; ?>
 
 	<?php if ( is_singular( 'person' ) ) : ?>
-	<h3 class="area-title"><?php _e( 'Pictures', 'sacr' ); ?></h3>
 	<?php
-		$sizes  = array( 'fullsize', 'full', 'medium' );
-
 		$images = get_posts( array(
-			'post_type'   => 'attachment',
-			'post_parent' => $_post->ID,
-			'fields'      => 'ids'
+			'post_type'              => 'attachment',
+			'post_parent'            => $_post->ID,
+			'fields'                 => 'ids',
+			'post__not_in'           => array( get_post_thumbnail_id() ),
+			'no_found_rows'          => true,
+			'cache_results'          => false,
+			'update_post_term_cache' => false
 		) );
+
+		if ( ! empty( $images ) ) :
 	?>
+	<h3 class="area-title"><?php _e( 'Additional Images', 'sacr' ); ?></h3>
+
 	<div class="person-collage">
 		<?php foreach ( $images as $image_id ) : ?>
-			<?php echo wp_get_attachment_image( $image_id, 'thumbnail' ); ?>
+			<a href="<?php echo wp_get_attachment_url( $image_id ); ?>"><?php echo wp_get_attachment_image( $image_id, 'thumbnail' ); ?></a>
 		<?php endforeach; ?>
 	</div>
-	<?php endif; ?>
+	<?php endif; endif; ?>
 </div>

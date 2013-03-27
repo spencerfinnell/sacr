@@ -3,6 +3,11 @@
  *
  */
 
+function sacr_page_excerpt() {
+	add_post_type_support( 'page', 'excerpt' );
+}
+add_action( 'init', 'sacr_page_excerpt' );
+
 function sacr_admin_general() {
 	remove_menu_page( 'edit.php' );
 }

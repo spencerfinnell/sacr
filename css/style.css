@@ -716,6 +716,21 @@ input[type="submit"].tertiary.active {
 input[type="submit"].disabled {
   cursor: text;
 }
+.button.contentdm-collection,
+input[type="submit"].contentdm-collection {
+  text-align: center;
+  width: 49%;
+  margin: 0 2% 2% 0;
+  padding: 15px 0;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.button.contentdm-collection:nth-child(2n),
+input[type="submit"].contentdm-collection:nth-child(2n) {
+  margin-right: 0;
+}
 form {
   /**
 	 * Size
@@ -1013,6 +1028,11 @@ body {
 .person-bio p:last-child {
   margin: 40px 0 0;
 }
+.entry-content p:only-child,
+.the-content p:only-child,
+.person-bio p:only-child {
+  margin: 0;
+}
 .entry-content img {
   max-width: 100%;
   height: auto;
@@ -1191,6 +1211,11 @@ article.post .entry-content,
   font-weight: bold;
   color: #ffffff;
 }
+.entry-content .research-list-inner {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
 .further-cta {
   margin: 40px 0 20px;
   clear: both;
@@ -1198,6 +1223,16 @@ article.post .entry-content,
 .further-graphic {
   margin-top: 138px;
   display: block;
+}
+.glossary,
+.all-content {
+  margin: 60px 0;
+}
+.glossary {
+  margin-top: 30px;
+}
+.all-content {
+  margin-bottom: 0;
 }
 /**
  * Footer
@@ -1518,7 +1553,8 @@ article.post .entry-content,
 .point-modal-subtitle {
   color: #555555;
 }
-ul.related {
+ul.related,
+.person-atts {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1526,11 +1562,14 @@ ul.related {
   margin-bottom: 30px;
 }
 ul.related:before,
-ul.related:after {
+.person-atts:before,
+ul.related:after,
+.person-atts:after {
   display: table;
   content: "";
 }
-ul.related:after {
+ul.related:after,
+.person-atts:after {
   clear: both;
 }
 .related-item {
@@ -1655,6 +1694,7 @@ ul.related:after {
 .person {
   cursor: pointer;
   margin-right: 20px;
+  margin-bottom: 20px;
   background: #ffffff;
   position: relative;
   float: left;
@@ -1715,6 +1755,12 @@ ul.related:after {
 .person-collage img {
   width: 88px;
   height: 88px;
+}
+.person-atts td {
+  padding: 3px 0;
+}
+.person-att-key {
+  color: #2c2a29;
 }
 .glossary-archive {
   width: 240px;

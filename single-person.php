@@ -21,8 +21,6 @@ get_header(); ?>
 		
 		<h1 class="page-title"><?php the_title(); ?></h1>
 
-		<div class="person-picture" data-backstretch-image="<?php echo esc_url( $image[0] ); ?>"></div>
-		
 		<div class="person-bio">
 			<div class="person-description clearfix">
 				<?php get_template_part( 'content', 'item' ); ?>

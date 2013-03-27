@@ -34,4 +34,6 @@ get_header(); ?>
 		<div id="map-canvas"></div>
 	</section><!-- .feature-map -->
 
+	<?php get_template_part( 'content-further-research', 'map_point-archive' ); ?>
+
 <?php get_footer(); ?>

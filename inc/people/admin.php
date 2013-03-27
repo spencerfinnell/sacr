@@ -8,4 +8,4 @@ function sacr_people_columns( $columns ) {
 
 	return $columns;
 }
-add_filter( 'manage_edit-person_columns', 'sacr_people_columns', 10 );
+//add_filter( 'manage_edit-person_columns', 'sacr_people_columns', 5 );

@@ -10,8 +10,8 @@
 						<?php
 							$people = get_posts( array(
 								'post_type'              => 'person',
+								'orderby'                => 'rand',
 								'posts_per_page'         => 10,
-								'nopaging'               => true,
 								'no_found_rows'          => true,
 								'cache_results'          => false,
 								'update_post_term_cache' => false
@@ -32,8 +32,8 @@
 						<?php
 							$places = get_posts( array(
 								'post_type'              => 'map_point',
+								'orderby'                => 'rand',
 								'posts_per_page'         => 10,
-								'nopaging'               => true,
 								'no_found_rows'          => true,
 								'cache_results'          => false,
 								'update_post_term_cache' => false
@@ -54,8 +54,8 @@
 						<?php
 							$events = get_posts( array(
 								'post_type'              => 'time_period',
+								'orderby'                => 'rand',
 								'posts_per_page'         => 10,
-								'nopaging'               => true,
 								'no_found_rows'          => true,
 								'cache_results'          => false,
 								'update_post_term_cache' => false
@@ -71,11 +71,13 @@
 				</div>
 			</div>
 
-			<p class="further-cta"><a href="<?php echo esc_url( sacr_get_theme_option( 'contentdm' ) ); ?>" class="button tertiary"><?php _e( 'Research Database', 'sacr' ); ?></a></p>
+			<p class="further-cta"><a href="<?php echo esc_url( sacr_get_theme_option( 'contentdm' ) ); ?>" class="button tertiary"><?php _e( 'Research Archives', 'sacr' ); ?></a></p>
 		</div>
 
 		<div class="span-one-third alignright">
-			
+			<h2 class="section-title">Partners</h2>
+
+			<p>Something...</p>
 		</div>
 	</div>
 </section><!-- .further -->
