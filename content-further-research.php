@@ -44,7 +44,7 @@
 						<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
 						<?php endforeach; wp_reset_postdata(); ?>
 
-						<li class="more"><a href="<?php echo get_permalink( sacr_get_theme_option( 'map' ) ); ?>"><?php _e( 'View More &rarr;', 'sacr' ); ?></a></li>
+						<li class="more"><a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>"><?php _e( 'View More &rarr;', 'sacr' ); ?></a></li>
 					</ul>
 				</div>
 
@@ -66,7 +66,7 @@
 						<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
 						<?php endforeach; wp_reset_postdata(); ?>
 
-						<li class="more"><a href="<?php echo get_permalink( sacr_get_theme_option( 'timeline' ) ); ?>"><?php _e( 'View More &rarr;', 'sacr' ); ?></a></li>
+						<li class="more"><a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>"><?php _e( 'View More &rarr;', 'sacr' ); ?></a></li>
 					</ul>
 				</div>
 			</div>

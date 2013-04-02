@@ -53,7 +53,7 @@ global $post, $_post;
 	<h3 class="area-title"><?php _e( 'Related Individuals', 'sacr' ); ?></h3>
 
 	<ul class="related">
-		<?php foreach ( $_post->people as $post ) : setup_postdata( $post ); ?>
+		<?php sort( $_post->people ); foreach ( $_post->people as $post ) : setup_postdata( $post ); ?>
 			<li class="related-item">
 				<div class="related-preview">
 					<?php the_post_thumbnail(); ?>
@@ -61,6 +61,7 @@ global $post, $_post;
 
 				<div class="related-description">
 					<a href="<?php the_permalink(); ?>" class="related-title"><?php the_title(); ?></a>
+					<small><a href="<?php the_permalink(); ?>"><?php _e( 'Read More &rarr;', 'sacr' ); ?></a></small>
 				</div>
 			</li>
 		<?php endforeach;?>
@@ -71,7 +72,7 @@ global $post, $_post;
 	<h3 class="area-title"><?php _e( 'Related Places', 'sacr' ); ?></h3>
 	
 	<ul class="related">
-		<?php foreach ( $_post->places as $post ) : setup_postdata( $post ); ?>
+		<?php sort( $_post->places ); foreach ( $_post->places as $post ) : setup_postdata( $post ); ?>
 			<li class="related-item">
 				<div class="related-preview">
 					<img src="<?php echo get_template_directory_uri(); ?>/images/display/pin-<?php echo sacr_item_year(); ?>.png" />
@@ -81,9 +82,6 @@ global $post, $_post;
 					<a href="<?php the_permalink(); ?>" class="related-title related-point" data-point="#<?php echo $post->post_name; ?>"><?php the_title(); ?></a>
 					<small>
 						<strong><?php echo get_the_term_list( $post->ID, 'map_point-year', '', ', ', '' ); ?></strong>
-						<?php if ( is_singular( 'person' ) ) : ?>
-						 <br /> <span class="latlong"><?php echo sacr_item_meta( 'latlong', get_the_ID() ); ?></span>
-						<?php endif; ?>
 					</small>
 				</div>
 			</li>

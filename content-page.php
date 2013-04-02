@@ -7,7 +7,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( is_page( sacr_get_theme_option( 'timeline' ) ) ? '' : 'container' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'container' ); ?>>
 	<header class="entry-header container">
 		<h1 class="page-title"><?php the_title(); ?></h1>
 	</header><!-- .entry-header -->

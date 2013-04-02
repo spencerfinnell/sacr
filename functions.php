@@ -98,6 +98,8 @@ function sacr_setup() {
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'sacr' ),
 	) );
+
+	add_filter( 'the_excerpt', 'do_shortcode' );
 }
 endif; // sacr_setup
 add_action( 'after_setup_theme', 'sacr_setup' );
@@ -257,23 +259,27 @@ function sacr_item_meta( $key, $post_id = null ) {
 }
 
 function sacr_item_year( $taxonomy = 'map_point-year', $post_id = null ) {
+	return sacr_item_single_term( $taxonomy, $post_id );
+}
+
+function sacr_item_single_term( $taxonomy, $post_id = null ) {
 	global $post;
 
 	if ( is_null( $post_id ) && is_object( $post ) )
 		$post_id = $post->ID;
 
-	$years = get_the_terms( $post_id, $taxonomy );
-	$_year = '';
+	$terms = get_the_terms( $post_id, $taxonomy );
+	$_term = '';
 
-	if ( ! $years )
-		return 1964;
+	if ( ! $terms )
+		return 0;
 
-	foreach ( $years as $year ) {
-		$_year = $year->slug;
+	foreach ( $terms as $term ) {
+		$_term = $term->slug;
 		continue;
 	}	
 
-	return $_year;
+	return $_term;
 }
 
 function sacr_page_after_research() {

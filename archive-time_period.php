@@ -6,6 +6,7 @@
 global $wp_locale;
 
 $prev_post_date  = null;
+$prev_post_date_ts = null;
 $prev_post_month = null;
 $i               = 0;
 $query_year      = get_query_var( 'timeline_year' ) ? get_query_var( 'timeline_year' ) : 1964;
@@ -13,6 +14,7 @@ $query_year      = get_query_var( 'timeline_year' ) ? get_query_var( 'timeline_y
 $dates           = new WP_Query( array(
 	'post_type' => 'time_period',
 	'orderby'   => 'meta_value',
+	'nopaging'  => true,
 	'order'     => 'ASC',
 	'meta_key'  => '_date',
 	'tax_query' => array(
@@ -46,8 +48,9 @@ get_header(); ?>
 			<div class="timeline">
 				<?php 
 					while ( $dates->have_posts() ) : $dates->the_post(); 
-						$post_date  = sacr_item_meta( '_date' );
-						$post_month = mysql2date( 'n', $post_date, false );
+						$post_date    = sacr_item_meta( '_date' );
+						$post_month   = mysql2date( 'n', $post_date, false );
+						$post_date_ts = mysql2date( 'U', $post_date, false );
 				?>
 			
 				<?php
@@ -78,8 +81,16 @@ get_header(); ?>
 
 					<ul class="timeline-month-list">
 				<?php endif; ?>
-
-						<li id="<?php echo esc_attr( $post->post_name ); ?>" <?php post_class( array( 'timeline-item' ) ); ?>>
+						<?php
+							/* Compute difference in days */
+							if ( ! is_null( $prev_post_date ) && $prev_post_month == $post_month ) {
+								$dates_diff = ( date( 'z', $post_date_ts ) - date( 'z', $prev_post_date_ts ) ) * 9;
+							}
+							else {
+								$dates_diff = 0;
+							}
+						?>
+						<li id="<?php echo esc_attr( $post->post_name ); ?>" style="margin-top: <?php echo $dates_diff; ?>px" <?php post_class( array( 'timeline-item' ) ); ?>>
 							<div class="timeline-item-date">
 								<?php printf( __( '%s the %s<sup>%s</sup>', 'sacr' ), mysql2date( 'l', $post_date, false ), mysql2date( 'd', $post_date, false ), mysql2date( 'S', $post_date, false ) ); ?>
 							</div>
@@ -89,12 +100,15 @@ get_header(); ?>
 							<div class="timeline-item-content">
 								<?php the_post_thumbnail( 'timeline' ); ?>
 
+								<?php if ( 'local' == sacr_item_single_term( 'time_period-location', $post->ID ) ) : ?>
 								<?php the_content(); ?>
+								<?php endif; ?>
 							</div>
 						</li>
 				<?php 
-							$prev_post_month = $post_month;
-							$prev_post_date  = $post_date;
+							$prev_post_month   = $post_month;
+							$prev_post_date    = $post_date;
+							$prev_post_date_ts = $post_date_ts;
 						endwhile; 
 				?>
 

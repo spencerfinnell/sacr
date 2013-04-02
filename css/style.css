@@ -492,6 +492,10 @@ table {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.fancybox-inner .related-description .related-title {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
 /**
  * Genericons, a flexible icon-font.
  * License: GPL version 2 or any later version with font exception (http://www.gnu.org/licenses/gpl-faq.html#FontException)
@@ -712,10 +716,6 @@ input[type="submit"].tertiary.active {
   background-image: linear-gradient(top, #741412, #480c0b);
   background-repeat: repeat-x;
 }
-.button.disabled,
-input[type="submit"].disabled {
-  cursor: text;
-}
 .button.contentdm-collection,
 input[type="submit"].contentdm-collection {
   text-align: center;
@@ -730,6 +730,10 @@ input[type="submit"].contentdm-collection {
 .button.contentdm-collection:nth-child(2n),
 input[type="submit"].contentdm-collection:nth-child(2n) {
   margin-right: 0;
+}
+.button.disabled,
+input[type="submit"].disabled {
+  cursor: text;
 }
 form {
   /**
@@ -1033,30 +1037,54 @@ body {
 .person-bio p:only-child {
   margin: 0;
 }
-.entry-content img {
+.entry-content img,
+.person-bio img {
   max-width: 100%;
   height: auto;
 }
-.entry-content .intro {
+.entry-content .intro,
+.person-bio .intro,
+.entry-content p:first-child,
+.person-bio p:first-child {
   font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
   font-size: 22px;
   font-weight: 300;
   line-height: 34px;
 }
-.entry-content blockquote {
-  margin: 2.5em;
-  padding-left: 30px;
-  border-left: 2px solid #cfcfcf;
+.entry-content blockquote,
+.person-bio blockquote {
+  margin: 2.5em 0;
+  padding: 0;
+  border: 1px dashed #dcdcdc;
+  border-width: 1px 0;
 }
-.entry-content blockquote p {
-  font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 30px;
-  font-style: italic;
+.entry-content blockquote p,
+.person-bio blockquote p {
+  margin: 1em 0 !important;
+  text-align: center;
 }
-.entry-content blockquote p:first-child {
+.entry-content blockquote p:first-child,
+.person-bio blockquote p:first-child {
+  font: 30px "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #0072a4;
+  padding: 0;
+}
+.entry-content blockquote p:first-child cite,
+.person-bio blockquote p:first-child cite {
+  font-size: 12px;
+}
+.entry-content blockquote:first-child,
+.person-bio blockquote:first-child {
   margin-top: 0;
+}
+.entry-content .research-list-inner,
+.person-bio .research-list-inner {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+.page-template-page-templatesglossary-php .entry-content li a {
+  color: #0072a4;
 }
 article.page .entry-content,
 article.post .entry-content,
@@ -1069,6 +1097,90 @@ article.post .entry-content,
   content: '\f411';
   top: -1px;
   position: relative;
+}
+/* Images */
+.entry-content img,
+.comment-content img,
+.widget img {
+  max-width: 97.5%;
+  /* Fluid images for posts, comments, and widgets */
+
+}
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+  height: auto;
+  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+
+}
+img.size-full,
+img.size-large {
+  max-width: 97.5%;
+  width: auto;
+  /* Prevent stretching of full-size and large-size images with height and width attributes in IE8 */
+
+  height: auto;
+  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+
+}
+.entry-content img.wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+img.alignleft,
+img.alignright,
+img.aligncenter {
+  margin-bottom: 1.625em;
+  padding: 3px;
+  border: 1px solid #ddd;
+}
+img.alignleft,
+.wp-caption.alignleft {
+  margin-right: 1.625em;
+}
+img.alignright,
+.wp-caption.alignright {
+  margin-left: 1.625em;
+}
+p img,
+.wp-caption {
+  margin-top: 0.4em;
+}
+.wp-caption {
+  background: #eee;
+  margin-bottom: 1.625em;
+  max-width: 96%;
+  padding: 9px;
+}
+.wp-caption img {
+  display: block;
+  margin: 0 auto;
+  max-width: 98%;
+}
+.wp-caption .wp-caption-text,
+.gallery-caption {
+  color: #666;
+  font-family: Georgia, serif;
+  font-size: 12px;
+}
+.wp-caption .wp-caption-text {
+  margin-top: 0 !important;
+  margin-bottom: 0.6em;
+  padding: 10px 0 5px 40px;
+  position: relative;
+}
+.wp-caption .wp-caption-text:before {
+  color: #666;
+  content: '\2014';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+  margin-right: 5px;
+  position: absolute;
+  left: 10px;
+  top: 7px;
 }
 /**
  * Comments
@@ -1210,11 +1322,6 @@ article.post .entry-content,
 .research-list .more a {
   font-weight: bold;
   color: #ffffff;
-}
-.entry-content .research-list-inner {
-  margin: 0;
-  padding: 0;
-  list-style-position: inside;
 }
 .further-cta {
   margin: 40px 0 20px;
@@ -1600,18 +1707,19 @@ ul.related:after,
   display: block;
 }
 .related-description {
-  margin-left: 78px;
+  margin-left: 80px;
 }
 .related-description .related-title {
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   line-height: normal;
   color: #0072a4;
-  padding-top: 10px;
-  margin-bottom: 4px;
+  padding-top: 14px;
+  margin-bottom: 6px;
   display: block;
 }
 .related-description small {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 14px;
   display: block;
 }
@@ -1730,7 +1838,9 @@ ul.related:after,
 }
 .person-preview img {
   display: block;
-  margin: -50px 0 0 -30px;
+  margin: -30px 0 0 0;
+  width: 220px;
+  height: auto;
 }
 .person-name a {
   font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;

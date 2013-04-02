@@ -175,8 +175,6 @@ sacr.timeline = (function($) {
 
 	return {
 		init : function() {
-			//this.preAdjustItems();
-
 			$( '.timeline-month-list' ).masonry({
 				itemSelector : '.timeline-item',
 				columnWidth  : 450,
@@ -188,32 +186,16 @@ sacr.timeline = (function($) {
 			this.selectActive();
 		},
 
-		preAdjustItems : function() {
-			$( '.timeline-item' ).each(function(index){
-				var item   = $( this );
-
-				if ( ( item.data( 'day' ) < item.prev().data( 'day' ) ) && parseInt( item.css( 'margin-top' ), 10 ) <  parseInt( item.prev().css( 'margin-top' ), 10 ) ) {
-					var diff = item.prev().data( 'day' ) - item.data( 'day' );
-
-					item.css( 'margin-top', parseInt( item.prev().css( 'margin-top' ), 10 ) + ( diff * 10 ) );
-				}
-			});
-		},
-
 		adjustItems : function() {
 			$( '.timeline-item' ).each(function(index){
 				var item   = $( this ),
-					offset = parseInt( item.css( 'left' ), 10 );
+					offset = parseInt( item.css( 'left' ), 10 ),
+					next   = item.next();
 
 				if ( offset > 0 )
 					item.addClass( 'right' );
 				else
 					item.addClass( 'left' );
-
-				/*if ( item.prev().hasClass( 'left' ) ) {
-					console.log( item.prev().css( 'margin-top' ) + $(this).css( 'margin-top' ) );
-					item.css( 'margin-top', parseInt( item.prev().css( 'margin-top' ), 10 ) + parseInt( $(this).css( 'margin-top' ), 10 ) );
-				}*/
 			});
 		},
 
