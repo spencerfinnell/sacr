@@ -123,10 +123,7 @@ sacr.map = (function($){
 				maxZoom            : 18,
 				center             : new google.maps.LatLng(SACRMap.center[0], SACRMap.center[1]),
 				mapTypeId          : google.maps.MapTypeId.ROADMAP,
-				panControl         : false,
-				scrollwheel        : false,
 				streetViewControl  : false,
-				mapTypeControl     : false,
 				zoomControlOptions : {
 					position : google.maps.ControlPosition.LEFT_CENTER
 				}
@@ -165,6 +162,12 @@ sacr.map = (function($){
 				runFilter();
 				bindSwitcher();
 				bindLoader();
+			});
+
+			var map = $( '#map-canvas' ).gmap('get', 'map');
+
+			$(map).addEventListener( "maptypeid_changed", function() {
+				var newMapType = map.getMapTypeId();
 			});
 		}
 	}

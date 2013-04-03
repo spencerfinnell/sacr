@@ -49,17 +49,8 @@ function sacr_map_point_modals() {
 
 	while ( $points_query->have_posts() ) : $points_query->the_post();
 		$_post = $post; // Save ourselves
-?>
-		<div id="<?php echo esc_attr( get_post()->post_name ); ?>" class="point-modal">
-			<div class="video-container">
-				<?php echo $wp_embed->run_shortcode( '[embed]' . sacr_item_meta( 'video' ) . '[/embed]' ); ?>
-			</div>
 
-			<div class="point-modal-content clearfix">
-				<?php get_template_part( 'content', 'item' ); ?>
-			</div>
-		</div>
-<?php
+		get_template_part( 'content', 'map-point' );
 	endwhile;
 
 	wp_reset_postdata();

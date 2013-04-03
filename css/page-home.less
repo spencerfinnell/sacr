@@ -5,7 +5,8 @@
 .rslides {
 	position: relative;
 	overflow: hidden;
-	width: 100%;
+	width: 1100px;
+	margin: 0 auto !important;
 
 	.reset-list;
 
@@ -32,11 +33,12 @@
 		}
 	}
 
-	.rslides img {
+	img {
 		display: block;
 		height: auto;
 		float: left;
-		width: 100%;
+		width: 1100px;
+		height: 430px;
 		border: 0;
 	}
 }
@@ -142,7 +144,7 @@
 
 .feature-graphic,
 .feature-description {
-	text-align: right;
+	text-align: left;
 
 	margin: 0 2.5%;
 	width: 45%;
@@ -150,15 +152,19 @@
 }
 
 .feature-description {
-	text-align: left;
-
 	margin-top: 25px;
 
-	h2 {
-		#font > .serif-alt(50px, 400, 47px);
+	h2,
+	h1 {
+		#font > .serif-alt(45px, 400, 47px);
 		text-shadow: rgba(0, 0, 0, .16) 0 1px 1px;
 
 		margin: 0;
+	}
+
+	h1 {
+		font-size: 50px;
+		line-height: 65px;
 	}
 }
 
@@ -166,10 +172,18 @@
 	margin-top: 30px;
 }
 
-.feature-map {
+/*.feature-map {
 	background: url(../images/map-texture.png) repeat;
 
 	.size(100%, auto);
+}*/
+
+.feature-intro {
+	.feature-description {
+		width: auto;
+		text-align: center;
+		margin: 0;
+	}
 }
 
 .feature-timeline {
