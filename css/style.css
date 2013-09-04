@@ -2108,15 +2108,26 @@ ul.related:after,
 .timeline-item:last-child {
   margin-bottom: 0;
 }
-.timeline-item-title {
+.timeline-item-title,
+.timeline-item.title.local {
   font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
   font-size: 16px;
   font-weight: 300;
   line-height: normal;
+  color: #f6b01a;
   margin: 0.5em 0 0;
   padding: 0;
 }
-.timeline-item-title a {
+.timeline-item-title a,
+.timeline-item.title.local a {
+  color: #f6b01a;
+}
+.regional .timeline-item-title.regional,
+.regional .timeline-item-title.local {
+  color: #a6b5c0;
+}
+.local .timeline-item-title.regional,
+.local .timeline-item-title.local {
   color: #f6b01a;
 }
 .timeline-item-date {
@@ -2135,9 +2146,6 @@ ul.related:after,
   display: block;
   font-weight: normal;
   font-size: 60%;
-}
-.regional .timeline-item-date {
-  color: #a6b5c0;
 }
 .timeline-item-content p {
   font-size: 15px;
@@ -2163,7 +2171,7 @@ ul.related:after,
   margin-right: 10px;
   width: 15px;
   height: 15px;
-  background: #ffffff;
+  background: #f6b01a;
   display: inline-block;
   vertical-align: text-top;
 }
