@@ -1072,6 +1072,12 @@ body {
   font-weight: 300;
   line-height: 34px;
 }
+.entry-content ol,
+.person-bio ol,
+.entry-content ul,
+.person-bio ul {
+  margin-left: 30px;
+}
 .entry-content blockquote,
 .person-bio blockquote {
   margin: 2.5em 0;
@@ -1103,6 +1109,13 @@ body {
   margin: 0;
   padding: 0;
   list-style-position: inside;
+}
+.entry-content cite.video-note,
+.person-bio cite.video-note {
+  text-align: center;
+  font-size: 12px;
+  display: block;
+  margin-top: 8px;
 }
 .page-template-page-templatesglossary-php .entry-content li a {
   color: #0072a4;
@@ -1170,10 +1183,13 @@ p img,
   margin-top: 0.4em;
 }
 .wp-caption {
-  background: #eee;
+  border: 1px solid #e9e9e9;
+  background: #f8f8f8;
   margin-bottom: 1.625em;
   max-width: 96%;
   padding: 9px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
 }
 .wp-caption img {
   display: block;
@@ -1187,21 +1203,14 @@ p img,
   font-size: 12px;
 }
 .wp-caption .wp-caption-text {
-  margin-top: 0 !important;
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 18px;
+  margin-top: 8px !important;
   margin-bottom: 0.6em;
-  padding: 10px 0 5px 40px;
   position: relative;
-}
-.wp-caption .wp-caption-text:before {
-  color: #666;
-  content: '\2014';
-  font-size: 14px;
-  font-style: normal;
-  font-weight: bold;
-  margin-right: 5px;
-  position: absolute;
-  left: 10px;
-  top: 7px;
+  text-align: center;
 }
 /**
  * Comments
@@ -1416,6 +1425,25 @@ p img,
   width: 100%;
   height: 29px;
 }
+.person-bio .sponsors-page {
+  margin: 0 80px;
+  overflow: hidden;
+}
+.person-bio .sponsors-page p {
+  margin: 0 0 22px;
+  float: left;
+}
+.person-bio .sponsors-page p:nth-child(1n) {
+  margin-right: 22px;
+}
+.person-bio .sponsors-page p img {
+  margin: 0 !important;
+}
+.person-bio .page-excerpt p {
+  font-size: 90%;
+  line-height: 22px;
+  color: #2c2a29;
+}
 .hero-slider {
   position: relative;
 }
@@ -1463,6 +1491,11 @@ p img,
   width: 1100px;
   height: 430px;
   border: 0;
+}
+.rslides .read-more {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
 }
 .large-btns_nav {
   font-size: 30px;
@@ -1569,14 +1602,17 @@ p img,
 }
 .feature-description h2,
 .feature-description h1 {
-  font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
-  font-size: 45px;
+  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 38px;
   font-weight: 400;
-  line-height: 47px;
+  line-height: 46px;
   text-shadow: rgba(0, 0, 0, 0.16) 0 1px 1px;
   margin: 0;
 }
 .feature-description h1 {
+  font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  line-height: 47px;
   font-size: 50px;
   line-height: 65px;
 }
@@ -1593,6 +1629,17 @@ p img,
   text-align: center;
   margin: 0;
 }
+.feature-people blockquote {
+  margin: 40px auto 0;
+  clear: both;
+  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 24px;
+  text-align: center;
+  color: #b3b4b5;
+  max-width: 650px;
+}
 .backstretch:after {
   content: " ";
   display: block;
@@ -1602,6 +1649,9 @@ p img,
   background: rgba(0, 0, 0, 0.1) url(../images/texture-dots.png) repeat center center;
   width: 100%;
   height: 100%;
+}
+.sponsors img {
+  max-width: 100%;
 }
 #map-canvas {
   width: 100%;
@@ -1672,6 +1722,9 @@ p img,
 }
 .point-modal {
   display: none;
+}
+.point-modal img {
+  width: 100%;
 }
 .point-modal-title,
 .person-bio h1 {
@@ -2094,6 +2147,9 @@ ul.related:after,
 .timeline-item-content img {
   max-width: 100%;
   margin: 0.5em 0;
+}
+.timeline-item-content.local p {
+  color: #ffffff;
 }
 /** Utilities */
 .reset-list {

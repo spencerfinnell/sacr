@@ -118,10 +118,10 @@ sacr.map = (function($){
 		init : function() {
 			$( '#map-canvas' ).gmap({
 				styles             : mapStyles,
-				zoom               : 16,
+				zoom               : 15,
 				minZoom            : 14,
-				maxZoom            : 18,
-				center             : new google.maps.LatLng(SACRMap.center[0], SACRMap.center[1]),
+				maxZoom            : 20,
+				center             : new google.maps.LatLng( '29.892174', '-81.312706' ),
 				mapTypeId          : google.maps.MapTypeId.ROADMAP,
 				streetViewControl  : false,
 				zoomControlOptions : {
@@ -265,11 +265,6 @@ sacr.ui = (function($) {
 		},
 
 		home : function() {
-			if ( $.backstretch )
-				$( '.hero-slider li' ).each(function(index){
-					$(this).backstretch( $(this).data( 'backstretch-image' ) );
-				});
-
 			$( '.rslides' ).responsiveSlides({
 				nav       : true,
 				namespace : 'large-btns',
@@ -305,7 +300,9 @@ jQuery(document).ready(function($) {
 
 	if ( SACRL10n.is_map )
 		sacr.map.init();
+});
 
+jQuery(window).load(function() {
 	if ( SACRL10n.is_timeline )
 		sacr.timeline.init();
 });

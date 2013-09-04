@@ -169,6 +169,11 @@ body {
 		#font > .serif-alt(22px, 300, 34px);
 	}
 
+	ol,
+	ul {
+		margin-left: 30px;
+	}
+
 	blockquote {
 		margin: 2.5em 0;
 		padding: 0;
@@ -199,6 +204,13 @@ body {
 		margin: 0;
 		padding: 0;
 		list-style-position: inside;
+	}
+
+	cite.video-note {
+		text-align: center;
+		font-size: 12px;
+		display: block;
+		margin-top: 8px;
 	}
 }
 
@@ -271,10 +283,13 @@ p img,
 }
 
 .wp-caption {
-	background: #eee;
+	border: 1px solid lighten(@grayLighter, 10%);
+	background: lighten(@grayLighter, 16%);
 	margin-bottom: 1.625em;
 	max-width: 96%;
 	padding: 9px;
+
+	.box-shadow(~"0 1px 3px rgba(0, 0, 0, .05)");
 }
 
 .wp-caption img {
@@ -291,22 +306,11 @@ p img,
 }
 
 .wp-caption .wp-caption-text {
-	margin-top: 0 !important;
+	#font > .sans-serif-alt(12px, normal, 18px);
+	margin-top: 8px !important;
 	margin-bottom: 0.6em;
-	padding: 10px 0 5px 40px;
 	position: relative;
-}
-
-.wp-caption .wp-caption-text:before {
-	color: #666;
-	content: '\2014';
-	font-size: 14px;
-	font-style: normal;
-	font-weight: bold;
-	margin-right: 5px;
-	position: absolute;
-	left: 10px;
-	top: 7px;
+	text-align: center;
 }
 
 /**
@@ -554,5 +558,30 @@ p img,
 		left: 0;
 
 		.size(100%, 29px);
+	}
+}
+
+
+.entry-content .sponsors-page {
+	margin: 0 80px;
+	overflow: hidden;
+
+	p {
+		margin: 0;
+		float: left;
+
+		&:nth-child(1n) {
+			margin-right: 1.65em;
+		}
+
+		&:nth-child(2n) {
+			img {
+				margin-right: 0;
+			}
+		}
+
+		img {
+			margin: 0 !important;
+		}
 	}
 }

@@ -4,7 +4,7 @@
 function sacr_post_type_map_point() {
 	$maps = new SACR_Post_Type( 'Map Point', array( 
 		'rewrite'  => array( 'slug' => 'map' ),
-		'supports' => array( 'title', 'editor' )
+		'supports' => array( 'title', 'editor', 'thumbnail' )
 	) );
 
 	$maps->register_taxonomy( 'Year', array( 'hierarchical' => true ) );

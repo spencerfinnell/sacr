@@ -27,7 +27,7 @@
 		<?php if ( '' != $post->post_excerpt ) : ?>
 				</div>
 
-				<div class="span-one-third alignright">
+				<div class="page-excerpt span-one-third alignright">
 					<?php the_excerpt(); ?>
 				</div>
 			</div>

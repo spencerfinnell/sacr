@@ -9,7 +9,7 @@ $prev_post_date  = null;
 $prev_post_date_ts = null;
 $prev_post_month = null;
 $i               = 0;
-$query_year      = get_query_var( 'timeline_year' ) ? get_query_var( 'timeline_year' ) : 1964;
+$query_year      = get_query_var( 'timeline_year' ) ? get_query_var( 'timeline_year' ) : 1963;
 
 $dates           = new WP_Query( array(
 	'post_type' => 'time_period',
@@ -95,14 +95,14 @@ get_header(); ?>
 								<?php printf( __( '%s the %s<sup>%s</sup>', 'sacr' ), mysql2date( 'l', $post_date, false ), mysql2date( 'd', $post_date, false ), mysql2date( 'S', $post_date, false ) ); ?>
 							</div>
 							
+							<?php if ( 'local' == sacr_item_single_term( 'time_period-location', $post->ID ) ) : ?>
 							<h3 class="timeline-item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<?php endif; ?>
 
-							<div class="timeline-item-content">
+							<div class="timeline-item-content <?php echo sacr_item_single_term( 'time_period-location', $post->ID ); ?>">
 								<?php the_post_thumbnail( 'timeline' ); ?>
 
-								<?php if ( 'local' == sacr_item_single_term( 'time_period-location', $post->ID ) ) : ?>
 								<?php the_content(); ?>
-								<?php endif; ?>
 							</div>
 						</li>
 				<?php 

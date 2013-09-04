@@ -41,6 +41,12 @@
 		height: 430px;
 		border: 0;
 	}
+
+	.read-more {
+		position: absolute;
+		bottom: 40px;
+		right: 40px;
+	}
 }
 
 .large-btns_nav {
@@ -156,13 +162,14 @@
 
 	h2,
 	h1 {
-		#font > .serif-alt(45px, 400, 47px);
+		#font > .sans-serif-alt(38px, 400, 46px);
 		text-shadow: rgba(0, 0, 0, .16) 0 1px 1px;
 
 		margin: 0;
 	}
 
 	h1 {
+		#font > .serif-alt(50px, 400, 47px);
 		font-size: 50px;
 		line-height: 65px;
 	}
@@ -191,7 +198,15 @@
 }
 
 .feature-people {
-	
+
+	blockquote {
+		margin: 40px auto 0;
+		clear: both;
+		#font > .sans-serif(18px, normal, 24px);
+		text-align: center;
+		color: lighten(@blueLight, 20%);
+		max-width: 650px;
+	}
 }
 
 .backstretch:after {
@@ -203,4 +218,8 @@
 	background: rgba(0, 0, 0, .1) url(../images/texture-dots.png) repeat center center;
 
 	.size(100%, 100%);
+}
+
+.sponsors img {
+	max-width: 100%;
 }

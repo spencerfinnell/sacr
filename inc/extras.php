@@ -45,3 +45,14 @@ function sacr_wp_title( $title, $sep ) {
 	return $title;
 }
 add_filter( 'wp_title', 'sacr_wp_title', 10, 2 );
+
+function sacr_sponsors( $limit = null) {
+	$sponsors = array(891, 890, 889, 888, 887, 886, 885, 884, 883, 882, 881, 880, 879, 878);
+
+	shuffle( $sponsors );
+
+	if ( $limit )
+		return array_slice( $sponsors, 0, $limit );
+
+	return $sponsors;
+}

@@ -88,7 +88,7 @@ function sacr_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 280, 280, true );
-	add_image_size( 'hero', 940, 430, true );
+	add_image_size( 'hero', 1100, 430, true );
 	add_image_size( 'timeline', 440, 275, true );
 	add_image_size( 'biography', 273, 9999 );
 
@@ -137,7 +137,7 @@ function sacr_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 
 	/** all */
-	wp_enqueue_script( 'sacr-script', get_template_directory_uri() . '/js/sacr.js', array( 'jquery', 'jquery-masonry' ), 20130301 );
+	wp_enqueue_script( 'sacr-script', get_template_directory_uri() . '/js/sacr.js', array( 'jquery', 'jquery-masonry' ), 20130403 );
 
 	$args = array(
 		'is_home'       => is_front_page(),

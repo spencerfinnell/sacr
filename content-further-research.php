@@ -74,10 +74,16 @@
 			<p class="further-cta"><a href="<?php echo esc_url( sacr_get_theme_option( 'contentdm' ) ); ?>" class="button tertiary"><?php _e( 'Research Archives', 'sacr' ); ?></a></p>
 		</div>
 
-		<div class="span-one-third alignright">
+		<div class="sponsors span-one-third alignright">
 			<h2 class="section-title">Partners</h2>
 
-			<p>Something...</p>
+			<?php $sponsors = sacr_sponsors(2); foreach ( $sponsors as $key => $sponsor ) : $link = get_post( $sponsor ); ?>
+			<p><a href="<?php echo $link->post_content; ?>" target="_blank"><img src="<?php echo wp_get_attachment_url( $link->ID ); ?>" alt="" /></a></p>
+			<?php endforeach; ?>
+
+			<ul class="research-list">
+				<li class="more"><a href="http://civilrightslibrary.com/sponsors/"><?php _e( 'View More &rarr;', 'sacr' ); ?></a></li>
+			</ul>
 		</div>
 	</div>
 </section><!-- .further -->
