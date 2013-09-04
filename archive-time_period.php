@@ -92,12 +92,11 @@ get_header(); ?>
 						?>
 						<li id="<?php echo esc_attr( $post->post_name ); ?>" style="margin-top: <?php echo $dates_diff; ?>px" <?php post_class( array( 'timeline-item' ) ); ?>>
 							<div class="timeline-item-date">
-								<?php printf( __( '%s the %s<sup>%s</sup>', 'sacr' ), mysql2date( 'l', $post_date, false ), mysql2date( 'd', $post_date, false ), mysql2date( 'S', $post_date, false ) ); ?>
+								<?php echo mysql2date( 'F j, Y', $post_date, false ); ?>
+								<small><?php echo mysql2date( 'l', $post_date, false ); ?></small>
 							</div>
 							
-							<?php if ( 'local' == sacr_item_single_term( 'time_period-location', $post->ID ) ) : ?>
 							<h3 class="timeline-item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							<?php endif; ?>
 
 							<div class="timeline-item-content <?php echo sacr_item_single_term( 'time_period-location', $post->ID ); ?>">
 								<?php the_post_thumbnail( 'timeline' ); ?>
