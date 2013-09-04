@@ -40,6 +40,11 @@ get_header(); ?>
 		<a href="<?php echo get_term_link( $year ); ?>" class="button<?php echo $query_year == $year->slug ? ' active tertiary' : ''; ?>"><?php echo $year->name; ?></a>
 		<?php endforeach; ?>
 		</p>
+
+		<p class="timeline-legend">
+			<span class="local">Local</span>
+			<span class="regional">Regional</span>
+		</p>
 	</div>
 
 	<div class="timeline-wrap divider before">
