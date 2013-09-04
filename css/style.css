@@ -2119,6 +2119,9 @@ ul.related:after,
 .timeline-item-title a {
   color: #f6b01a;
 }
+.regional .timeline-item-title a {
+  color: #a6b5c0;
+}
 .timeline-item-date {
   font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
   font-size: 24px;

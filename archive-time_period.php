@@ -90,7 +90,7 @@ get_header(); ?>
 								$dates_diff = 0;
 							}
 						?>
-						<li id="<?php echo esc_attr( $post->post_name ); ?>" style="margin-top: <?php echo $dates_diff; ?>px" <?php post_class( array( 'timeline-item' ) ); ?>>
+						<li id="<?php echo esc_attr( $post->post_name ); ?>" style="margin-top: <?php echo $dates_diff; ?>px" <?php post_class( array( 'timeline-item', sacr_item_single_term( 'time_period-location', $post->ID ) ) ); ?>>
 							<div class="timeline-item-date">
 								<?php echo mysql2date( 'F j, Y', $post_date, false ); ?>
 								<small><?php echo mysql2date( 'l', $post_date, false ); ?></small>
