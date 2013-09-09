@@ -158,7 +158,8 @@
 }
 
 .regional .timeline-item-title.regional,
-.regional .timeline-item-title.local {
+.regional .timeline-item-title.local,
+.regional .timeline-item-title a {
 	color: #a6b5c0;
 }
 
@@ -188,7 +189,6 @@
 .timeline-item-content {
 	p {
 		font-size: 15px;
-		color: @gray;
 
 		margin: 0 0 1.5em;
 
@@ -201,6 +201,14 @@
 		max-width: 100%;
 		margin: 0.5em 0;
 	}
+}
+
+.local .timeline-item-content p {
+	color: darken(@white, 10%);
+}
+
+.regional .timeline-item-content p {
+	color: @gray;
 }
 
 .timeline-legend {
@@ -224,4 +232,14 @@
 
 .timeline-legend .regional:before {
 	background: #a6b5c0;
+}
+
+.timeline-item .left,
+.timeline-item .left {
+	margin: 20px 0;
+}
+
+.timeline-item .left ol,
+.timeline-item .left ul {
+	direction: rtl;
 }

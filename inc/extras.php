@@ -56,3 +56,32 @@ function sacr_sponsors( $limit = null) {
 
 	return $sponsors;
 }
+
+function sacr_contentdm_search( $atts, $content ) {
+	 extract( shortcode_atts( array(
+	      'collection' => ''
+     ), $atts ) );
+
+	ob_start();
+?>
+	<form class="contentdm-search" method="GET" action="http://flagler.contentdm.oclc.org/cdm4/results.php">
+		<input type="hidden" name="CISOOP1" value="all" />
+		<input type="hidden" name="CISOFIELD1" value="CISOSEARCHALL" />
+		<input type="hidden" name="CISOVIEWTMP" value="item_viewer.php" />
+		<input type="hidden" name="CISOMODE" value="grid" />
+		<input type="hidden" name="CISOGRID" value="thumbnail,A,1;title,A,1;creato,A,0;descri,200,0;none,A,0;20;title,none,none,none,none" />
+		<input type="hidden" name="CISOBIB" value="title,A,1,N;creato,A,0,N;descri,200,0,N;none,A,0,N;none,A,0,N;20;title,none,none,none,none" />
+		<input type="hidden" name="CISOTHUMB" value="20 (4x5);title,none,none,none,none" />
+		<input type="hidden" name="CISOTITLE" value="20;title,none,none,none,none" />
+		<input type="hidden" name="CISOHIERA" value="20;creato,title,none,none,none" />
+		<input type="hidden" name="CISOSUPPRESS" value="0" />
+		<input type="hidden" name="CISOROOT" value="<?php echo $collection; ?>" />
+		<input type="text" name="CISOBOX1" size="30" />
+		<input type="submit" value="Search" class="button on-light" />
+	</form>
+<?php
+	$form = ob_get_clean();
+
+	return $form;
+}
+add_shortcode( 'contentdm-search', 'sacr_contentdm_search', 10, 2 );

@@ -43,18 +43,25 @@ get_header(); ?>
 		</div>
 	</section>
 
-	<section class="feature feature-map">
+	<section class="feature feature-people divider before">
 		<div class="container">
-			<div class="feature-graphic">
-				<a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map@2x.png" alt="" width="450" height="240" /></a>
+			<div class="clearfix">
+				<div class="feature-graphic">
+					<a href="<?php echo get_post_type_archive_link( 'person' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/people.png" alt="" width="450" height="240" /></a>
+				</div>
+
+				<div class="feature-description">
+					<h2><?php _e( 'The<br />"Magnificent Drama"', 'sacr' ); ?></h2>
+
+					<p>The "cast of characters"...</p>
+
+					<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'person' ); ?>" class="button"><?php _e( 'The Cast', 'sacr' ); ?></a></p>
+				</div>
 			</div>
 
-			<div class="feature-description">
-				<h2><?php _e( 'Hotspots in the<br />local movement.', 'sacr' ); ?></h2>
-				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>" class="button tertiary"><?php _e( 'Interactive Map', 'sacr' ); ?></a></p>
-			</div>
+			<blockquote>Dr. Martin Luther King, Jr., speaking in St. Augustine, referred to the movement as a "magnificent drama taking place on the stage of American history".</blockquote>
 		</div>
-	</section><!-- .feature-map -->
+	</section><!-- .feature-people -->
 
 	<section class="feature feature-timeline left divider before">
 		<div class="container">
@@ -69,22 +76,18 @@ get_header(); ?>
 		</div>
 	</section><!-- .feature-timeline -->
 
-	<section class="feature feature-people divider before">
+	<section class="feature feature-map">
 		<div class="container">
-			<div class="clearfix">
-				<div class="feature-graphic">
-					<a href="<?php echo get_post_type_archive_link( 'person' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/people.png" alt="" width="450" height="240" /></a>
-				</div>
-
-				<div class="feature-description">
-					<h2><?php _e( 'The<br />"Magnificent Drama"', 'sacr' ); ?></h2>
-					<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'person' ); ?>" class="button"><?php _e( 'The Cast', 'sacr' ); ?></a></p>
-				</div>
+			<div class="feature-graphic">
+				<a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map@2x.png" alt="" width="450" height="240" /></a>
 			</div>
 
-			<blockquote>Dr. Martin Luther King, Jr., speaking in St. Augustine, referred to the movement as a "magnificent drama taking place on the stage of American history".</blockquote>
+			<div class="feature-description">
+				<h2><?php _e( 'Hotspots in the<br />local movement.', 'sacr' ); ?></h2>
+				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>" class="button tertiary"><?php _e( 'Interactive Map', 'sacr' ); ?></a></p>
+			</div>
 		</div>
-	</section><!-- .feature-people -->
+	</section><!-- .feature-map -->
 
 	<?php get_template_part( 'content-further-research', 'home' ); ?>
 

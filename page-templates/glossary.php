@@ -19,20 +19,22 @@ get_header(); ?>
 				<?php
 					global $sacr_options;
 
-					$collections = array(
-						'contentdm-oral'       => 'Oral Histories',
-						'contentdm-documents'  => 'Documents &amp; Historical Artifacts',
-						'contentdm-film-sound' => 'Film &amp; Sound Recordings',
-						'contentdm-images'     => 'Photographs and Images',
-						'contentdm-fbi'        => 'FBI Files'
+					$children = array(
+						'post_parent'    => $post->ID,
+						'posts_per_page' => 1000,
+						'post_type'      => 'page',
+						'orderby'        => 'title',
+						'order'          => 'ASC'
 					);
 
-					foreach ( $collections as $collection => $title ) : ?>
-					<a href="<?php echo esc_url( sacr_get_theme_option( $collection ) ); ?>" class="contentdm-collection button on-light"><?php echo $title; ?></a>
+					$children = get_posts( $children );
+
+					foreach ( $children as $collection ) : ?>
+					<a href="<?php echo esc_url( get_permalink( $collection->ID ) ); ?>" class="contentdm-collection button on-light"><?php echo get_the_title( $collection->ID ); ?></a>
 				<?php endforeach; ?>
 				</div>
 
-				<h1>Glossary</h1>
+				<!---<h1>Glossary</h1>
 				<div class="glossary">
 					<?php
 						$prev_letter = null;
@@ -69,7 +71,7 @@ get_header(); ?>
 						</li>
 					<?php endforeach; ?>
 					</div>
-				</div>
+				</div>-->
 
 				<div class="all-content clearfix row">
 
@@ -130,6 +132,9 @@ get_header(); ?>
 								) );
 
 								foreach ( $people as $post ) : setup_postdata( $post );
+
+								if ( '' == $post->post_title )
+									continue;
 							?>
 							<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
 							<?php endforeach; wp_reset_postdata(); ?>

@@ -32,7 +32,7 @@
 
 	<header class="masthead container">
 		<hgroup class="site-brand">
-			<h1 class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">Civil Rights Library <small>of St. Augustine</small></a></h1>
+			<h1 class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">Civil Rights Library <small>of Florida in St. Augustine</small></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 
