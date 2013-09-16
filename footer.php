@@ -9,16 +9,17 @@
  */
 ?>
 
-	<footer class="site-links container">
-		<p class="copyright span-one-third alignleft">
-			St. Augustine, Florida 32048 <br />
-			<a href="http://flagler.edu">Flagler College</a>
-		</p>
+	<footer class="site-links">
+		<div class="container">
+			<p class="copyright span-one-third alignleft">
+				St. Augustine, Florida 32048 <br />
+				<a href="http://flagler.edu">Flagler College</a>
+			</p>
 
-		<p class="external-links span-two-thirds alignright">
-			<a href="#">The Andrew J. Young Foundation</a>  | <a href="#">St. Augustine Historical Society</a> | <a href="#">Stetson Kennedy Foundation</a> <br />
-			<small>All photos courtesy of Associated Press</small>
-		</p>
+			<p class="external-links span-two-thirds alignright">
+				<a href="mailto:information@civilrightslibrary.com">Contact Us</a> | <a href="http://flagler.edu">Flagler College<a>
+			</p>
+		</div>
 	</footer>
 </div><!-- #page .hfeed .site -->
 

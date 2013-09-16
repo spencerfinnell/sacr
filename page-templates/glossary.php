@@ -13,6 +13,8 @@ get_header(); ?>
 			</header><!-- .entry-header -->
 
 			<div class="entry-content">
+				<?php the_content(); ?>
+				
 				<h1>Research Collections</h1>
 
 				<div class="clearfix">
@@ -23,14 +25,14 @@ get_header(); ?>
 						'post_parent'    => $post->ID,
 						'posts_per_page' => 1000,
 						'post_type'      => 'page',
-						'orderby'        => 'title',
+						'orderby'        => 'menu_order',
 						'order'          => 'ASC'
 					);
 
 					$children = get_posts( $children );
 
 					foreach ( $children as $collection ) : ?>
-					<a href="<?php echo esc_url( get_permalink( $collection->ID ) ); ?>" class="contentdm-collection button on-light"><?php echo get_the_title( $collection->ID ); ?></a>
+					<a href="<?php echo esc_url( get_permalink( $collection->ID ) ); ?>" class="contentdm-collection button tertiary on-light"><?php echo get_the_title( $collection->ID ); ?></a>
 				<?php endforeach; ?>
 				</div>
 

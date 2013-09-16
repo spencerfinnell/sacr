@@ -13,7 +13,7 @@ get_header(); ?>
 	<section class="feature feature-intro">
 		<div class="container">
 			<div class="feature-description">
-				<h1>The <a href="<?php echo get_post_type_archive_link( 'person' ); ?>">People</a>, <a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>">Places</a>, and <a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>">Events</a> of the St. Augustine Civil Rights Movement</h1>
+				<h1>The <a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>">Events</a>, <a href="<?php echo get_post_type_archive_link( 'person' ); ?>">People</a>, and <a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>">Places</a> of the <br />St. Augustine Civil Rights Movement</h1>
 			</div>
 		</div>
 	</section>
@@ -43,6 +43,48 @@ get_header(); ?>
 		</div>
 	</section>
 
+	<section class="feature feature-people">
+		<div class="container">
+			<div class="clearfix">
+				<div class="feature-graphic">
+					Graphic...
+				</div>
+
+				<div class="feature-description">
+					<h2>Explore<br /> the Civil Rights Library</h2>
+
+					<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'person' ); ?>" class="button"><?php _e( 'View the Collections', 'sacr' ); ?></a></p>
+				</div>
+			</div>
+		</div>
+	</section><!-- .feature-people -->
+
+	<section class="feature feature-timeline left divider before">
+		<div class="container">
+			<div class="feature-description">
+				<h2><?php _e( 'Travel <br />back in time', 'sacr' ); ?></h2>
+				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>" class="button tertiary"><?php _e( 'View the Timeline', 'sacr' ); ?></a></p>
+			</div>
+
+			<div class="feature-graphic">
+				<a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/timeline@2x.png" alt="" width="450" height="240" /></a>
+			</div>
+		</div>
+	</section><!-- .feature-timeline -->
+
+	<section class="feature feature-map divider before">
+		<div class="container">
+			<div class="feature-graphic">
+				<a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map@2x.png" alt="" width="450" height="240" /></a>
+			</div>
+
+			<div class="feature-description">
+				<h2><?php _e( 'Follow <br />in their footsteps', 'sacr' ); ?></h2>
+				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>" class="button secondary"><?php _e( 'Interactive Map', 'sacr' ); ?></a></p>
+			</div>
+		</div>
+	</section><!-- .feature-map -->
+
 	<section class="feature feature-people divider before">
 		<div class="container">
 			<div class="clearfix">
@@ -51,9 +93,9 @@ get_header(); ?>
 				</div>
 
 				<div class="feature-description">
-					<h2><?php _e( 'The<br />"Magnificent Drama"', 'sacr' ); ?></h2>
+					<h2>The "<span class="yellow">Magnificent</span> Drama"</h2>
 
-					<p>The "cast of characters"...</p>
+					<p class="lead">The "cast of characters" in St. Augustine's "magnificent drama" is a large one, and the <strong>Civil Rights Library</strong> <em>of St. Augustine</em> contains biographies of many of those players.</p>
 
 					<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'person' ); ?>" class="button"><?php _e( 'The Cast', 'sacr' ); ?></a></p>
 				</div>
@@ -63,32 +105,6 @@ get_header(); ?>
 		</div>
 	</section><!-- .feature-people -->
 
-	<section class="feature feature-timeline left divider before">
-		<div class="container">
-			<div class="feature-description">
-				<h2><?php _e( 'When equality truly became equal.', 'sacr' ); ?></h2>
-				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>" class="button secondary"><?php _e( 'View the Timeline', 'sacr' ); ?></a></p>
-			</div>
-
-			<div class="feature-graphic">
-				<a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/timeline@2x.png" alt="" width="450" height="240" /></a>
-			</div>
-		</div>
-	</section><!-- .feature-timeline -->
-
-	<section class="feature feature-map">
-		<div class="container">
-			<div class="feature-graphic">
-				<a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map@2x.png" alt="" width="450" height="240" /></a>
-			</div>
-
-			<div class="feature-description">
-				<h2><?php _e( 'Hotspots in the<br />local movement.', 'sacr' ); ?></h2>
-				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>" class="button tertiary"><?php _e( 'Interactive Map', 'sacr' ); ?></a></p>
-			</div>
-		</div>
-	</section><!-- .feature-map -->
-
-	<?php get_template_part( 'content-further-research', 'home' ); ?>
+	<?php // get_template_part( 'content-further-research', 'home' ); ?>
 
 <?php get_footer(); ?>

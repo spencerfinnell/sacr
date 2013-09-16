@@ -97,6 +97,9 @@ function sacr_setup() {
 	 */
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'sacr' ),
+		'people'  => 'People',
+		'places'  => 'Places',
+		'events'  => 'Events'
 	) );
 
 	add_filter( 'the_excerpt', 'do_shortcode' );

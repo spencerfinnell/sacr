@@ -644,6 +644,12 @@ a:hover {
   color: #555555;
   margin-bottom: -0.5em;
 }
+.yellow {
+  color: #f6b01a;
+}
+.red {
+  color: #741412;
+}
 .button,
 input[type="submit"] {
   font-size: 22px;
@@ -934,7 +940,6 @@ body {
  */
 .masthead {
   margin: 30px auto;
-  width: 1140px;
   *zoom: 1;
 }
 .masthead:before,
@@ -946,20 +951,21 @@ body {
   clear: both;
 }
 .site-brand {
-  float: left;
+  width: 100%;
 }
 .site-name {
-  margin: 0;
+  text-align: center;
+  margin: 0 auto;
 }
 .site-name a {
   font-family: "chaparral-pro", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  font-size: 26px;
+  font-size: 30px;
   color: #ffffff;
   text-transform: uppercase;
 }
 .site-name a small {
-  font-size: 18px;
+  font-size: 20px;
   font-style: italic;
   text-transform: none;
 }
@@ -977,8 +983,10 @@ body {
   padding: 0;
   list-style: none;
   *zoom: 1;
-  margin-top: 4px;
-  float: right;
+  text-align: center;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #484e54;
 }
 .site-access:before,
 .site-access:after {
@@ -989,8 +997,8 @@ body {
   clear: both;
 }
 .site-access li {
-  margin: 0 0 0 25px;
-  float: left;
+  margin: 0 14px;
+  display: inline-block;
 }
 .site-access a {
   font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1379,10 +1387,11 @@ p img,
  * Footer
  */
 .site-links {
+  background: #741412 url(../images/flagler.png) no-repeat top center;
   margin-top: 40px;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
   padding-top: 40px;
-  border-top: 1px dashed #4d4e4f;
+  border-top: 1px dashed #1c0504;
 }
 .copyright {
   font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1397,12 +1406,12 @@ p img,
 }
 .external-links {
   font-size: 13px;
-  color: #555555;
+  color: #ffffff;
   text-align: right;
   margin-right: -3px;
 }
 .external-links a {
-  color: #828180;
+  color: #ffffff;
   margin: 0 3px;
 }
 .external-links small {
@@ -1604,12 +1613,12 @@ p img,
 }
 .feature-description h2,
 .feature-description h1 {
-  font-family: "Varela Round", 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
   font-size: 38px;
   font-weight: 400;
   line-height: 46px;
   text-shadow: rgba(0, 0, 0, 0.16) 0 1px 1px;
-  margin: 0;
+  margin: 0 auto;
 }
 .feature-description h1 {
   font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
@@ -1617,6 +1626,12 @@ p img,
   line-height: 47px;
   font-size: 50px;
   line-height: 65px;
+}
+.feature-description .lead {
+  font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: normal;
 }
 .feature-cta {
   margin-top: 30px;
@@ -1629,7 +1644,8 @@ p img,
 .feature-intro .feature-description {
   width: auto;
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
+  float: none;
 }
 .feature-people blockquote {
   margin: 40px auto 0;
@@ -2127,7 +2143,6 @@ ul.related:after,
   color: #f6b01a;
 }
 .regional .timeline-item-title.regional,
-.regional .timeline-item-title.local,
 .regional .timeline-item-title a {
   color: #a6b5c0;
 }
@@ -2188,12 +2203,12 @@ ul.related:after,
 .timeline-legend .regional:before {
   background: #a6b5c0;
 }
-.timeline-item .left,
-.timeline-item .left {
+.timeline-item ol,
+.timeline-item ul {
   margin: 20px 0;
 }
-.timeline-item .left ol,
-.timeline-item .left ul {
+.timeline-item.left ol,
+.timeline-item.left ul {
   direction: rtl;
 }
 /** Utilities */
