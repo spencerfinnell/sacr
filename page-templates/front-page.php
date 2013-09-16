@@ -43,65 +43,61 @@ get_header(); ?>
 		</div>
 	</section>
 
-	<section class="feature feature-people">
-		<div class="container">
-			<div class="clearfix">
-				<div class="feature-graphic">
-					Graphic...
-				</div>
-
+	<section class="feature clearfix divider before">
+		<div class="container clearfix">
+			<div class="feature-left">
 				<div class="feature-description">
-					<h2>Explore<br /> the Civil Rights Library</h2>
+					<h2><span class="yellow">Explore</span> the Civil Rights Library</h2>
 
-					<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'person' ); ?>" class="button"><?php _e( 'View the Collections', 'sacr' ); ?></a></p>
+					<p><a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/timeline@2x.png" alt="" width="450" height="240" /></a></p>
+
+					<p class="lead">The "cast of characters" in St. Augustine's "magnificent drama" is large, and the <strong>Civil Rights Library</strong> <em>of St. Augustine</em> contains biographies of many of those players.</p>
+
+					<p class="feature-cta"><a href="http://civilrightslibrary.com/collections/" class="button"><?php _e( 'View the Collections', 'sacr' ); ?></a></p>
+				</div>
+			</div>
+
+			<div class="feature-right">
+				<div class="feature-description">
+					<h2><span class="red">Travel</span> Back in Time</h2>
+
+					<p><a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/timeline@2x.png" alt="" width="450" height="240" /></a></p>
+
+					<p class="lead">The "cast of characters" in St. Augustine's "magnificent drama" is large, and the <strong>Civil Rights Library</strong> <em>of St. Augustine</em> contains biographies of many of those players.</p>
+
+					<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>" class="button tertiary"><?php _e( 'View the Timeline', 'sacr' ); ?></a></p>
 				</div>
 			</div>
 		</div>
 	</section><!-- .feature-people -->
 
-	<section class="feature feature-timeline left divider before">
-		<div class="container">
-			<div class="feature-description">
-				<h2><?php _e( 'Travel <br />back in time', 'sacr' ); ?></h2>
-				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>" class="button tertiary"><?php _e( 'View the Timeline', 'sacr' ); ?></a></p>
-			</div>
+	<section class="feature clearfix divider before">
+		<div class="container clearfix">
+			<div class="feature-left">
+				<div class="feature-description">
+					<h2><span class="blue">Follow</span> in their Footsteps</h2>
 
-			<div class="feature-graphic">
-				<a href="<?php echo get_post_type_archive_link( 'time_period' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/timeline@2x.png" alt="" width="450" height="240" /></a>
-			</div>
-		</div>
-	</section><!-- .feature-timeline -->
+					<p><a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map@2x.png" alt="" width="450" height="240" /></a></p>
 
-	<section class="feature feature-map divider before">
-		<div class="container">
-			<div class="feature-graphic">
-				<a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/map@2x.png" alt="" width="450" height="240" /></a>
-			</div>
+					<p class="lead">The "cast of characters" in St. Augustine's "magnificent drama" is large, and the <strong>Civil Rights Library</strong> <em>of St. Augustine</em> contains biographies of many of those players.</p>
 
-			<div class="feature-description">
-				<h2><?php _e( 'Follow <br />in their footsteps', 'sacr' ); ?></h2>
-				<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>" class="button secondary"><?php _e( 'Interactive Map', 'sacr' ); ?></a></p>
-			</div>
-		</div>
-	</section><!-- .feature-map -->
-
-	<section class="feature feature-people divider before">
-		<div class="container">
-			<div class="clearfix">
-				<div class="feature-graphic">
-					<a href="<?php echo get_post_type_archive_link( 'person' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/people.png" alt="" width="450" height="240" /></a>
+					<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'map_point' ); ?>" class="button secondary"><?php _e( 'Interactive Map', 'sacr' ); ?></a></p>
 				</div>
+			</div>
 
+			<div class="feature-right">
 				<div class="feature-description">
 					<h2>The "<span class="yellow">Magnificent</span> Drama"</h2>
 
-					<p class="lead">The "cast of characters" in St. Augustine's "magnificent drama" is a large one, and the <strong>Civil Rights Library</strong> <em>of St. Augustine</em> contains biographies of many of those players.</p>
+					<p><a href="<?php echo get_post_type_archive_link( 'person' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/display/people.png" alt="" width="450" height="240" /></a></p>
+
+					<p class="lead">The "cast of characters" in St. Augustine's "magnificent drama" is large, and the <strong>Civil Rights Library</strong> <em>of St. Augustine</em> contains biographies of many of those players.</p>
+
+					<!--<blockquote>Dr. Martin Luther King, Jr., speaking in St. Augustine, referred to the movement as a "magnificent drama taking place on the stage of American history".</blockquote>-->
 
 					<p class="feature-cta"><a href="<?php echo get_post_type_archive_link( 'person' ); ?>" class="button"><?php _e( 'The Cast', 'sacr' ); ?></a></p>
 				</div>
 			</div>
-
-			<blockquote>Dr. Martin Luther King, Jr., speaking in St. Augustine, referred to the movement as a "magnificent drama taking place on the stage of American history".</blockquote>
 		</div>
 	</section><!-- .feature-people -->
 

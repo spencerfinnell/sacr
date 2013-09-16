@@ -15,8 +15,6 @@ get_header(); ?>
 			<div class="entry-content">
 				<?php the_content(); ?>
 				
-				<h1>Research Collections</h1>
-
 				<div class="clearfix">
 				<?php
 					global $sacr_options;
@@ -113,8 +111,9 @@ get_header(); ?>
 								) );
 
 								foreach ( $people as $post ) : setup_postdata( $post );
+									$year = get_term_by( 'slug', sacr_item_single_term( 'map_point-year', get_the_ID() ), 'map_point-year' );
 							?>
-							<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+							<li><a href="<?php the_permalink() ?>"><?php the_title(); ?> (<?php echo $year->name; ?>)</a></li>
 							<?php endforeach; wp_reset_postdata(); ?>
 						</ul>
 					</div>

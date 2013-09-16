@@ -648,7 +648,10 @@ a:hover {
   color: #f6b01a;
 }
 .red {
-  color: #741412;
+  color: #a01c19;
+}
+.blue {
+  color: #0072a4;
 }
 .button,
 input[type="submit"] {
@@ -1584,6 +1587,7 @@ p img,
   margin-top: 10px;
 }
 .feature {
+  text-align: center;
   padding: 45px 0;
   *zoom: 1;
 }
@@ -1595,18 +1599,14 @@ p img,
 .feature:after {
   clear: both;
 }
-.feature.left .feature-graphic {
-  text-align: left;
-}
-.feature.left .feature-description {
-  text-align: right;
-}
-.feature-graphic,
-.feature-description {
-  text-align: left;
-  margin: 0 2.5%;
-  width: 45%;
+.feature-left,
+.feature-right {
+  margin-right: 6%;
+  width: 47%;
   float: left;
+}
+.feature-right {
+  margin-right: 0;
 }
 .feature-description {
   margin-top: 25px;
@@ -1614,7 +1614,7 @@ p img,
 .feature-description h2,
 .feature-description h1 {
   font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
-  font-size: 38px;
+  font-size: 33px;
   font-weight: 400;
   line-height: 46px;
   text-shadow: rgba(0, 0, 0, 0.16) 0 1px 1px;
@@ -1629,9 +1629,10 @@ p img,
 }
 .feature-description .lead {
   font-family: "Kreon", Georgia, "Times New Roman", Times, serif;
-  font-size: 20px;
-  font-weight: normal;
+  font-size: 19px;
+  font-weight: lighter;
   line-height: normal;
+  color: #d9d9d9;
 }
 .feature-cta {
   margin-top: 30px;

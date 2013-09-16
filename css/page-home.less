@@ -133,28 +133,21 @@
 }
 
 .feature {
+	text-align: center;
 	padding: 45px 0;
 	
 	.clearfix;
-
-	&.left {
-		.feature-graphic {
-			text-align: left;
-		}
-
-		.feature-description {
-			text-align: right;
-		}
-	}
 }
 
-.feature-graphic,
-.feature-description {
-	text-align: left;
-
-	margin: 0 2.5%;
-	width: 45%;
+.feature-left,
+.feature-right {
+	margin-right: 6%;
+	width: 47%;
 	float: left;
+}
+
+.feature-right {
+	margin-right: 0;
 }
 
 .feature-description {
@@ -162,7 +155,7 @@
 
 	h2,
 	h1 {
-		#font > .serif-alt(38px, 400, 46px);
+		#font > .serif-alt(33px, 400, 46px);
 		text-shadow: rgba(0, 0, 0, .16) 0 1px 1px;
 
 		margin: 0 auto;
@@ -175,7 +168,8 @@
 	}
 
 	.lead {
-		#font > .serif-alt(20px, normal, normal);
+		#font > .serif-alt(19px, lighter, normal);
+		color: darken(@white, 15%);
 	}
 }
 
