@@ -16,8 +16,10 @@
 				<a href="http://flagler.edu">Flagler College</a>
 			</p>
 
-			<p class="external-links span-two-thirds alignright">
-				<a href="mailto:information@civilrightslibrary.com">Contact Us</a> | <a href="http://flagler.edu">Flagler College<a>
+			<p class="external-links span-two-thirds alignright copyright">
+				<!--<a href="mailto:information@civilrightslibrary.com">Contact Us</a> |<a href="http://flagler.edu">Flagler College</a><br />-->
+				Copyright &copy; 2013 <br />
+				All Rights Reservered
 			</p>
 		</div>
 	</footer>

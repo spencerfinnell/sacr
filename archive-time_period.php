@@ -33,12 +33,16 @@ get_header(); ?>
 		<h1 class="page-title"><?php _e( 'Timeline', 'sacr' ); ?></h1>
 		
 		<p class="timeline-filter">
-		<?php 
+			<a href="#" class="button<?php echo $query_year == 'pre-1963' ? ' active tertiary' : ''; ?>">Pre&mdash;1963</a>
+			<a href="<?php echo get_term_link( get_term_by( 'slug', '1963', 'time_period-year' ) ); ?>" class="button<?php echo $query_year == '1963' ? ' active tertiary' : ''; ?>">1963</a>
+			<a href="<?php echo get_term_link( get_term_by( 'slug', '1964', 'time_period-year' ) ); ?>" class="button<?php echo $query_year == '1964' ? ' active tertiary' : ''; ?>">1964</a>
+			<a href="#" class="button<?php echo $query_year == 'post-1964' ? ' active tertiary' : ''; ?>">Post&mdash;1964</a>
+		<!--<?php 
 			$years = get_terms( 'time_period-year', array( 'hide_empty' => 0, 'orderby' => 'id' ) );
 			foreach ( $years as $year ) : 
 		?>
 			<a href="<?php echo get_term_link( $year ); ?>" class="button<?php echo $query_year == $year->slug ? ' active tertiary' : ''; ?>"><?php echo $year->name; ?></a>
-		<?php endforeach; ?>
+		<?php endforeach; ?>-->
 		</p>
 
 		<p class="timeline-legend">
@@ -46,6 +50,17 @@ get_header(); ?>
 			<span class="regional">National</span>
 		</p>
 	</div>
+
+	<?php if ( '1964' == $query_year ) : ?>
+
+	<div class="container">
+		<br /><br />
+		<div class="entry-content">
+			<p class="lead" style="text-align: centerl">The timeline for 1964 will premiere on January 1, 2014.</p>
+		</div>
+	</div>
+
+	<?php else : ?>
 
 	<div class="timeline-wrap divider before">
 		<div class="container">
@@ -123,5 +138,7 @@ get_header(); ?>
 			</div><!-- .timeline -->
 		</div><!-- .container -->
 	</div><!-- .timeline-wrap -->
+
+	<?php endif; ?>
 
 <?php get_footer(); ?>

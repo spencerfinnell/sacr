@@ -1392,7 +1392,7 @@ p img,
 .site-links {
   background: #741412 url(../images/flagler.png) no-repeat top center;
   margin-top: 40px;
-  padding-bottom: 100px;
+  padding-bottom: 40px;
   padding-top: 40px;
   border-top: 1px dashed #1c0504;
 }
@@ -1441,22 +1441,22 @@ p img,
   width: 100%;
   height: 29px;
 }
-.entry-content .sponsors-page {
+.sponsors-page {
   margin: 0 80px;
   overflow: hidden;
+  text-align: center;
 }
-.entry-content .sponsors-page p {
-  margin: 0;
-  float: left;
-}
-.entry-content .sponsors-page p:nth-child(1n) {
-  margin-right: 1.65em;
-}
-.entry-content .sponsors-page p:nth-child(2n) img {
-  margin-right: 0;
-}
-.entry-content .sponsors-page p img {
+.sponsors-page img {
   margin: 0 !important;
+  float: none;
+}
+.sponsors-page a {
+  display: inline-block;
+  margin: 10px;
+}
+.sponsors-page p {
+  margin: 0;
+  float: none;
 }
 .hero-slider {
   position: relative;
@@ -1741,6 +1741,9 @@ p img,
 }
 .point-modal {
   display: none;
+}
+.point-modal img {
+  min-width: 100%;
 }
 .point-modal-title,
 .person-bio h1 {

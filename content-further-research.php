@@ -1,3 +1,5 @@
+<?php return; ?>
+
 <section class="further divider before">
 	<div class="container">
 		<div class="span-two-thirds alignleft">
