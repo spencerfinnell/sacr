@@ -22,11 +22,21 @@ module.exports = function(grunt) {
           nospawn: true
         }
       }
+    },
+    uglify: {
+      my_target: {
+        files: [{
+            expand: true,
+            cwd: 'js',
+            src: '**/*.js',
+            dest: 'js'
+        }]
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
-
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.registerTask('default', ['watch']);
 };
