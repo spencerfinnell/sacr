@@ -46,7 +46,7 @@ function sacr_setup() {
 	/**
 	 * Modules
 	 */
-	$modules = array( 
+	$modules = array(
 		'map'      => array( 'map.php', 'rewrite.php' ),
 		'timeline' => array( 'timeline.php', 'rewrite.php' ),
 		'people'   => array( 'people.php' ),
@@ -114,33 +114,12 @@ function sacr_scripts() {
 	wp_enqueue_style( 'sacr-fonts', 'http://fonts.googleapis.com/css?family=Kreon:300,400,700|Varela+Round' );
 	wp_enqueue_style( 'sacr-style', get_template_directory_uri() . '/css/style.css', array( 'sacr-fonts' ), time() );
 
-	/** all */
-	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'jquery-masonry' );
-	wp_enqueue_script( 'sacr-typekit', 'http://use.typekit.net/cbu3qat.js' );
-	
-	/** home */
-	if ( is_front_page() ) {
-		wp_enqueue_script( 'jcarousellite', get_template_directory_uri() . '/js/vendor/responsiveslides.min.js' );
-	}
-
-	/** home/people */
-	if ( is_front_page() || is_singular( 'person' ) )
-		wp_enqueue_script( 'backstretch', get_template_directory_uri() . '/js/vendor/jquery.backstretch.min.js' );
-	
-	/** map */
 	if ( is_post_type_archive( 'map_point' ) ) {
 		wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false' );
-		wp_enqueue_script( 'gmaps', get_template_directory_uri() . '/js/vendor/jquery.ui.map.min.js' );
-		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/vendor/jquery.fancybox.pack.js' );
 	}
 
-	/** posts */
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) && ! is_front_page() )
-		wp_enqueue_script( 'comment-reply' );
-
-	/** all */
-	wp_enqueue_script( 'sacr-script', get_template_directory_uri() . '/js/sacr.js', array( 'jquery', 'jquery-masonry' ), 20130403 );
+	wp_enqueue_script( 'sacr-typekit', 'http://use.typekit.net/cbu3qat.js' );
+	wp_enqueue_script( 'sacr-script', get_template_directory_uri() . '/js/app.min.js', array( 'jquery', 'jquery-masonry' ), 20140131 );
 
 	$args = array(
 		'is_home'       => is_front_page(),
@@ -280,14 +259,14 @@ function sacr_item_single_term( $taxonomy, $post_id = null ) {
 	foreach ( $terms as $term ) {
 		$_term = $term->slug;
 		continue;
-	}	
+	}
 
 	return $_term;
 }
 
 function sacr_page_after_research() {
 	global $post;
-	
+
 	get_template_part( 'content-further-research', $post->post_name );
 }
 add_action( 'sacr_page_after', 'sacr_page_after_research', 30 );

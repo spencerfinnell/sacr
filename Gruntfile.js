@@ -25,18 +25,9 @@ module.exports = function(grunt) {
     },
     uglify: {
       my_target: {
-        files: [{
-            expand: true,
-            cwd: 'js',
-            src: '**/*.js',
-            dest: 'js'
-        }]
-      }
-    },
-    concat: {
-      js: {
-        src: 'js/*.js',
-        dest: 'js/app.js'
+        files: {
+          'js/app.min.js': ['js/vendor/html5.js', 'js/vendor/jquery.fancybox.pack.js', 'js/vendor/jquery.ui.map.min.js', 'js/vendor/responsiveslides.min.js', 'js/retina.js', 'js/sacr.js' ]
+        }
       }
     }
   });
@@ -46,6 +37,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
 
-  grunt.registerTask('build', ['uglify', 'concat']);
+  grunt.registerTask('build', ['uglify']);
   grunt.registerTask('default', ['uglify', 'concat', 'watch']);
 };
