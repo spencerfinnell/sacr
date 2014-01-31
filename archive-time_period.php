@@ -31,18 +31,10 @@ get_header(); ?>
 
 	<div class="container">
 		<h1 class="page-title"><?php _e( 'Timeline', 'sacr' ); ?></h1>
-		
+
 		<p class="timeline-filter">
-			<a href="#" class="button<?php echo $query_year == 'pre-1963' ? ' active tertiary' : ''; ?>">Pre&mdash;1963</a>
 			<a href="<?php echo get_term_link( get_term_by( 'slug', '1963', 'time_period-year' ) ); ?>" class="button<?php echo $query_year == '1963' ? ' active tertiary' : ''; ?>">1963</a>
 			<a href="<?php echo get_term_link( get_term_by( 'slug', '1964', 'time_period-year' ) ); ?>" class="button<?php echo $query_year == '1964' ? ' active tertiary' : ''; ?>">1964</a>
-			<a href="#" class="button<?php echo $query_year == 'post-1964' ? ' active tertiary' : ''; ?>">Post&mdash;1964</a>
-		<!--<?php 
-			$years = get_terms( 'time_period-year', array( 'hide_empty' => 0, 'orderby' => 'id' ) );
-			foreach ( $years as $year ) : 
-		?>
-			<a href="<?php echo get_term_link( $year ); ?>" class="button<?php echo $query_year == $year->slug ? ' active tertiary' : ''; ?>"><?php echo $year->name; ?></a>
-		<?php endforeach; ?>-->
 		</p>
 
 		<p class="timeline-legend">
@@ -51,33 +43,22 @@ get_header(); ?>
 		</p>
 	</div>
 
-	<?php if ( '1964' == $query_year ) : ?>
-
-	<div class="container">
-		<br /><br />
-		<div class="entry-content">
-			<p class="lead" style="text-align: centerl">The timeline for 1964 will premiere on January 1, 2014.</p>
-		</div>
-	</div>
-
-	<?php else : ?>
-
 	<div class="timeline-wrap divider before">
 		<div class="container">
 
 			<div class="timeline">
-				<?php 
-					while ( $dates->have_posts() ) : $dates->the_post(); 
+				<?php
+					while ( $dates->have_posts() ) : $dates->the_post();
 						$post_date    = sacr_item_meta( '_date' );
 						$post_month   = mysql2date( 'n', $post_date, false );
 						$post_date_ts = mysql2date( 'U', $post_date, false );
 				?>
-			
+
 				<?php
 				/**
-				 * This looks janky, and it kind of is, but it isn't. 
-				 * 
-				 * Check if there is no current month set (the first timeline item), and get its date. 
+				 * This looks janky, and it kind of is, but it isn't.
+				 *
+				 * Check if there is no current month set (the first timeline item), and get its date.
 				 * Create a title, and start a new sublist.
 				 *
 				 * If there is, create a title for each month until the month equals the month
@@ -87,7 +68,7 @@ get_header(); ?>
 
 				<?php if ( is_null( $prev_post_month ) ) : /** no month yet, start everything */ ?>
 					<h3 id="<?php echo strtolower( $wp_locale->get_month_abbrev( $wp_locale->get_month( $post_month ) ) ); ?>" class="timeline-month-title"><?php echo $wp_locale->get_month( $post_month ) ?></h3>
-					
+
 					<ul class="timeline-month-list">
 				<?php elseif ( $prev_post_month != $post_month ) : /** we have a new month, end one, and start again */ ?>
 					</ul>
@@ -115,8 +96,8 @@ get_header(); ?>
 								<?php echo mysql2date( 'F j, Y', $post_date, false ); ?>
 								<small><?php echo mysql2date( 'l', $post_date, false ); ?></small>
 							</div>
-							
-							<h3 class="timeline-item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+
+							<h3 class="timeline-item-title"><a href="<?php echo sacr_item_meta( 'external_link' ) ? sacr_item_meta( 'external_link' ) : get_permalink(); ?>"><?php the_title(); ?></a></h3>
 
 							<div class="timeline-item-content <?php echo sacr_item_single_term( 'time_period-location', $post->ID ); ?>">
 								<?php the_post_thumbnail( 'timeline' ); ?>
@@ -124,11 +105,11 @@ get_header(); ?>
 								<?php the_content(); ?>
 							</div>
 						</li>
-				<?php 
+				<?php
 							$prev_post_month   = $post_month;
 							$prev_post_date    = $post_date;
 							$prev_post_date_ts = $post_date_ts;
-						endwhile; 
+						endwhile;
 				?>
 
 				<?php if ( ! is_null( $prev_post_date ) ) : ?>
@@ -138,7 +119,5 @@ get_header(); ?>
 			</div><!-- .timeline -->
 		</div><!-- .container -->
 	</div><!-- .timeline-wrap -->
-
-	<?php endif; ?>
 
 <?php get_footer(); ?>

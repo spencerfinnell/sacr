@@ -4,17 +4,18 @@
  */
 
 /**
- * 
+ *
  *
  * @since St. Augustine Civil Rights Library 1.0
  */
 function sacr_timeline_add_meta_box() {
 	add_meta_box( 'timeline-date', __( 'Date', 'sacr' ), '_sacr_timeline_meta_box_date', 'time_period', 'normal', 'high' );
+	add_meta_box( 'timeline-link', __( 'External Link', 'sacr' ), '_sacr_timeline_meta_box_link', 'time_period', 'normal', 'high' );
 }
 add_action( 'add_meta_boxes', 'sacr_timeline_add_meta_box' );
 
 /**
- * 
+ *
  *
  * @since St. Augustine Civil Rights Library 1.0
  */
@@ -39,7 +40,7 @@ function _sacr_timeline_meta_box_date() {
 		</select>
 
 		<input type="text" id="end-jj" name="end-jj" value="<?php echo zeroise($jj, 2); ?>" size="2" maxlength="2" autocomplete="off" />
-		
+
 		<input type="hidden" id="_date" name="_date" />
 	</p>
 <?php
@@ -65,3 +66,19 @@ function sacr_item_meta__date( $value, $post, $postdata ) {
 	return $date;
 }
 add_filter( 'sacr_item_meta__date', 'sacr_item_meta__date', 10, 3 );
+
+/**
+ *
+ *
+ * @since St. Augustine Civil Rights Library 1.0
+ */
+function _sacr_timeline_meta_box_link() {
+	global $post;
+
+	$link = sacr_item_meta( 'external_link' );
+?>
+	<div>
+		<input type="text" name="external_link" id="external_link" value="<?php echo $external_link; ?>" class="widefat" />
+	</div>
+<?php
+}
