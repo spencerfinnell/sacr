@@ -32,11 +32,20 @@ module.exports = function(grunt) {
             dest: 'js'
         }]
       }
+    },
+    concat: {
+      js: {
+        src: 'js/*.js',
+        dest: 'js/app.js'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.registerTask('default', ['watch']);
+  grunt.loadNpmTasks('grunt-contrib-concat');
+
+  grunt.registerTask('build', ['uglify', 'concat']);
+  grunt.registerTask('default', ['uglify', 'concat', 'watch']);
 };
