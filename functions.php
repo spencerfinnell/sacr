@@ -114,10 +114,7 @@ function sacr_scripts() {
 	wp_enqueue_style( 'sacr-fonts', 'http://fonts.googleapis.com/css?family=Kreon:300,400,700|Varela+Round' );
 	wp_enqueue_style( 'sacr-style', get_template_directory_uri() . '/css/style.css', array( 'sacr-fonts' ), time() );
 
-	if ( is_post_type_archive( 'map_point' ) ) {
-		wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false' );
-	}
-
+	wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false' );
 	wp_enqueue_script( 'sacr-typekit', 'http://use.typekit.net/cbu3qat.js' );
 	wp_enqueue_script( 'sacr-script', get_template_directory_uri() . '/js/app.min.js', array( 'jquery', 'jquery-masonry' ), 20140131 );
 

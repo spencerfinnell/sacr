@@ -1,6 +1,6 @@
 .timeline-filter {
 	margin-bottom: 2em;
-	
+
 	a {
 		text-align: center;
 
@@ -89,7 +89,7 @@
 			right: -7px;
 			border-top: 6px solid transparent;
 			border-bottom: 6px solid transparent;
-			
+
 			border-left: 6px solid rgba(255, 255, 255, .5);
 		}
 
@@ -118,7 +118,7 @@
 			top: 19px;
 			border-top: 6px solid transparent;
 			border-bottom: 6px solid transparent;
-			
+
 			border-right: 6px solid rgba(255, 255, 255, .5);
 		}
 
@@ -141,6 +141,11 @@
 
 	&:last-child {
 		margin-bottom: 0;
+	}
+
+	&:nth-child(1n),
+	&:nth-child(2n) {
+		margin-top: 0 !important;
 	}
 }
 
@@ -199,6 +204,10 @@
 	img {
 		max-width: 100%;
 		margin: 0.5em 0;
+	}
+
+	iframe {
+		max-width: 100%;
 	}
 }
 

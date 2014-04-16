@@ -75,7 +75,7 @@ add_filter( 'sacr_item_meta__date', 'sacr_item_meta__date', 10, 3 );
 function _sacr_timeline_meta_box_link() {
 	global $post;
 
-	$link = sacr_item_meta( 'external_link' );
+	$external_link = sacr_item_meta( 'external_link' );
 ?>
 	<div>
 		<input type="text" name="external_link" id="external_link" value="<?php echo $external_link; ?>" class="widefat" />
